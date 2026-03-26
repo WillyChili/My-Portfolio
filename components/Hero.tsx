@@ -31,8 +31,8 @@ export default function Hero() {
             userSelect: "none",
           }}
         >
-          Diseño experiencias que importan<br />
-          y las construyo con IA.
+          I design experiences that matter<br />
+          and build them with AI.
         </h2>
       </div>
 
@@ -47,7 +47,7 @@ export default function Hero() {
         }}
       >
         <span style={{ fontSize: "0.7rem", letterSpacing: "0.08em", color: "#888" }}>
-          Desarrollador & Diseñador
+          Developer & Designer
         </span>
 
         <span style={{ fontSize: "0.7rem", letterSpacing: "0.08em", color: "#888" }}>
