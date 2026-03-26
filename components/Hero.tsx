@@ -1,32 +1,24 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function Hero() {
-  const glowRef = useRef<HTMLDivElement>(null);
+  const mainRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const glow = glowRef.current;
-    if (!glow) return;
-
-    const move = (e: MouseEvent) => {
-      glow.style.left = `${e.clientX}px`;
-      glow.style.top = `${e.clientY}px`;
-      glow.style.opacity = "1";
-    };
-
-    const leave = () => { if (glow) glow.style.opacity = "0"; };
-
-    window.addEventListener("mousemove", move);
-    window.addEventListener("mouseleave", leave);
-    return () => {
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mouseleave", leave);
-    };
-  }, []);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const el = mainRef.current;
+    if (!el) return;
+    const { left, top, width, height } = el.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    el.style.setProperty("--mouse-x", `${x}%`);
+    el.style.setProperty("--mouse-y", `${y}%`);
+  };
 
   return (
     <main
+      ref={mainRef}
+      onMouseMove={handleMouseMove}
       style={{
         height: "100dvh",
         display: "grid",
@@ -35,28 +27,12 @@ export default function Hero() {
         position: "relative",
         overflow: "hidden",
         background: `
+          radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.035) 0%, transparent 60%),
           radial-gradient(ellipse at 8% 50%, rgba(140, 120, 255, 0.07) 0%, transparent 55%),
           #171717
         `,
       }}
     >
-      {/* Mouse glow — inside main, above everything */}
-      <div
-        ref={glowRef}
-        style={{
-          position: "fixed",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          pointerEvents: "none",
-          zIndex: 99,
-          opacity: 0,
-          transform: "translate(-50%, -50%)",
-          background: "radial-gradient(circle, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 40%, transparent 70%)",
-          transition: "opacity 0.4s ease",
-        }}
-      />
-
       {/* Center: copy */}
       <div
         style={{
