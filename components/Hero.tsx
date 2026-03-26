@@ -52,7 +52,7 @@ export default function Hero() {
           zIndex: 99,
           opacity: 0,
           transform: "translate(-50%, -50%)",
-          background: "radial-gradient(circle, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.05) 40%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 40%, transparent 70%)",
           transition: "opacity 0.4s ease",
         }}
       />
