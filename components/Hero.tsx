@@ -1,1 +1,101 @@
-{"data":"InVzZSBjbGllbnQiOwoKZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gSGVybygpIHsKICByZXR1cm4gKAogICAgPG1haW4KICAgICAgc3R5bGU9e3sKICAgICAgICBoZWlnaHQ6ICIxMDBkdmgiLAogICAgICAgIGRpc3BsYXk6ICJncmlkIiwKICAgICAgICBncmlkVGVtcGxhdGVSb3dzOiAiMWZyIGF1dG8iLAogICAgICAgIHBhZGRpbmc6ICJjbGFtcCgxLjVyZW0sIDR2dywgM3JlbSkiLAogICAgICAgIHBvc2l0aW9uOiAicmVsYXRpdmUiLAogICAgICAgIG92ZXJmbG93OiAiaGlkZGVuIiwKICAgICAgICBiYWNrZ3JvdW5kOiBgCiAgICAgICAgICByYWRpYWwtZ3JhZGllbnQoZWxsaXBzZSBhdCA4JSA1MCUsIHJnYmEoMTQwLCAxMjAsIDI1NSwgMC4wNykgMCUsIHRyYW5zcGFyZW50IDU1JSksCiAgICAgICAgICAjMTcxNzE3CiAgICAgICAgYCwKICAgICAgfX0KICAgID4KICAgICAgey8qIERvdCBncmlkICovfQogICAgICA8ZGl2CiAgICAgICAgc3R5bGU9e3sKICAgICAgICAgIHBvc2l0aW9uOiAiZml4ZWQiLAogICAgICAgICAgaW5zZXQ6IDAsCiAgICAgICAgICBwb2ludGVyRXZlbnRzOiAibm9uZSIsCiAgICAgICAgICB6SW5kZXg6IDAsCiAgICAgICAgICBiYWNrZ3JvdW5kSW1hZ2U6IGByYWRpYWwtZ3JhZGllbnQoY2lyY2xlLCByZ2JhKDIzMiwgMjI5LCAyMjQsIDAuMTgpIDFweCwgdHJhbnNwYXJlbnQgMXB4KWAsCiAgICAgICAgICBiYWNrZ3JvdW5kU2l6ZTogIjI4cHggMjhweCIsCiAgICAgICAgICBXZWJraXRNYXNrSW1hZ2U6IGByYWRpYWwtZ3JhZGllbnQoZWxsaXBzZSBhdCBjZW50ZXIsIGJsYWNrIDIwJSwgdHJhbnNwYXJlbnQgNzUlKWAsCiAgICAgICAgICBtYXNrSW1hZ2U6IGByYWRpYWwtZ3JhZGllbnQoZWxsaXBzZSBhdCBjZW50ZXIsIGJsYWNrIDIwJSwgdHJhbnNwYXJlbnQgNzUlKWAsCiAgICAgICAgfX0KICAgICAgLz4KCiAgICAgIHsvKiBDZW50ZXI6IGNvcHkgKi99CiAgICAgIDxkaXYKICAgICAgICBzdHlsZT17ewogICAgICAgICAgZGlzcGxheTogImZsZXgiLAogICAgICAgICAgYWxpZ25JdGVtczogImNlbnRlciIsCiAgICAgICAgICBqdXN0aWZ5Q29udGVudDogImNlbnRlciIsCiAgICAgICAgICBhbmltYXRpb246ICJmYWRlSW4gMS4ycyBlYXNlIGJvdGgiLAogICAgICAgIH19CiAgICAgID4KICAgICAgICA8aDIKICAgICAgICAgIHN0eWxlPXt7CiAgICAgICAgICAgIGZvbnRGYW1pbHk6ICJ2YXIoLS1mb250LXNhbnMpLCBzYW5zLXNlcmlmIiwKICAgICAgICAgICAgZm9udFNpemU6ICI0OHB4IiwKICAgICAgICAgICAgZm9udFdlaWdodDogNDAwLAogICAgICAgICAgICBsaW5lSGVpZ2h0OiAxLjIsCiAgICAgICAgICAgIGxldHRlclNwYWNpbmc6ICItMC4wMmVtIiwKICAgICAgICAgICAgY29sb3I6ICIjRThFNUUwIiwKICAgICAgICAgICAgdGV4dEFsaWduOiAiY2VudGVyIiwKICAgICAgICAgICAgdXNlclNlbGVjdDogIm5vbmUiLAogICAgICAgICAgfX0KICAgICAgICA+CiAgICAgICAgICBBbHdheXMgY3VyaW91cy4gVGhpbmtpbmcgYWJvdXQ8YnIgLz4KICAgICAgICAgIHRoZSBwZXJzb24gb24gdGhlIG90aGVyIGVuZC4KICAgICAgICA8L2gyPgogICAgICA8L2Rpdj4KCiAgICAgIHsvKiBCb3R0b20gcm93ICovfQogICAgICA8Zm9vdGVyCiAgICAgICAgc3R5bGU9e3sKICAgICAgICAgIGRpc3BsYXk6ICJmbGV4IiwKICAgICAgICAgIGp1c3RpZnlDb250ZW50OiAic3BhY2UtYmV0d2VlbiIsCiAgICAgICAgICBhbGlnbkl0ZW1zOiAiY2VudGVyIiwKICAgICAgICAgIGdhcDogIjFyZW0iLAogICAgICAgICAgYW5pbWF0aW9uOiAiZmFkZUluIDEuMnMgZWFzZSAwLjRzIGJvdGgiLAogICAgICAgICAgbWFyZ2luOiAiMCBjYWxjKGNsYW1wKDEuNXJlbSwgNHZ3LCAzcmVtKSAqIC0xKSIsCiAgICAgICAgICBwYWRkaW5nOiAiMXJlbSBjbGFtcCgxLjVyZW0sIDR2dywgM3JlbSkiLAogICAgICAgICAgYmFja2dyb3VuZDogInJnYmEoMCwwLDAsMC4yNSkiLAogICAgICAgIH19CiAgICAgID4KICAgICAgICA8c3BhbiBzdHlsZT17eyBmb250RmFtaWx5OiAidmFyKC0tZm9udC1waXhlbCkiLCBmb250U2l6ZTogIjAuN3JlbSIsIGxldHRlclNwYWNpbmc6ICIwLjA4ZW0iLCBjb2xvcjogIiNCMEFEQTgiIH19PgogICAgICAgICAgUHJvZHVjdCBEZXNpZ25lcgogICAgICAgIDwvc3Bhbj4KCiAgICAgICAgPHNwYW4gc3R5bGU9e3sgZm9udEZhbWlseTogInZhcigtLWZvbnQtcGl4ZWwpIiwgZm9udFNpemU6ICIwLjdyZW0iLCBsZXR0ZXJTcGFjaW5nOiAiMC4wOGVtIiwgY29sb3I6ICIjQjBBREE4IiB9fT4KICAgICAgICAgIEJ1ZW5vcyBBaXJlcywgQVIKICAgICAgICA8L3NwYW4+CgogICAgICAgIDxhCiAgICAgICAgICBocmVmPSJodHRwczovL3guY29tL19DaGlsaVdpbGx5IgogICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICByZWw9Im5vb3BlbmVyIG5vcmVmZXJyZXIiCiAgICAgICAgICBzdHlsZT17ewogICAgICAgICAgICBjb2xvcjogIiNCMEFEQTgiLAogICAgICAgICAgICBkaXNwbGF5OiAiZmxleCIsCiAgICAgICAgICAgIGFsaWduSXRlbXM6ICJjZW50ZXIiLAogICAgICAgICAgICB0cmFuc2l0aW9uOiAiY29sb3IgMC4ycyIsCiAgICAgICAgICB9fQogICAgICAgICAgb25Nb3VzZUVudGVyPXsoZSkgPT4gKChlLmN1cnJlbnRUYXJnZXQgYXMgSFRNTEVsZW1lbnQpLnN0eWxlLmNvbG9yID0gIiNFOEU1RTAiKX0KICAgICAgICAgIG9uTW91c2VMZWF2ZT17KGUpID0+ICgoZS5jdXJyZW50VGFyZ2V0IGFzIEhUTUxFbGVtZW50KS5zdHlsZS5jb2xvciA9ICIjQjBBREE4Iil9CiAgICAgICAgICBhcmlhLWxhYmVsPSJYIChUd2l0dGVyKSIKICAgICAgICA+CiAgICAgICAgICA8c3ZnIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJjdXJyZW50Q29sb3IiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTguMjQ0IDIuMjVoMy4zMDhsLTcuMjI3IDguMjYgOC41MDIgMTEuMjRIMTYuMTdsLTUuMjE0LTYuODE3TDQuOTkgMjEuNzVIMS42OGw3LjczLTguODM1TDEuMjU0IDIuMjVIOC4wOGw0LjcxMyA2LjIzMXptLTEuMTYxIDE3LjUyaDEuODMzTDcuMDg0IDQuMTI2SDUuMTE3eiIgLz4KICAgICAgICAgIDwvc3ZnPgogICAgICAgIDwvYT4KICAgICAgPC9mb290ZXI+CiAgICA8L21haW4+CiAgKTsKfQo="}
+"use client";
+
+export default function Hero() {
+  return (
+    <main
+      style={{
+        height: "100dvh",
+        display: "grid",
+        gridTemplateRows: "1fr auto",
+        padding: "clamp(1.5rem, 4vw, 3rem)",
+        position: "relative",
+        overflow: "hidden",
+        background: `
+          radial-gradient(ellipse at 8% 50%, rgba(140, 120, 255, 0.07) 0%, transparent 55%),
+          #171717
+        `,
+      }}
+    >
+      {/* Dot grid */}
+      <div
+        style={{
+          position: "fixed",
+          inset: 0,
+          pointerEvents: "none",
+          zIndex: 0,
+          backgroundImage: `radial-gradient(circle, rgba(232, 229, 224, 0.18) 1px, transparent 1px)`,
+          backgroundSize: "28px 28px",
+          WebkitMaskImage: `radial-gradient(ellipse at center, black 20%, transparent 75%)`,
+          maskImage: `radial-gradient(ellipse at center, black 20%, transparent 75%)`,
+        }}
+      />
+
+      {/* Center: copy */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          animation: "fadeIn 1.2s ease both",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "var(--font-sans), sans-serif",
+            fontSize: "48px",
+            fontWeight: 400,
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
+            color: "#E8E5E0",
+            textAlign: "center",
+            userSelect: "none",
+          }}
+        >
+          Always curious. Thinking about<br />
+          the person on the other end.
+        </h2>
+      </div>
+
+      {/* Bottom row */}
+      <footer
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "1rem",
+          animation: "fadeIn 1.2s ease 0.4s both",
+          margin: "0 calc(clamp(1.5rem, 4vw, 3rem) * -1)",
+          padding: "1rem clamp(1.5rem, 4vw, 3rem)",
+          background: "rgba(0,0,0,0.25)",
+        }}
+      >
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "16px", letterSpacing: "0.08em", color: "#B0ADA8" }}>
+          Product Designer
+        </span>
+
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "16px", letterSpacing: "0.08em", color: "#B0ADA8" }}>
+          Buenos Aires, AR
+        </span>
+
+        <a
+          href="https://x.com/_ChiliWilly"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#B0ADA8",
+            display: "flex",
+            alignItems: "center",
+            transition: "color 0.2s",
+          }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#E8E5E0")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#B0ADA8")}
+          aria-label="X (Twitter)"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
+      </footer>
+    </main>
+  );
+}
