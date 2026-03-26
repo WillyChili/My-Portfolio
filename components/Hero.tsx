@@ -21,12 +21,11 @@ export default function Hero() {
       >
         <h2
           style={{
-            fontFamily: "var(--font-serif), serif",
-            fontStyle: "italic",
-            fontSize: "clamp(2.8rem, 7vw, 7rem)",
+            fontFamily: "var(--font-mono), monospace",
+            fontSize: "48px",
             fontWeight: 400,
-            lineHeight: 1.1,
-            letterSpacing: "-0.03em",
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
             color: "#111",
             textAlign: "center",
             userSelect: "none",
