@@ -46,17 +46,18 @@ export default function Hero() {
           animation: "fadeIn 1.2s ease 0.4s both",
         }}
       >
-        <span style={{ fontSize: "0.7rem", letterSpacing: "0.08em", color: "#888" }}>
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#888" }}>
           Developer & Designer
         </span>
 
-        <span style={{ fontSize: "0.7rem", letterSpacing: "0.08em", color: "#888" }}>
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#888" }}>
           Buenos Aires, AR
         </span>
 
         <a
           href="mailto:hola@tunombre.com"
           style={{
+            fontFamily: "var(--font-pixel)",
             fontSize: "0.7rem",
             letterSpacing: "0.08em",
             color: "#111",
