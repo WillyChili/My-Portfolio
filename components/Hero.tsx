@@ -53,11 +53,11 @@ export default function Hero() {
           background: "rgba(0,0,0,0.25)",
         }}
       >
-        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#555" }}>
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#B0ADA8" }}>
           Product Designer
         </span>
 
-        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#555" }}>
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#B0ADA8" }}>
           Buenos Aires, AR
         </span>
 
@@ -66,7 +66,7 @@ export default function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            color: "#888",
+            color: "#B0ADA8",
             display: "flex",
             alignItems: "center",
             transition: "color 0.2s",
