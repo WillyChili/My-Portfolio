@@ -45,9 +45,12 @@ export default function Hero() {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "flex-end",
+          alignItems: "center",
           gap: "1rem",
           animation: "fadeIn 1.2s ease 0.4s both",
+          margin: "0 calc(clamp(1.5rem, 4vw, 3rem) * -1)",
+          padding: "1rem clamp(1.5rem, 4vw, 3rem)",
+          background: "rgba(0,0,0,0.25)",
         }}
       >
         <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#555" }}>
