@@ -15,7 +15,7 @@ html, body {
 body {
   background: #F5F4F0;
   color: #111;
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-sans), sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }

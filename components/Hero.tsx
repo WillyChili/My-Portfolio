@@ -21,7 +21,7 @@ export default function Hero() {
       >
         <h2
           style={{
-            fontFamily: "var(--font-mono), monospace",
+            fontFamily: "var(--font-sans), sans-serif",
             fontSize: "48px",
             fontWeight: 400,
             lineHeight: 1.2,
