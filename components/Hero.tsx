@@ -69,11 +69,11 @@ export default function Hero() {
           background: "rgba(0,0,0,0.25)",
         }}
       >
-        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "16px", letterSpacing: "0.08em", color: "#B0ADA8" }}>
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "13px", letterSpacing: "0.08em", color: "#B0ADA8" }}>
           Product Designer
         </span>
 
-        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "16px", letterSpacing: "0.08em", color: "#B0ADA8" }}>
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "13px", letterSpacing: "0.08em", color: "#B0ADA8" }}>
           Buenos Aires, AR
         </span>
 
