@@ -8,9 +8,13 @@ export default function Hero() {
         display: "grid",
         gridTemplateRows: "1fr auto",
         padding: "clamp(1.5rem, 4vw, 3rem)",
+        background: `
+          radial-gradient(ellipse at 8% 50%, rgba(140, 120, 255, 0.07) 0%, transparent 55%),
+          #171717
+        `,
       }}
     >
-      {/* Center: name */}
+      {/* Center: copy */}
       <div
         style={{
           display: "flex",
@@ -26,17 +30,17 @@ export default function Hero() {
             fontWeight: 400,
             lineHeight: 1.2,
             letterSpacing: "-0.02em",
-            color: "#111",
+            color: "#E8E5E0",
             textAlign: "center",
             userSelect: "none",
           }}
         >
-          I design experiences that matter<br />
-          and build them with AI.
+          I care about the details no one notices<br />
+          but everyone feels.
         </h2>
       </div>
 
-      {/* Bottom row: role · location · status */}
+      {/* Bottom row */}
       <footer
         style={{
           display: "flex",
@@ -46,30 +50,31 @@ export default function Hero() {
           animation: "fadeIn 1.2s ease 0.4s both",
         }}
       >
-        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#888" }}>
-          Developer & Designer
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#555" }}>
+          Product Designer
         </span>
 
-        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#888" }}>
+        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "0.7rem", letterSpacing: "0.08em", color: "#555" }}>
           Buenos Aires, AR
         </span>
 
         <a
-          href="mailto:hola@tunombre.com"
+          href="https://x.com/_ChiliWilly"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
-            fontFamily: "var(--font-pixel)",
-            fontSize: "0.7rem",
-            letterSpacing: "0.08em",
-            color: "#111",
-            textDecoration: "none",
-            borderBottom: "1px solid #111",
-            paddingBottom: "1px",
-            transition: "opacity 0.2s",
+            color: "#888",
+            display: "flex",
+            alignItems: "center",
+            transition: "color 0.2s",
           }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.4")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#E8E5E0")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#888")}
+          aria-label="X (Twitter)"
         >
-          hola@tunombre.com
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
         </a>
       </footer>
     </main>

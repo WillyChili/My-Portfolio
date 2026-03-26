@@ -13,16 +13,16 @@ html, body {
 }
 
 body {
-  background: #F5F4F0;
-  color: #111;
+  background: #171717;
+  color: #E8E5E0;
   font-family: var(--font-sans), sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #111;
-  color: #F5F4F0;
+  background: #E8E5E0;
+  color: #171717;
 }
 
 @keyframes fadeIn {
