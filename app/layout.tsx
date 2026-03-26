@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
+import { Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
+
+const geistMono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["300", "400"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Portfolio — Tu Nombre",
   description: "Diseñador y desarrollador apasionado por crear experiencias digitales memorables.",
-  keywords: ["portfolio", "desarrollador", "diseño web", "frontend"],
-  authors: [{ name: "Tu Nombre" }],
-  openGraph: {
-    title: "Portfolio — Tu Nombre",
-    description: "Diseñador y desarrollador apasionado por crear experiencias digitales memorables.",
-    type: "website",
-  },
 };
 
 export default function RootLayout({
@@ -19,12 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className="grain antialiased">
+    <html lang="es">
+      <body className={`${geistMono.variable} ${instrumentSerif.variable} antialiased`}>
         {children}
       </body>
     </html>

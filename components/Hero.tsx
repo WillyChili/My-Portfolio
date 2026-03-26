@@ -21,7 +21,7 @@ export default function Hero() {
       >
         <h1
           style={{
-            fontFamily: "'Instrument Serif', serif",
+            fontFamily: "var(--font-serif), serif",
             fontStyle: "italic",
             fontSize: "clamp(3.5rem, 11vw, 10rem)",
             fontWeight: 400,
