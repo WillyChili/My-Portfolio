@@ -19,20 +19,22 @@ export default function Hero() {
           animation: "fadeIn 1.2s ease both",
         }}
       >
-        <h1
+        <h2
           style={{
             fontFamily: "var(--font-serif), serif",
             fontStyle: "italic",
-            fontSize: "clamp(3.5rem, 11vw, 10rem)",
+            fontSize: "clamp(2.8rem, 7vw, 7rem)",
             fontWeight: 400,
-            lineHeight: 1,
+            lineHeight: 1.1,
             letterSpacing: "-0.03em",
             color: "#111",
+            textAlign: "center",
             userSelect: "none",
           }}
         >
-          Tu Nombre
-        </h1>
+          Diseño experiencias que importan<br />
+          y las construyo con IA.
+        </h2>
       </div>
 
       {/* Bottom row: role · location · status */}
