@@ -1,24 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-
 export default function Hero() {
-  const mainRef = useRef<HTMLElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const el = mainRef.current;
-    if (!el) return;
-    const { left, top, width, height } = el.getBoundingClientRect();
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
-    el.style.setProperty("--mouse-x", `${x}%`);
-    el.style.setProperty("--mouse-y", `${y}%`);
-  };
-
   return (
     <main
-      ref={mainRef}
-      onMouseMove={handleMouseMove}
       style={{
         height: "100dvh",
         display: "grid",
@@ -27,7 +11,6 @@ export default function Hero() {
         position: "relative",
         overflow: "hidden",
         background: `
-          radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.035) 0%, transparent 60%),
           radial-gradient(ellipse at 8% 50%, rgba(140, 120, 255, 0.07) 0%, transparent 55%),
           #171717
         `,
