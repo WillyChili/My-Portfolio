@@ -20,7 +20,7 @@ const geistPixel = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Charly Chaves",
   description: "Designer and developer passionate about building memorable digital experiences.",
 };
 
