@@ -1,1 +1,6 @@
-{"data":"ewogICJmcmFtZXdvcmsiOiAibmV4dGpzIiwKICAiYnVpbGRDb21tYW5kIjogIm5leHQgYnVpbGQiLAogICJkZXZDb21tYW5kIjogIm5leHQgZGV2IiwKICAiaW5zdGFsbENvbW1hbmQiOiAibnBtIGluc3RhbGwiCn0K"}
+{
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install"
+}
