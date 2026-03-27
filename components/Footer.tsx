@@ -14,20 +14,20 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <span
-            className="font-display text-sm font-semibold"
-            style={{ color: "var(--text)" }}
+            className="font-display font-semibold"
+            style={{ color: "var(--text)", fontSize: "16px" }}
           >
             <span style={{ color: "var(--accent)" }}>*</span> Tu Nombre
           </span>
           <span style={{ color: "var(--border)" }}>·</span>
-          <span className="font-mono text-xs" style={{ color: "var(--muted)", fontSize: "0.7rem" }}>
+          <span className="font-mono text-xs" style={{ color: "var(--muted)", fontSize: "16px" }}>
             Portfolio {year}
           </span>
         </div>
 
         <p
           className="font-mono text-xs"
-          style={{ color: "var(--muted)", fontSize: "0.7rem", letterSpacing: "0.05em" }}
+          style={{ color: "var(--muted)", fontSize: "16px", letterSpacing: "0.05em" }}
         >
           Diseñado & construido con{" "}
           <span style={{ color: "var(--accent)" }}>♥</span>{" "}

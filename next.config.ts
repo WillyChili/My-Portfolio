@@ -1,9 +1,1 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  images: {
-    domains: [],
-  },
-};
-
-export default nextConfig;
+{"data":"aW1wb3J0IHR5cGUgeyBOZXh0Q29uZmlnIH0gZnJvbSAibmV4dCI7Cgpjb25zdCBuZXh0Q29uZmlnOiBOZXh0Q29uZmlnID0gewogIGltYWdlczogewogICAgZG9tYWluczogW10sCiAgfSwKfTsKCmV4cG9ydCBkZWZhdWx0IG5leHRDb25maWc7Cg=="}
