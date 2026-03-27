@@ -1,1 +1,26 @@
-{"data":"ewogICJuYW1lIjogIm1pLXNpdGlvIiwKICAidmVyc2lvbiI6ICIwLjEuMCIsCiAgInByaXZhdGUiOiB0cnVlLAogICJzY3JpcHRzIjogewogICAgImRldiI6ICJuZXh0IGRldiIsCiAgICAiYnVpbGQiOiAibmV4dCBidWlsZCIsCiAgICAic3RhcnQiOiAibmV4dCBzdGFydCIsCiAgICAibGludCI6ICJuZXh0IGxpbnQiCiAgfSwKICAiZGVwZW5kZW5jaWVzIjogewogICAgImdlaXN0IjogIl4xLjcuMCIsCiAgICAibmV4dCI6ICJeMTYuMi4xIiwKICAgICJyZWFjdCI6ICJeMTkuMC4wIiwKICAgICJyZWFjdC1kb20iOiAiXjE5LjAuMCIKICB9LAogICJkZXZEZXBlbmRlbmNpZXMiOiB7CiAgICAiQHR5cGVzL25vZGUiOiAiXjIwIiwKICAgICJAdHlwZXMvcmVhY3QiOiAiXjE5IiwKICAgICJAdHlwZXMvcmVhY3QtZG9tIjogIl4xOSIsCiAgICAiYXV0b3ByZWZpeGVyIjogIl4xMC40LjIwIiwKICAgICJwb3N0Y3NzIjogIl44IiwKICAgICJ0YWlsd2luZGNzcyI6ICJeMy40LjE3IiwKICAgICJ0eXBlc2NyaXB0IjogIl41IgogIH0KfQo="}
+{
+  "name": "mi-sitio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "geist": "^1.7.0",
+    "next": "^16.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  }
+}
