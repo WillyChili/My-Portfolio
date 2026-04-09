@@ -22,6 +22,9 @@ const geistPixel = localFont({
 export const metadata: Metadata = {
   title: "Charly Chaves",
   description: "Designer and developer passionate about building memorable digital experiences.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
