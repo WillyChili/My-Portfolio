@@ -43,13 +43,12 @@ export default function Hero() {
   return (
     <main
       style={{
-        height: "100dvh",
+        minHeight: "100dvh",
         display: "grid",
         gridTemplateRows: "1fr auto auto",
         rowGap: "clamp(1.5rem, 4vw, 3rem)",
         padding: "clamp(1.5rem, 4vw, 3rem)",
         position: "relative",
-        overflow: "hidden",
         background: "#171717",
       }}
     >
