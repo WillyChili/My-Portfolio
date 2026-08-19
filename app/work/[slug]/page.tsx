@@ -3,7 +3,6 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import type { ProjectSection } from "@/lib/projects";
 import ScreensCarousel from "@/components/echo-mockups/ScreensCarousel";
-import EchoCover from "@/components/echo-mockups/EchoCover";
 import BrowserCarousel from "@/components/tinsderm-mockups/BrowserCarousel";
 import LiveSiteCTA from "@/components/tinsderm-mockups/LiveSiteCTA";
 import CaseStudyImage from "@/components/CaseStudyImage";
@@ -218,7 +217,12 @@ export default async function CaseStudyPage({
                 aspectRatio: "16 / 10",
               }}
             >
-              <EchoCover />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/echo/cover-thumbnail.webp"
+                alt="Echo, AI journaling app, cover"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
             </div>
           ) : (
             <CaseStudyImage
