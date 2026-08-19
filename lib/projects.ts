@@ -1,7 +1,7 @@
-export type ProjectTag = "UX Research" | "UI Design" | "Product Strategy" | "Design System" | "Prototyping" | "Usability Testing";
+export type ProjectTag = "UX Research" | "UI Design" | "Product Strategy" | "Design System" | "Prototyping" | "Usability Testing" | "AI / ML" | "Full-Stack" | "Mobile";
 
 export interface ProjectSection {
-  type: "text" | "image" | "two-col" | "metrics";
+  type: "text" | "image" | "two-col" | "metrics" | "highlight" | "mockup-row";
   title?: string;
   body?: string;
   image?: string;
@@ -9,6 +9,8 @@ export interface ProjectSection {
   left?: { title: string; body: string };
   right?: { title: string; body: string };
   metrics?: { value: string; label: string }[];
+  quote?: string;
+  mockupId?: string;
 }
 
 export interface Project {
@@ -17,15 +19,64 @@ export interface Project {
   company: string;
   year: string;
   tags: ProjectTag[];
-  summary: string;          // 1-2 lines shown on the card
-  coverImage: string;       // preview image on landing
-  accentColor: string;      // card accent / highlight color
+  summary: string;
+  coverImage: string;
+  accentColor: string;
   role: string;
   duration: string;
   sections: ProjectSection[];
 }
 
 export const projects: Project[] = [
+  {
+    slug: "echo",
+    title: "Echo",
+    company: "Personal Project",
+    year: "2026",
+    tags: ["UI Design", "Product Strategy", "AI / ML", "Full-Stack", "Mobile"],
+    summary: "A journaling app with an AI companion that learns your voice and mirrors it back to you.",
+    coverImage: "/mock/cover-echo.jpg",
+    accentColor: "#2CD59C",
+    role: "Founder · Design & Development",
+    duration: "2 months",
+    sections: [
+      {
+        type: "highlight",
+        quote: "What if your journal could talk back — in your own voice?",
+      },
+      {
+        type: "text",
+        title: "The starting point",
+        body: "I journal almost every day, but I always felt like my notes just sat there. I wanted something that could read everything I've written and reflect it back — not as a therapist, not as a chatbot, but as something that sounds like me. That idea became Echo.",
+      },
+      {
+        type: "text",
+        title: "The core concept",
+        body: "Echo is a daily journaling app with an AI companion. You write freely every day — text or voice — and when you're ready, you open a conversation with Echo. It reads all your past entries and responds in your style: your sentence length, your tone, your recurring themes. The more you write, the more it sounds like you.",
+      },
+      {
+        type: "mockup-row",
+        mockupId: "all-screens",
+        title: "App screens",
+      },
+      {
+        type: "two-col",
+        left: {
+          title: "Design decisions",
+          body: "One textarea, not multiple fields. Dark mode only — journaling is personal, intimate. Squircle corners everywhere for warmth. Mint as the sole accent color: calming but alive. The UI stays out of the way so the words are the focus.",
+        },
+        right: {
+          title: "Technical choices",
+          body: "React + Vite frontend, Express backend, Supabase for auth and storage. Claude API for the AI layer. Push notifications via FCM for daily reminders. Android app with Google OAuth. I designed and built every layer myself.",
+        },
+      },
+      {
+        type: "text",
+        title: "What I learned",
+        body: "The hardest part wasn't building the AI — it was writing the system prompt. Getting Claude to genuinely mirror someone's voice instead of defaulting to its own required dozens of iterations. I also learned that voice input needs aggressive error handling: browsers drop the mic connection constantly, and the UX has to feel seamless even when the API fails silently.",
+      },
+    ],
+  },
   {
     slug: "onboarding-redesign",
     title: "Onboarding Redesign",

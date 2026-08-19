@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import type { ProjectSection } from "@/lib/projects";
+import ScreensCarousel from "@/components/echo-mockups/ScreensCarousel";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -14,7 +15,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return { title: `${project.title} — Charly Chaves` };
 }
 
-export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+const CONTENT_MAX = "820px";
+
+const MOCKUP_MAP: Record<string, React.ReactNode> = {
+  "all-screens": <ScreensCarousel />,
+};
+
+export default async function CaseStudyPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
@@ -31,8 +42,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           alignItems: "center",
           justifyContent: "space-between",
           padding: "1rem clamp(1.5rem, 6vw, 5rem)",
-          background: "rgba(23,23,23,0.85)",
+          height: "52px",
+          background: "rgba(17, 17, 17, 0.8)",
           backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
           borderBottom: "1px solid rgba(232,229,224,0.06)",
         }}
       >
@@ -40,14 +53,13 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           href="/"
           style={{
             fontFamily: "var(--font-pixel)",
-            fontSize: "13px",
+            fontSize: "14px",
             letterSpacing: "0.08em",
             color: "#B0ADA8",
             textDecoration: "none",
             display: "flex",
             alignItems: "center",
             gap: "0.5rem",
-            transition: "color 0.2s",
           }}
         >
           ← Back
@@ -55,7 +67,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <span
           style={{
             fontFamily: "var(--font-pixel)",
-            fontSize: "13px",
+            fontSize: "14px",
             letterSpacing: "0.08em",
             color: "#4A4845",
           }}
@@ -64,26 +76,35 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </span>
       </nav>
 
-      {/* Hero */}
+      {/* Hero header */}
       <header
         style={{
-          padding: "clamp(4rem, 8vw, 8rem) clamp(1.5rem, 6vw, 5rem) clamp(3rem, 5vw, 5rem)",
-          maxWidth: "900px",
+          padding:
+            "clamp(3rem, 6vw, 6rem) clamp(1.5rem, 6vw, 5rem) clamp(2rem, 4vw, 3rem)",
+          maxWidth: "1000px",
+          margin: "0 auto",
         }}
       >
         {/* Tags */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2rem" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "0.5rem",
+            marginBottom: "1.5rem",
+          }}
+        >
           {project.tags.map((tag) => (
             <span
               key={tag}
               style={{
                 fontFamily: "var(--font-pixel)",
-                fontSize: "10px",
-                letterSpacing: "0.08em",
+                fontSize: "12px",
+                letterSpacing: "0.06em",
                 color: project.accentColor,
                 border: `1px solid ${project.accentColor}44`,
-                borderRadius: "4px",
-                padding: "3px 8px",
+                borderRadius: "6px",
+                padding: "4px 10px",
               }}
             >
               {tag}
@@ -95,7 +116,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <h1
           style={{
             fontFamily: "var(--font-sans), sans-serif",
-            fontSize: "clamp(2.5rem, 6vw, 5rem)",
+            fontSize: "clamp(2.5rem, 5vw, 4rem)",
             fontWeight: 400,
             letterSpacing: "-0.03em",
             lineHeight: 1.1,
@@ -113,6 +134,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             gap: "clamp(2rem, 4vw, 4rem)",
             borderTop: "1px solid rgba(232,229,224,0.08)",
             paddingTop: "1.5rem",
+            flexWrap: "wrap",
           }}
         >
           {[
@@ -121,12 +143,19 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             { label: "Duration", value: project.duration },
             { label: "Year", value: project.year },
           ].map(({ label, value }) => (
-            <div key={label} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+            <div
+              key={label}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+              }}
+            >
               <span
                 style={{
                   fontFamily: "var(--font-pixel)",
-                  fontSize: "10px",
-                  letterSpacing: "0.1em",
+                  fontSize: "12px",
+                  letterSpacing: "0.08em",
                   color: "#4A4845",
                 }}
               >
@@ -135,7 +164,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               <span
                 style={{
                   fontFamily: "var(--font-sans), sans-serif",
-                  fontSize: "14px",
+                  fontSize: "16px",
                   color: "#B0ADA8",
                 }}
               >
@@ -146,42 +175,93 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
       </header>
 
-      {/* Cover placeholder */}
+      {/* Cover + highlight side by side */}
       <div
         style={{
-          margin: "0 clamp(1.5rem, 6vw, 5rem) clamp(4rem, 8vw, 7rem)",
-          borderRadius: "16px",
-          overflow: "hidden",
-          aspectRatio: "16 / 7",
-          background: `linear-gradient(135deg, #1F1E1C 0%, ${project.accentColor}22 100%)`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          maxWidth: "1000px",
+          margin: "0 auto",
+          padding: "0 clamp(1.5rem, 6vw, 5rem)",
+          marginBottom: "clamp(3rem, 5vw, 5rem)",
         }}
       >
-        <span
+        <div
           style={{
-            fontFamily: "var(--font-sans), sans-serif",
-            fontSize: "13px",
-            color: "rgba(232,229,224,0.15)",
-            letterSpacing: "0.05em",
+            display: "grid",
+            gridTemplateColumns: project.sections[0]?.type === "highlight"
+              ? "1fr minmax(0, 340px)"
+              : "1fr",
+            gap: "clamp(1.5rem, 3vw, 2.5rem)",
+            alignItems: "center",
           }}
         >
-          Cover image
-        </span>
+          <div
+            style={{
+              borderRadius: "16px",
+              overflow: "hidden",
+              aspectRatio: "16 / 10",
+              background: `linear-gradient(135deg, #1F1E1C 0%, ${project.accentColor}18 100%)`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "var(--font-sans), sans-serif",
+                fontSize: "14px",
+                color: "rgba(232,229,224,0.12)",
+                letterSpacing: "0.05em",
+              }}
+            >
+              Cover image
+            </span>
+          </div>
+
+          {project.sections[0]?.type === "highlight" && (
+            <div
+              style={{
+                borderLeft: `3px solid ${project.accentColor}`,
+                paddingLeft: "clamp(1.25rem, 2vw, 2rem)",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-sans), sans-serif",
+                  fontSize: "clamp(1.25rem, 2vw, 1.625rem)",
+                  fontWeight: 400,
+                  fontStyle: "italic",
+                  lineHeight: 1.45,
+                  letterSpacing: "-0.01em",
+                  color: "#E8E5E0",
+                }}
+              >
+                {project.sections[0].quote}
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Content sections */}
       <div
         style={{
-          padding: "0 clamp(1.5rem, 6vw, 5rem) clamp(6rem, 10vw, 10rem)",
+          padding:
+            "clamp(2rem, 4vw, 3rem) clamp(1.5rem, 6vw, 5rem) clamp(6rem, 10vw, 10rem)",
+          maxWidth: "1000px",
+          margin: "0 auto",
           display: "flex",
           flexDirection: "column",
-          gap: "clamp(4rem, 7vw, 7rem)",
+          gap: "clamp(3.5rem, 6vw, 5.5rem)",
         }}
       >
-        {project.sections.map((section, i) => (
-          <Section key={i} section={section} accentColor={project.accentColor} />
+        {project.sections
+          .filter((section, i) => !(i === 0 && section.type === "highlight"))
+          .map((section, i) => (
+          <Section
+            key={i}
+            section={section}
+            accentColor={project.accentColor}
+          />
         ))}
       </div>
 
@@ -190,6 +270,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         style={{
           borderTop: "1px solid rgba(232,229,224,0.06)",
           padding: "2rem clamp(1.5rem, 6vw, 5rem)",
+          maxWidth: "1000px",
+          margin: "0 auto",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -199,7 +281,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           href="/"
           style={{
             fontFamily: "var(--font-pixel)",
-            fontSize: "13px",
+            fontSize: "14px",
             letterSpacing: "0.08em",
             color: "#B0ADA8",
             textDecoration: "none",
@@ -210,7 +292,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <span
           style={{
             fontFamily: "var(--font-pixel)",
-            fontSize: "12px",
+            fontSize: "13px",
             letterSpacing: "0.06em",
             color: "#4A4845",
           }}
@@ -222,21 +304,74 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   );
 }
 
-function Section({ section, accentColor }: { section: ProjectSection; accentColor: string }) {
-  const maxWidth = "760px";
+function Section({
+  section,
+  accentColor,
+}: {
+  section: ProjectSection;
+  accentColor: string;
+}) {
+  if (section.type === "highlight") {
+    return (
+      <div
+        style={{
+          maxWidth: CONTENT_MAX,
+          borderLeft: `3px solid ${accentColor}`,
+          paddingLeft: "clamp(1.5rem, 3vw, 2.5rem)",
+          margin: "clamp(1rem, 2vw, 2rem) 0",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-sans), sans-serif",
+            fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+            fontWeight: 400,
+            fontStyle: "italic",
+            lineHeight: 1.45,
+            letterSpacing: "-0.01em",
+            color: "#E8E5E0",
+          }}
+        >
+          {section.quote}
+        </p>
+      </div>
+    );
+  }
+
+  if (section.type === "mockup-row") {
+    return (
+      <div>
+        {section.title && (
+          <p
+            style={{
+              fontFamily: "var(--font-pixel)",
+              fontSize: "13px",
+              letterSpacing: "0.08em",
+              color: "#4A4845",
+              marginBottom: "1rem",
+              textAlign: "center",
+            }}
+          >
+            {section.title}
+          </p>
+        )}
+        {section.mockupId && MOCKUP_MAP[section.mockupId]}
+      </div>
+    );
+  }
 
   if (section.type === "text") {
     return (
-      <div style={{ maxWidth }}>
+      <div style={{ maxWidth: CONTENT_MAX }}>
         {section.title && (
           <h2
             style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "clamp(1.25rem, 2vw, 1.75rem)",
+              fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#E8E5E0",
-              marginBottom: "1.25rem",
+              marginBottom: "1rem",
             }}
           >
             {section.title}
@@ -246,9 +381,9 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
           <p
             style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "17px",
-              lineHeight: 1.75,
-              color: "#7A7773",
+              fontSize: "clamp(1rem, 1.25vw, 1.125rem)",
+              lineHeight: 1.8,
+              color: "#9A9691",
             }}
           >
             {section.body}
@@ -263,12 +398,12 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
           gap: "1px",
           background: "rgba(232,229,224,0.06)",
-          borderRadius: "12px",
+          borderRadius: "16px",
           overflow: "hidden",
-          maxWidth,
+          maxWidth: CONTENT_MAX,
         }}
       >
         {section.metrics?.map(({ value, label }) => (
@@ -276,7 +411,7 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
             key={label}
             style={{
               background: "#171717",
-              padding: "2rem 1.5rem",
+              padding: "clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 2vw, 2rem)",
               display: "flex",
               flexDirection: "column",
               gap: "0.5rem",
@@ -285,7 +420,7 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
             <span
               style={{
                 fontFamily: "var(--font-sans), sans-serif",
-                fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+                fontSize: "clamp(2rem, 3vw, 2.75rem)",
                 fontWeight: 300,
                 letterSpacing: "-0.03em",
                 color: accentColor,
@@ -296,8 +431,8 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
             <span
               style={{
                 fontFamily: "var(--font-pixel)",
-                fontSize: "10px",
-                letterSpacing: "0.1em",
+                fontSize: "12px",
+                letterSpacing: "0.08em",
                 color: "#4A4845",
               }}
             >
@@ -316,16 +451,23 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "clamp(2rem, 4vw, 4rem)",
-          maxWidth,
+          maxWidth: CONTENT_MAX,
         }}
       >
         {[section.left, section.right].map((col) =>
           col ? (
-            <div key={col.title} style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            <div
+              key={col.title}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+              }}
+            >
               <h3
                 style={{
                   fontFamily: "var(--font-sans), sans-serif",
-                  fontSize: "1rem",
+                  fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)",
                   fontWeight: 500,
                   color: "#E8E5E0",
                   letterSpacing: "-0.01em",
@@ -336,9 +478,9 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
               <p
                 style={{
                   fontFamily: "var(--font-sans), sans-serif",
-                  fontSize: "15px",
-                  lineHeight: 1.7,
-                  color: "#7A7773",
+                  fontSize: "clamp(0.9375rem, 1.1vw, 1rem)",
+                  lineHeight: 1.75,
+                  color: "#9A9691",
                 }}
               >
                 {col.body}
@@ -357,8 +499,8 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
           <p
             style={{
               fontFamily: "var(--font-pixel)",
-              fontSize: "11px",
-              letterSpacing: "0.1em",
+              fontSize: "13px",
+              letterSpacing: "0.08em",
               color: "#4A4845",
               marginBottom: "1rem",
             }}
@@ -368,10 +510,10 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
         )}
         <div
           style={{
-            borderRadius: "12px",
+            borderRadius: "16px",
             overflow: "hidden",
             aspectRatio: "16 / 9",
-            background: `linear-gradient(135deg, #1F1E1C 0%, ${accentColor}22 100%)`,
+            background: `linear-gradient(135deg, #1F1E1C 0%, ${accentColor}18 100%)`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -380,8 +522,8 @@ function Section({ section, accentColor }: { section: ProjectSection; accentColo
           <span
             style={{
               fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "13px",
-              color: "rgba(232,229,224,0.15)",
+              fontSize: "14px",
+              color: "rgba(232,229,224,0.12)",
               letterSpacing: "0.05em",
             }}
           >
