@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Closing block for a case study: a thank-you note plus a "get in
+ * Closing block for a case study: a short eyebrow line plus a "get in
  * touch" CTA, shown after the last content section and before the
  * footer nav ("← All projects"). Centered, quieter than the home
  * page's ContactSection so it reads as a sign-off, not a duplicate
@@ -31,7 +31,7 @@ export default function ClosingCTA({ accentColor }: { accentColor: string }) {
           opacity: 0.85,
         }}
       >
-        Thanks for reading
+        Always looking for the next problem
       </span>
 
       <a
