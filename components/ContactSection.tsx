@@ -1,4 +1,5 @@
 "use client";
+import AmbientGrid from "@/components/AmbientGrid";
 
 export default function ContactSection() {
   return (
@@ -8,8 +9,11 @@ export default function ContactSection() {
         background: "#171717",
         padding: "clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 5rem)",
         paddingBottom: "calc(clamp(5rem, 10vw, 9rem) + 5rem)",
+        position: "relative",
       }}
     >
+      <AmbientGrid />
+
       {/* Section header */}
       <div
         style={{
@@ -19,6 +23,8 @@ export default function ContactSection() {
           marginBottom: "clamp(3rem, 6vw, 5rem)",
           borderBottom: "1px solid rgba(232,229,224,0.08)",
           paddingBottom: "1.25rem",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <span
@@ -40,6 +46,8 @@ export default function ContactSection() {
           flexDirection: "column",
           gap: "clamp(2rem, 4vw, 3rem)",
           maxWidth: "640px",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <h2

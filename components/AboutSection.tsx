@@ -1,4 +1,5 @@
 "use client";
+import AmbientGrid from "@/components/AmbientGrid";
 
 export default function AboutSection() {
   return (
@@ -7,8 +8,11 @@ export default function AboutSection() {
       style={{
         background: "#171717",
         padding: "clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 5rem)",
+        position: "relative",
       }}
     >
+      <AmbientGrid />
+
       {/* Section header */}
       <div
         style={{
@@ -18,6 +22,8 @@ export default function AboutSection() {
           marginBottom: "clamp(3rem, 6vw, 5rem)",
           borderBottom: "1px solid rgba(232,229,224,0.08)",
           paddingBottom: "1.25rem",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <span
@@ -40,6 +46,8 @@ export default function AboutSection() {
           gap: "clamp(3rem, 6vw, 6rem)",
           alignItems: "start",
           maxWidth: "1100px",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {/* Left: bio */}
