@@ -1,7 +1,7 @@
 export type ProjectTag = "UX Research" | "UI Design" | "Product Strategy" | "Design System" | "Prototyping" | "Usability Testing" | "AI / ML" | "Full-Stack" | "Mobile";
 
 export interface ProjectSection {
-  type: "text" | "image" | "two-col" | "metrics" | "highlight" | "mockup-row" | "timeline";
+  type: "text" | "image" | "two-col" | "metrics" | "highlight" | "mockup-row" | "timeline" | "process" | "tech-stack";
   title?: string;
   body?: string;
   image?: string;
@@ -12,6 +12,11 @@ export interface ProjectSection {
   quote?: string;
   mockupId?: string;
   phases?: { number: string; title: string; body: string }[];
+  steps?: { label: string; title: string; body: string }[];
+  stack?: { name: string; role: string; category: string }[];
+  chapter?: string;
+  chapterLabel?: string;
+  pullQuote?: string;
 }
 
 export interface Project {
@@ -47,34 +52,95 @@ export const projects: Project[] = [
       },
       {
         type: "text",
-        title: "The starting point",
-        body: "I journal almost every day, but I always felt like my notes just sat there. I wanted something that could read everything I've written and reflect it back — not as a therapist, not as a chatbot, but as something that sounds like me. That idea became Echo.",
+        chapter: "01",
+        chapterLabel: "Context",
+        title: "The spark",
+        body: "I journal almost every day. Voice notes on my phone, scribbles in Notion, half-finished thoughts in Apple Notes. All those words just sat there — never re-read, never resurfaced. I started wondering: what if my journal could actually reflect something back to me, in my own voice?",
+        pullQuote: "The words were there. What was missing was the mirror.",
+      },
+      {
+        type: "process",
+        chapter: "02",
+        chapterLabel: "Discovery",
+        title: "How I got here",
+        steps: [
+          {
+            label: "01",
+            title: "Personal insight",
+            body: "The habit was already mine. I noticed my notes were piling up but never coming back to me. That gap became the question worth exploring.",
+          },
+          {
+            label: "02",
+            title: "User conversations",
+            body: "I ran 5 informal interviews with people who journal regularly on their phones. I asked what they wrote, where, and whether they ever returned to it.",
+          },
+          {
+            label: "03",
+            title: "The pattern",
+            body: "Everyone writes. Almost nobody re-reads. Notes were scattered across five apps that don't talk to each other, and writing felt like an obligation instead of a conversation.",
+          },
+          {
+            label: "04",
+            title: "The direction",
+            body: "Echo shouldn't be another notes app fighting for space. It should be a mirror — something that makes writing feel worth it because the words come back.",
+          },
+        ],
       },
       {
         type: "text",
-        title: "The core concept",
-        body: "Echo is a daily journaling app with an AI companion. You write freely every day — text or voice — and when you're ready, you open a conversation with Echo. It reads all your past entries and responds in your style: your sentence length, your tone, your recurring themes. The more you write, the more it sounds like you.",
+        chapter: "03",
+        chapterLabel: "Concept",
+        title: "The concept",
+        body: "You write freely every day — text or voice. When you're ready, you open a conversation with Echo. It reads all your past entries and responds in your style: your sentence length, your tone, your recurring themes. The more you write, the more it sounds like you.",
       },
       {
         type: "mockup-row",
+        chapter: "04",
+        chapterLabel: "Product",
         mockupId: "all-screens",
         title: "App screens",
       },
       {
         type: "two-col",
+        chapter: "05",
+        chapterLabel: "Craft",
         left: {
           title: "Design decisions",
           body: "One textarea, not multiple fields. Dark mode only — journaling is personal, intimate. Squircle corners everywhere for warmth. Mint as the sole accent color: calming but alive. The UI stays out of the way so the words are the focus.",
         },
         right: {
-          title: "Technical choices",
-          body: "React + Vite frontend, Express backend, Supabase for auth and storage. Claude API for the AI layer. Push notifications via FCM for daily reminders. Android app with Google OAuth. I designed and built every layer myself.",
+          title: "The prompt as design",
+          body: "The hardest interface wasn't visual — it was the system prompt. Getting Claude to genuinely mirror someone's voice instead of defaulting to its own required dozens of iterations. That prompt is where the product actually lives.",
         },
       },
       {
         type: "text",
+        chapter: "06",
+        chapterLabel: "Building",
+        title: "From designer to builder",
+        body: "I've spent years designing products that other engineers build. With Echo I wanted to own the whole thing — figure out where the design idea breaks against real infrastructure, and where the code shapes the design back. I paired with Claude Code as a co-pilot, but every architectural decision, every API call, every deployment was mine to make. That changed how I designed. Loading times aren't abstract anymore. Rate limits stop being someone else's problem. The auth flow gets scoped down because I'm the one wiring it up.",
+        pullQuote: "The scope stayed small because I felt the cost of every decision.",
+      },
+      {
+        type: "tech-stack",
+        chapter: "07",
+        chapterLabel: "Infrastructure",
+        title: "The stack",
+        stack: [
+          { name: "Claude API", role: "AI reflection engine — reads your notes, responds in your voice", category: "AI" },
+          { name: "Supabase", role: "Authentication and Postgres storage for every note", category: "Backend" },
+          { name: "Railway", role: "Express server hosting for the API layer", category: "Infrastructure" },
+          { name: "Vercel", role: "Landing page and marketing site delivery", category: "Infrastructure" },
+          { name: "GitHub", role: "Source control and release pipeline", category: "Tooling" },
+          { name: "Claude Code", role: "AI pair-programming through the entire build", category: "Tooling" },
+        ],
+      },
+      {
+        type: "text",
+        chapter: "08",
+        chapterLabel: "Reflection",
         title: "What I learned",
-        body: "The hardest part wasn't building the AI — it was writing the system prompt. Getting Claude to genuinely mirror someone's voice instead of defaulting to its own required dozens of iterations. I also learned that voice input needs aggressive error handling: browsers drop the mic connection constantly, and the UX has to feel seamless even when the API fails silently.",
+        body: "Owning both sides — design and engineering — changes what you ship. The scope stayed small because I felt the cost of every decision. The interactions stayed simple because I had to build them. The AI stayed honest because I could see when the prompt was doing too much work. Next time I design a product, I'll design it knowing what the wiring underneath actually costs.",
       },
     ],
   },
