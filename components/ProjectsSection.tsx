@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
-import CaseStudyImage from "@/components/CaseStudyImage";
+import ProjectThumbnail from "@/components/ProjectThumbnail";
 import AmbientGrid from "@/components/AmbientGrid";
 
 export default function ProjectsSection() {
@@ -167,12 +167,12 @@ function ProjectCard({
           </div>
         </div>
 
-        {/* Right: cover image */}
-        <CaseStudyImage
-          src={project.coverImage}
-          alt={project.title}
-          label={project.title}
+        {/* Right: cover thumbnail */}
+        <ProjectThumbnail
+          slug={project.slug}
+          title={project.title}
           accentColor={project.accentColor}
+          coverImage={project.coverImage}
         />
       </article>
     </Link>
