@@ -8,6 +8,7 @@ import LiveSiteCTA from "@/components/tinsderm-mockups/LiveSiteCTA";
 import CaseStudyImage from "@/components/CaseStudyImage";
 import PullQuote from "@/components/PullQuote";
 import ClosingCTA from "@/components/ClosingCTA";
+import EchoCaseStudyCover from "@/components/echo-mockups/EchoCaseStudyCover";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -217,12 +218,7 @@ export default async function CaseStudyPage({
                 aspectRatio: "16 / 10",
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/echo/cover-thumbnail.webp"
-                alt="Echo, AI journaling app, cover"
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
+              <EchoCaseStudyCover />
             </div>
           ) : (
             <CaseStudyImage
