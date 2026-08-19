@@ -47,7 +47,16 @@ export default async function CaseStudyPage({
   if (!project) notFound();
 
   return (
-    <main style={{ background: "#171717", minHeight: "100dvh" }}>
+    <main
+      style={{
+        background:
+          `radial-gradient(1100px 650px at 92% -8%, ${project.accentColor}14 0%, transparent 70%), ` +
+          `radial-gradient(900px 600px at 4% 22%, rgba(0,0,0,0.5) 0%, transparent 68%), ` +
+          `radial-gradient(1000px 700px at 12% 96%, ${project.accentColor}0D 0%, transparent 70%), ` +
+          "#171717",
+        minHeight: "100dvh",
+      }}
+    >
       {/* Nav */}
       <nav
         style={{
