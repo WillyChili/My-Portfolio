@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import CaseStudyImage from "@/components/CaseStudyImage";
 
 export default function ProjectsSection() {
   return (
@@ -161,38 +162,12 @@ function ProjectCard({
         </div>
 
         {/* Right: cover image */}
-        <div
-          style={{
-            borderRadius: "12px",
-            overflow: "hidden",
-            aspectRatio: "16 / 9",
-            background: "#1F1E1C",
-            position: "relative",
-          }}
-        >
-          {/* Placeholder gradient while there's no real image */}
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              background: `linear-gradient(135deg, #1F1E1C 0%, ${project.accentColor}22 100%)`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-sans), sans-serif",
-                fontSize: "13px",
-                color: "rgba(232,229,224,0.15)",
-                letterSpacing: "0.05em",
-              }}
-            >
-              {project.title}
-            </span>
-          </div>
-        </div>
+        <CaseStudyImage
+          src={project.coverImage}
+          alt={project.title}
+          label={project.title}
+          accentColor={project.accentColor}
+        />
       </article>
     </Link>
   );

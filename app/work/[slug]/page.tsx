@@ -3,6 +3,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import type { ProjectSection } from "@/lib/projects";
 import ScreensCarousel from "@/components/echo-mockups/ScreensCarousel";
+import CaseStudyImage from "@/components/CaseStudyImage";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -194,28 +195,16 @@ export default async function CaseStudyPage({
             alignItems: "center",
           }}
         >
-          <div
-            style={{
-              borderRadius: "16px",
-              overflow: "hidden",
-              aspectRatio: "16 / 10",
-              background: `linear-gradient(135deg, #1F1E1C 0%, ${project.accentColor}18 100%)`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-sans), sans-serif",
-                fontSize: "14px",
-                color: "rgba(232,229,224,0.12)",
-                letterSpacing: "0.05em",
-              }}
-            >
-              Cover image
-            </span>
-          </div>
+          <CaseStudyImage
+            src={project.coverImage}
+            alt={`${project.title} cover`}
+            label="Cover image"
+            accentColor={project.accentColor}
+            borderRadius="16px"
+            aspectRatio="16 / 10"
+            gradientOpacity="18"
+            labelOpacity={0.12}
+          />
 
           {project.sections[0]?.type === "highlight" && (
             <div
@@ -508,28 +497,16 @@ function Section({
             {section.title}
           </p>
         )}
-        <div
-          style={{
-            borderRadius: "16px",
-            overflow: "hidden",
-            aspectRatio: "16 / 9",
-            background: `linear-gradient(135deg, #1F1E1C 0%, ${accentColor}18 100%)`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "14px",
-              color: "rgba(232,229,224,0.12)",
-              letterSpacing: "0.05em",
-            }}
-          >
-            {section.imageAlt ?? "Image"}
-          </span>
-        </div>
+        <CaseStudyImage
+          src={section.image}
+          alt={section.imageAlt ?? "Image"}
+          label={section.imageAlt ?? "Image"}
+          accentColor={accentColor}
+          borderRadius="16px"
+          aspectRatio="16 / 9"
+          gradientOpacity="18"
+          labelOpacity={0.12}
+        />
       </div>
     );
   }

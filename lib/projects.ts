@@ -78,6 +78,77 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "tins-derm",
+    title: "TINS DERM",
+    company: "Personal Project",
+    year: "2026",
+    tags: ["UX Research", "UI Design", "Design System", "Prototyping"],
+    summary: "A dermatology & skin wellness website redesign built to feel as precise and trustworthy as the care it represents.",
+    coverImage: "/mock/cover-tinsderm.png",
+    accentColor: "#B8965A",
+    role: "UX/UI Designer",
+    duration: "3 weeks",
+    sections: [
+      {
+        type: "highlight",
+        quote: "A dermatology practice's website should feel as trustworthy and precise as the care it provides.",
+      },
+      {
+        type: "text",
+        title: "The brief",
+        body: "TINS DERM needed a site that could do two things at once: reassure patients weighing a medical decision, and sell the aesthetic outcomes of cosmetic treatments. Most dermatology sites lean too clinical or too glossy — I set out to design something that held both registers without feeling split in two.",
+      },
+      {
+        type: "two-col",
+        left: {
+          title: "Research & discovery",
+          body: "I audited dermatology and medical-spa competitors, mapped the patient journey from first symptom search to booked consultation, and identified where trust breaks down — vague credentials, no visible before/afters, buried contact info.",
+        },
+        right: {
+          title: "Design system first",
+          body: "Before any screen, I built the token set: a warm ink/gold palette, a serif for editorial trust paired with a clean sans for clinical clarity, and an 8px spacing scale — so every section stayed consistent as the page grew.",
+        },
+      },
+      {
+        type: "metrics",
+        metrics: [
+          { value: "9", label: "Design phases" },
+          { value: "7", label: "Research areas" },
+          { value: "3", label: "Responsive breakpoints" },
+          { value: "48px", label: "Min. touch target" },
+        ],
+      },
+      {
+        type: "image",
+        image: "/mock/tinsderm-services.png",
+        imageAlt: "TINS DERM services section — medical and cosmetic dermatology cards",
+        title: "Services",
+      },
+      {
+        type: "two-col",
+        left: {
+          title: "Key decisions",
+          body: "Real before/after photography does the persuading, not copy — so the results section leads with proof. Navy and gold signal medical credibility without feeling cold. A single persistent 'Book a Consultation' CTA removes any ambiguity about the next step.",
+        },
+        right: {
+          title: "Responsive approach",
+          body: "Designed desktop-first given the research showing most consultation bookings start on desktop during work hours, then adapted the card grids and navigation down to tablet and mobile without losing the before/after emphasis.",
+        },
+      },
+      {
+        type: "image",
+        image: "/mock/tinsderm-results.png",
+        imageAlt: "TINS DERM real results section with before and after photos",
+        title: "Real results",
+      },
+      {
+        type: "text",
+        title: "Result",
+        body: "The finished site balances clinical trust with cosmetic aspiration — patients can find credentials and treatment details fast, while the gallery and testimonials do the emotional work of showing what's possible. Built end-to-end as a single-file React prototype, then documented into a full case study.",
+      },
+    ],
+  },
+  {
     slug: "onboarding-redesign",
     title: "Onboarding Redesign",
     company: "Traditum",
