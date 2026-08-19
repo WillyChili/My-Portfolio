@@ -84,7 +84,7 @@ export default async function CaseStudyPage({
             fontFamily: "var(--font-pixel)",
             fontSize: "14px",
             letterSpacing: "0.08em",
-            color: "#4A4845",
+            color: "#B0ADA8",
           }}
         >
           {project.company} · {project.year}
