@@ -1,7 +1,7 @@
 export type ProjectTag = "UX Research" | "UI Design" | "Product Strategy" | "Design System" | "Prototyping" | "Usability Testing" | "AI / ML" | "Full-Stack" | "Mobile";
 
 export interface ProjectSection {
-  type: "text" | "image" | "two-col" | "metrics" | "highlight" | "mockup-row";
+  type: "text" | "image" | "two-col" | "metrics" | "highlight" | "mockup-row" | "timeline";
   title?: string;
   body?: string;
   image?: string;
@@ -11,6 +11,7 @@ export interface ProjectSection {
   metrics?: { value: string; label: string }[];
   quote?: string;
   mockupId?: string;
+  phases?: { number: string; title: string; body: string }[];
 }
 
 export interface Project {
@@ -107,6 +108,58 @@ export const projects: Project[] = [
         type: "mockup-row",
         mockupId: "tinsderm-screens",
         title: "The homepage, section by section",
+      },
+      {
+        type: "timeline",
+        title: "The 9 build phases",
+        body: "I structured the build as a sequence of phases, each one reviewed and refined before moving to the next — design system first, then layout by layout, ending with a full responsiveness and motion pass.",
+        phases: [
+          {
+            number: "00",
+            title: "Design system foundation",
+            body: "Color tokens, typography scale (Playfair Display + Inter), spacing system, and shadow levels — defined before a single screen was built.",
+          },
+          {
+            number: "01",
+            title: "Navigation + hero",
+            body: "Editorial, asymmetric hero layout with a real photograph, not a centered SaaS-style headline. Set the tone for the rest of the site.",
+          },
+          {
+            number: "02",
+            title: "Trust bar + about",
+            body: "Credibility stats and a magazine-style brand story to establish authority before asking for anything.",
+          },
+          {
+            number: "03",
+            title: "Services",
+            body: "A 5-card grid with restrained line-icons, built to scan fast without feeling like a generic pricing table.",
+          },
+          {
+            number: "04",
+            title: "Featured treatment",
+            body: "A full-bleed editorial break in the page rhythm — the one section designed to feel different from everything around it.",
+          },
+          {
+            number: "05",
+            title: "Why choose us + before/after gallery",
+            body: "Proof over claims: real before/after pairs do more persuading than another paragraph of copy ever could.",
+          },
+          {
+            number: "06",
+            title: "Testimonials + booking CTA",
+            body: "Patient voices, then a single unambiguous next step: book a consultation.",
+          },
+          {
+            number: "07",
+            title: "Footer",
+            body: "Full site map, contact details, and hours — the practical information patients look for last.",
+          },
+          {
+            number: "08",
+            title: "Polish, responsiveness & motion",
+            body: "IntersectionObserver-driven reveal animations, a full tablet/mobile pass, and a final accessibility and contrast check.",
+          },
+        ],
       },
       {
         type: "two-col",

@@ -339,6 +339,105 @@ function Section({
     );
   }
 
+  if (section.type === "timeline") {
+    return (
+      <div style={{ maxWidth: CONTENT_MAX }}>
+        {section.title && (
+          <h2
+            style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+              color: "#E8E5E0",
+              marginBottom: "0.75rem",
+            }}
+          >
+            {section.title}
+          </h2>
+        )}
+        {section.body && (
+          <p
+            style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontSize: "clamp(1rem, 1.25vw, 1.125rem)",
+              lineHeight: 1.8,
+              color: "#9A9691",
+              marginBottom: "clamp(2rem, 3vw, 2.5rem)",
+              maxWidth: "65ch",
+            }}
+          >
+            {section.body}
+          </p>
+        )}
+        <ol
+          style={{
+            listStyle: "none",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {section.phases?.map((phase, i) => (
+            <li
+              key={phase.number}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "56px 1fr",
+                gap: "clamp(1rem, 2vw, 1.75rem)",
+                padding: "clamp(1.25rem, 2vw, 1.5rem) 0",
+                borderTop:
+                  i === 0 ? "1px solid rgba(232,229,224,0.08)" : "none",
+                borderBottom: "1px solid rgba(232,229,224,0.08)",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-pixel)",
+                  fontSize: "13px",
+                  letterSpacing: "0.06em",
+                  color: accentColor,
+                  opacity: 0.85,
+                  paddingTop: "2px",
+                }}
+              >
+                {phase.number}
+              </span>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.4rem",
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "var(--font-sans), sans-serif",
+                    fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
+                    fontWeight: 500,
+                    color: "#E8E5E0",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {phase.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "var(--font-sans), sans-serif",
+                    fontSize: "clamp(0.9375rem, 1.1vw, 1rem)",
+                    lineHeight: 1.7,
+                    color: "#9A9691",
+                  }}
+                >
+                  {phase.body}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    );
+  }
+
   if (section.type === "mockup-row") {
     return (
       <div>
