@@ -8,6 +8,7 @@ import BrowserCarousel from "@/components/tinsderm-mockups/BrowserCarousel";
 import LiveSiteCTA from "@/components/tinsderm-mockups/LiveSiteCTA";
 import CaseStudyImage from "@/components/CaseStudyImage";
 import PullQuote from "@/components/PullQuote";
+import ClosingCTA from "@/components/ClosingCTA";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -279,6 +280,8 @@ export default async function CaseStudyPage({
           />
         ))}
       </div>
+
+      <ClosingCTA accentColor={project.accentColor} />
 
       {/* Footer nav */}
       <div
