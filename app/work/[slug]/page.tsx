@@ -582,7 +582,7 @@ function Section({
                   fontFamily: "var(--font-pixel)",
                   fontSize: "18px",
                   letterSpacing: "0.08em",
-                  color: accentColor,
+                  color: "#E8E5E0",
                   paddingTop: "2px",
                   minWidth: "40px",
                 }}
