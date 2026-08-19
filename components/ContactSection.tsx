@@ -77,7 +77,7 @@ export default function ContactSection() {
         </p>
 
         <a
-          href="mailto:charly.chaves@coderhouse.com"
+          href="mailto:charlychaves.pd@gmail.com"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -102,7 +102,7 @@ export default function ContactSection() {
             el.style.borderColor = "rgba(232,229,224,0.2)";
           }}
         >
-          charly.chaves@coderhouse.com
+          charlychaves.pd@gmail.com
           <svg
             width="16"
             height="16"

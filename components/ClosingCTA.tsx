@@ -35,7 +35,7 @@ export default function ClosingCTA({ accentColor }: { accentColor: string }) {
       </span>
 
       <a
-        href="mailto:charly.chaves@coderhouse.com"
+        href="mailto:charlychaves.pd@gmail.com"
         style={{
           display: "inline-flex",
           alignItems: "center",
