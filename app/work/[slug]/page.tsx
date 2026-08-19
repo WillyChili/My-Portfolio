@@ -3,6 +3,8 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 import type { ProjectSection } from "@/lib/projects";
 import ScreensCarousel from "@/components/echo-mockups/ScreensCarousel";
+import BrowserCarousel from "@/components/tinsderm-mockups/BrowserCarousel";
+import LiveSiteCTA from "@/components/tinsderm-mockups/LiveSiteCTA";
 import CaseStudyImage from "@/components/CaseStudyImage";
 
 export function generateStaticParams() {
@@ -20,6 +22,16 @@ const CONTENT_MAX = "820px";
 
 const MOCKUP_MAP: Record<string, React.ReactNode> = {
   "all-screens": <ScreensCarousel />,
+  "tinsderm-screens": <BrowserCarousel />,
+  "tinsderm-live": (
+    <div style={{ maxWidth: CONTENT_MAX }}>
+      <LiveSiteCTA
+        href="https://willychili.github.io/Tins-Derm/"
+        screenshot="/mock/cover-tinsderm.png"
+        accentColor="#B8965A"
+      />
+    </div>
+  ),
 };
 
 export default async function CaseStudyPage({

@@ -95,8 +95,18 @@ export const projects: Project[] = [
       },
       {
         type: "text",
+        title: "The challenge",
+        body: "This one started as a self-directed design challenge, not a client brief: take a fictional luxury dermatology practice from a written brand brief to a fully designed, responsive, production-quality homepage — on my own, end to end. No client to ask, no existing brand to lean on. The constraint was the point: it forced real decisions about tone, hierarchy, and trust with nothing to fall back on.",
+      },
+      {
+        type: "text",
         title: "The brief",
-        body: "TINS DERM needed a site that could do two things at once: reassure patients weighing a medical decision, and sell the aesthetic outcomes of cosmetic treatments. Most dermatology sites lean too clinical or too glossy — I set out to design something that held both registers without feeling split in two.",
+        body: "TINS DERM needed a site that could do two things at once: reassure patients weighing a medical decision, and sell the aesthetic outcomes of cosmetic treatments. Most dermatology sites lean too clinical or too glossy — I set out to design something that held both registers without feeling split in two, working from a strict brand brief: a navy-and-gold palette, an editorial serif paired with a clinical sans, and an explicit 'no generic SaaS gradients, no stock-photo placeholders' rule to keep the craft honest.",
+      },
+      {
+        type: "mockup-row",
+        mockupId: "tinsderm-screens",
+        title: "The homepage, section by section",
       },
       {
         type: "two-col",
@@ -119,12 +129,6 @@ export const projects: Project[] = [
         ],
       },
       {
-        type: "image",
-        image: "/mock/tinsderm-services.png",
-        imageAlt: "TINS DERM services section — medical and cosmetic dermatology cards",
-        title: "Services",
-      },
-      {
         type: "two-col",
         left: {
           title: "Key decisions",
@@ -136,15 +140,13 @@ export const projects: Project[] = [
         },
       },
       {
-        type: "image",
-        image: "/mock/tinsderm-results.png",
-        imageAlt: "TINS DERM real results section with before and after photos",
-        title: "Real results",
-      },
-      {
         type: "text",
         title: "Result",
-        body: "The finished site balances clinical trust with cosmetic aspiration — patients can find credentials and treatment details fast, while the gallery and testimonials do the emotional work of showing what's possible. Built end-to-end as a single-file React prototype, then documented into a full case study.",
+        body: "The finished site balances clinical trust with cosmetic aspiration — patients can find credentials and treatment details fast, while the gallery and testimonials do the emotional work of showing what's possible. Built end-to-end as a single-file React prototype, then documented into a full case study on its own design process.",
+      },
+      {
+        type: "mockup-row",
+        mockupId: "tinsderm-live",
       },
     ],
   },
