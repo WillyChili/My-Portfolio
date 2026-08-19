@@ -1,4 +1,5 @@
 "use client";
+import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
 
 export default function LiveSiteCTA({
   href,
@@ -9,6 +10,8 @@ export default function LiveSiteCTA({
   screenshot: string;
   accentColor: string;
 }) {
+  const reduced = usePrefersReducedMotion();
+
   return (
     <a
       href={href}
@@ -22,12 +25,23 @@ export default function LiveSiteCTA({
         border: `1px solid ${accentColor}33`,
         background: "#1F1E1C",
         position: "relative",
+        transform: "translateY(0)",
+        boxShadow: "0 0px 0px rgba(0,0,0,0)",
+        transition: "border-color 0.2s ease, transform 0.25s ease, box-shadow 0.25s ease",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = `${accentColor}88`;
+        const el = e.currentTarget as HTMLElement;
+        el.style.borderColor = `${accentColor}88`;
+        if (!reduced) {
+          el.style.transform = "translateY(-2px)";
+          el.style.boxShadow = "0 16px 40px rgba(0,0,0,0.35)";
+        }
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = `${accentColor}33`;
+        const el = e.currentTarget as HTMLElement;
+        el.style.borderColor = `${accentColor}33`;
+        el.style.transform = "translateY(0)";
+        el.style.boxShadow = "0 0px 0px rgba(0,0,0,0)";
       }}
     >
       {/* Browser chrome */}

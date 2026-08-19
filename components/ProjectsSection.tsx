@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import { projects } from "@/lib/projects";
 import CaseStudyImage from "@/components/CaseStudyImage";
+import Reveal from "@/components/Reveal";
 
 export default function ProjectsSection() {
   return (
@@ -13,6 +15,7 @@ export default function ProjectsSection() {
       }}
     >
       {/* Section header */}
+      <Reveal>
       <div
         style={{
           display: "flex",
@@ -44,6 +47,7 @@ export default function ProjectsSection() {
           {projects.length} projects
         </span>
       </div>
+      </Reveal>
 
       {/* Project list */}
       <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
@@ -62,6 +66,8 @@ function ProjectCard({
   project: (typeof projects)[number];
   index: number;
 }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <Link
       href={`/work/${project.slug}`}
@@ -77,14 +83,11 @@ function ProjectCard({
           padding: "clamp(1.5rem, 3vw, 2.5rem) 0",
           borderBottom: "1px solid rgba(232,229,224,0.06)",
           cursor: "pointer",
+          opacity: hovered ? 0.7 : 1,
           transition: "opacity 0.25s ease",
         }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.opacity = "0.7";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.opacity = "1";
-        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
         {/* Left: text */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -167,6 +170,7 @@ function ProjectCard({
           alt={project.title}
           label={project.title}
           accentColor={project.accentColor}
+          hovered={hovered}
         />
       </article>
     </Link>

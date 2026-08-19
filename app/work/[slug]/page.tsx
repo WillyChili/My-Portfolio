@@ -8,6 +8,7 @@ import BrowserCarousel from "@/components/tinsderm-mockups/BrowserCarousel";
 import LiveSiteCTA from "@/components/tinsderm-mockups/LiveSiteCTA";
 import CaseStudyImage from "@/components/CaseStudyImage";
 import PullQuote from "@/components/PullQuote";
+import BackLink from "@/components/BackLink";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -64,21 +65,7 @@ export default async function CaseStudyPage({
           borderBottom: "1px solid rgba(232,229,224,0.06)",
         }}
       >
-        <Link
-          href="/"
-          style={{
-            fontFamily: "var(--font-pixel)",
-            fontSize: "14px",
-            letterSpacing: "0.08em",
-            color: "#B0ADA8",
-            textDecoration: "none",
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-          }}
-        >
-          ← Back
-        </Link>
+        <BackLink />
         <span
           style={{
             fontFamily: "var(--font-pixel)",

@@ -1,10 +1,16 @@
 "use client";
 import { useState } from "react";
+import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
 
 /**
  * Renders a real image when `src` is provided and loads successfully.
  * Falls back to the existing gradient + label placeholder otherwise,
  * so projects without real photography keep their current look.
+ *
+ * `hovered` is externally controlled (not self-detected) so a parent
+ * card can sync the image's zoom to its own hover state without this
+ * component implying clickability wherever it's used non-interactively
+ * (e.g. inline case-study images).
  */
 export default function CaseStudyImage({
   src,
@@ -15,6 +21,7 @@ export default function CaseStudyImage({
   aspectRatio = "16 / 9",
   gradientOpacity = "22",
   labelOpacity = 0.15,
+  hovered = false,
 }: {
   src?: string;
   alt: string;
@@ -24,9 +31,16 @@ export default function CaseStudyImage({
   aspectRatio?: string;
   gradientOpacity?: string;
   labelOpacity?: number;
+  hovered?: boolean;
 }) {
   const [errored, setErrored] = useState(false);
   const showImage = Boolean(src) && !errored;
+  const reduced = usePrefersReducedMotion();
+
+  const zoomStyle = {
+    transform: hovered && !reduced ? "scale(1.03)" : "scale(1)",
+    transition: "transform 0.3s ease",
+  };
 
   return (
     <div
@@ -50,6 +64,7 @@ export default function CaseStudyImage({
             objectFit: "cover",
             objectPosition: "top",
             display: "block",
+            ...zoomStyle,
           }}
         />
       ) : (
@@ -61,6 +76,7 @@ export default function CaseStudyImage({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            ...zoomStyle,
           }}
         >
           <span

@@ -1,4 +1,5 @@
 "use client";
+import Reveal from "@/components/Reveal";
 
 export default function ContactSection() {
   return (
@@ -11,6 +12,7 @@ export default function ContactSection() {
       }}
     >
       {/* Section header */}
+      <Reveal>
       <div
         style={{
           display: "flex",
@@ -32,8 +34,10 @@ export default function ContactSection() {
           Contact
         </span>
       </div>
+      </Reveal>
 
       {/* CTA */}
+      <Reveal delay={0.1}>
       <div
         style={{
           display: "flex",
@@ -109,6 +113,7 @@ export default function ContactSection() {
           </svg>
         </a>
       </div>
+      </Reveal>
     </section>
   );
 }
