@@ -15,7 +15,11 @@ export default function EchoCaseStudyCover() {
         position: "relative",
         width: "100%",
         height: "100%",
-        background: "linear-gradient(135deg, #0A0A0A 0%, #0D1512 50%, #0A0A0A 100%)",
+        background:
+          "radial-gradient(ellipse 65% 55% at 82% 12%, rgba(24,36,30,0.55) 0%, transparent 62%), " +
+          "radial-gradient(ellipse 75% 65% at 10% 90%, rgba(4,4,4,0.65) 0%, transparent 68%), " +
+          "radial-gradient(ellipse 55% 45% at 45% 45%, rgba(14,22,19,0.4) 0%, transparent 72%), " +
+          "linear-gradient(135deg, #0A0A0A 0%, #0D1512 50%, #08100C 100%)",
         overflow: "hidden",
       }}
     >
