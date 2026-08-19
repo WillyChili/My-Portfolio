@@ -73,6 +73,72 @@ function drawBlob(ctx, cx, cy, scale, rgbaFill) {
   ctx.restore();
 }
 
+// Procedural "paper" texture: since the output is a baked static image
+// (no live WebGL context), a real fragment shader isn't applicable, so
+// this reproduces the same visual idea, fractal grain + directional
+// fiber strokes, composited with blend modes instead of drawn per-pixel
+// in GLSL. Two noise octaves (coarse mottling + fine tooth) plus faint
+// fiber lines is what reads as "paper" rather than flat digital noise.
+function makeNoiseCanvas(w, h) {
+  const nc = createCanvas(w, h);
+  const nctx = nc.getContext("2d");
+  const imgData = nctx.createImageData(w, h);
+  const data = imgData.data;
+  for (let i = 0; i < data.length; i += 4) {
+    const v = Math.random() * 255;
+    data[i] = v;
+    data[i + 1] = v;
+    data[i + 2] = v;
+    data[i + 3] = 255;
+  }
+  nctx.putImageData(imgData, 0, 0);
+  return nc;
+}
+
+function drawPaperTexture(ctx, w, h) {
+  // Coarse octave: low-res noise stretched up (bilinear smoothing turns
+  // per-pixel static into soft blotchy mottling, like uneven paper pulp).
+  const coarse = makeNoiseCanvas(Math.round(w / 10), Math.round(h / 10));
+  ctx.save();
+  ctx.globalCompositeOperation = "overlay";
+  ctx.globalAlpha = 0.55;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(coarse, 0, 0, w, h);
+  ctx.restore();
+
+  // Fine octave: near-full-res noise at low alpha for grain/tooth.
+  const fine = makeNoiseCanvas(Math.round(w / 2), Math.round(h / 2));
+  ctx.save();
+  ctx.globalCompositeOperation = "overlay";
+  ctx.globalAlpha = 0.1;
+  ctx.drawImage(fine, 0, 0, w, h);
+  ctx.restore();
+
+  // Directional fiber strokes, faint, random angle and length, the way
+  // pressed paper fiber catches light unevenly.
+  ctx.save();
+  ctx.globalCompositeOperation = "overlay";
+  const fiberCount = 140;
+  for (let i = 0; i < fiberCount; i++) {
+    const x = Math.random() * w;
+    const y = Math.random() * h;
+    const len = 18 + Math.random() * 46;
+    const angle = Math.random() * Math.PI;
+    const dx = Math.cos(angle) * len;
+    const dy = Math.sin(angle) * len;
+    const bright = Math.random() > 0.5;
+    ctx.strokeStyle = bright
+      ? `rgba(255,255,255,${0.03 + Math.random() * 0.04})`
+      : `rgba(0,0,0,${0.03 + Math.random() * 0.04})`;
+    ctx.lineWidth = 1 + Math.random();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + dx, y + dy);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
 function roundRectPath(ctx, x, y, w, h, r) {
   ctx.beginPath();
   ctx.moveTo(x + r, y);
@@ -98,6 +164,9 @@ async function generate(key) {
   bg.addColorStop(1, "#0A0A0A");
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, W, H);
+
+  // Paper grain shader (procedural, baked in, see drawPaperTexture above).
+  drawPaperTexture(ctx, W, H);
 
   // Fine dot grid, very subtle, same vocabulary as the rest of the site.
   ctx.strokeStyle = "rgba(232,229,224,0.035)";
