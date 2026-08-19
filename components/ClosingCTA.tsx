@@ -34,56 +34,35 @@ export default function ClosingCTA({ accentColor }: { accentColor: string }) {
         Thanks for reading
       </span>
 
-      <h2
-        style={{
-          fontFamily: "var(--font-sans), sans-serif",
-          fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-          fontWeight: 400,
-          lineHeight: 1.2,
-          letterSpacing: "-0.02em",
-          color: "#E8E5E0",
-          maxWidth: "520px",
-        }}
-      >
-        Got a project like this in mind?
-      </h2>
-
-      <p
-        style={{
-          fontFamily: "var(--font-sans), sans-serif",
-          fontSize: "16px",
-          lineHeight: 1.7,
-          color: "#7A7773",
-          maxWidth: "440px",
-        }}
-      >
-        I&apos;m always up for a good problem — reach out and let&apos;s talk about it.
-      </p>
-
       <a
         href="mailto:charly.chaves@coderhouse.com"
         style={{
           display: "inline-flex",
           alignItems: "center",
-          gap: "0.75rem",
+          gap: "0.6rem",
           fontFamily: "var(--font-sans), sans-serif",
           fontSize: "16px",
-          color: "#E8E5E0",
+          fontWeight: 500,
+          color: "#171717",
+          background: accentColor,
           textDecoration: "none",
-          borderBottom: "1px solid rgba(232,229,224,0.2)",
-          paddingBottom: "4px",
-          marginTop: "0.5rem",
-          transition: "border-color 0.2s, color 0.2s",
+          borderRadius: "8px",
+          padding: "0.9rem 1.75rem",
+          marginTop: "0.75rem",
+          boxShadow: `0 0 0 0 ${accentColor}00`,
+          transition: "transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.2s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.2s ease",
         }}
         onMouseEnter={(e) => {
           const el = e.currentTarget as HTMLAnchorElement;
-          el.style.color = "#fff";
-          el.style.borderColor = "rgba(232,229,224,0.6)";
+          el.style.transform = "translateY(-2px)";
+          el.style.boxShadow = `0 8px 24px -8px ${accentColor}80`;
+          el.style.opacity = "0.92";
         }}
         onMouseLeave={(e) => {
           const el = e.currentTarget as HTMLAnchorElement;
-          el.style.color = "#E8E5E0";
-          el.style.borderColor = "rgba(232,229,224,0.2)";
+          el.style.transform = "translateY(0)";
+          el.style.boxShadow = `0 0 0 0 ${accentColor}00`;
+          el.style.opacity = "1";
         }}
       >
         Contact me
