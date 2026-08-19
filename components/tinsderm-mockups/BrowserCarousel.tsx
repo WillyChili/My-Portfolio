@@ -3,31 +3,31 @@
 const SCREENS = [
   {
     src: "/mock/cover-tinsderm.png",
-    alt: "TINS DERM — hero section, 'Nurture your glow'",
+    alt: "TINS DERM, hero section, 'Nurture your glow'",
     path: "tinsderm.com",
     kind: "browser" as const,
   },
   {
     src: "/mock/tinsderm-services.png",
-    alt: "TINS DERM — services grid with line-icon treatment cards",
+    alt: "TINS DERM, services grid with line-icon treatment cards",
     path: "tinsderm.com/#services",
     kind: "browser" as const,
   },
   {
     src: "/mock/tinsderm-results.png",
-    alt: "TINS DERM — before/after real results gallery",
+    alt: "TINS DERM, before/after real results gallery",
     path: "tinsderm.com/#results",
     kind: "browser" as const,
   },
   {
     src: "/mock/tinsderm-testimonials.png",
-    alt: "TINS DERM — patient testimonials carousel",
+    alt: "TINS DERM, patient testimonials carousel",
     path: "tinsderm.com/#testimonials",
     kind: "browser" as const,
   },
   {
     src: "/mock/tinsderm-mobile.png",
-    alt: "TINS DERM — mobile hero, responsive layout",
+    alt: "TINS DERM, mobile hero, responsive layout",
     path: "",
     kind: "phone" as const,
   },

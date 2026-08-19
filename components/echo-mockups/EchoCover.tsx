@@ -49,7 +49,7 @@ export default function EchoCover() {
           filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.6)) drop-shadow(0 20px 30px rgba(0,0,0,0.4))",
         }}
       >
-        {/* Outer frame — titanium bezel */}
+        {/* Outer frame, titanium bezel */}
         <div
           style={{
             position: "absolute",
@@ -71,7 +71,7 @@ export default function EchoCover() {
             }}
           />
 
-          {/* Screen bezel — inner black frame */}
+          {/* Screen bezel, inner black frame */}
           <div
             style={{
               position: "absolute",
@@ -84,7 +84,7 @@ export default function EchoCover() {
             {/* Actual screen content */}
             <img
               src="/echo/home-notes.jpeg"
-              alt="Echo app — daily notes screen"
+              alt="Echo app, daily notes screen"
               style={{
                 width: "100%",
                 height: "100%",
@@ -108,7 +108,7 @@ export default function EchoCover() {
               }}
             />
 
-            {/* Screen glare — very subtle diagonal reflection */}
+            {/* Screen glare, very subtle diagonal reflection */}
             <div
               style={{
                 position: "absolute",
@@ -120,7 +120,7 @@ export default function EchoCover() {
             />
           </div>
 
-          {/* Side buttons — right side power */}
+          {/* Side buttons, right side power */}
           <div
             style={{
               position: "absolute",
@@ -133,7 +133,7 @@ export default function EchoCover() {
             }}
           />
 
-          {/* Side buttons — left side volume up */}
+          {/* Side buttons, left side volume up */}
           <div
             style={{
               position: "absolute",
@@ -146,7 +146,7 @@ export default function EchoCover() {
             }}
           />
 
-          {/* Side buttons — left side volume down */}
+          {/* Side buttons, left side volume down */}
           <div
             style={{
               position: "absolute",
@@ -159,7 +159,7 @@ export default function EchoCover() {
             }}
           />
 
-          {/* Side buttons — left side action button (mute) */}
+          {/* Side buttons, left side action button (mute) */}
           <div
             style={{
               position: "absolute",

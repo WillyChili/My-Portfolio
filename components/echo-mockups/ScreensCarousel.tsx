@@ -3,17 +3,17 @@
 import { useEffect, useRef } from "react";
 
 const SCREENS = [
-  { src: "/echo/login.jpeg", alt: "Login — echo, tu reflexión personal con IA" },
-  { src: "/echo/onboarding-1.jpeg", alt: "Hi, I'm Echo — welcome screen" },
-  { src: "/echo/onboarding-2.jpeg", alt: "What should I call you? — personalization" },
-  { src: "/echo/onboarding-3.jpeg", alt: "Share. I'm listening — value proposition" },
-  { src: "/echo/home-empty.jpeg", alt: "Home — empty state with voice input" },
-  { src: "/echo/home-listening.jpeg", alt: "Home — voice recording active" },
-  { src: "/echo/home-first-note.jpeg", alt: "Home — first note saved" },
-  { src: "/echo/home-notes.jpeg", alt: "Home — notes list with entries" },
-  { src: "/echo/echo-summary.jpeg", alt: "Echo — AI-generated daily summary" },
-  { src: "/echo/home-select.jpeg", alt: "Home — note selection mode" },
-  { src: "/echo/settings.jpeg", alt: "Settings — appearance, language, personality" },
+  { src: "/echo/login.jpeg", alt: "Login, echo, tu reflexión personal con IA" },
+  { src: "/echo/onboarding-1.jpeg", alt: "Hi, I'm Echo, welcome screen" },
+  { src: "/echo/onboarding-2.jpeg", alt: "What should I call you? Personalization" },
+  { src: "/echo/onboarding-3.jpeg", alt: "Share. I'm listening, value proposition" },
+  { src: "/echo/home-empty.jpeg", alt: "Home, empty state with voice input" },
+  { src: "/echo/home-listening.jpeg", alt: "Home, voice recording active" },
+  { src: "/echo/home-first-note.jpeg", alt: "Home, first note saved" },
+  { src: "/echo/home-notes.jpeg", alt: "Home, notes list with entries" },
+  { src: "/echo/echo-summary.jpeg", alt: "Echo, AI-generated daily summary" },
+  { src: "/echo/home-select.jpeg", alt: "Home, note selection mode" },
+  { src: "/echo/settings.jpeg", alt: "Settings, appearance, language, personality" },
 ];
 
 const DUPLICATED = [...SCREENS, ...SCREENS];
