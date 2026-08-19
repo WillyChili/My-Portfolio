@@ -73,7 +73,7 @@ export default function ContactSection() {
           }}
         >
           Whether it&apos;s a new product, a redesign, or just an interesting
-          problem — I&apos;m always open to a conversation.
+          problem, I&apos;m always open to a conversation.
         </p>
 
         <a

@@ -22,7 +22,7 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: "Charly Chaves",
-  description: "Designer and developer passionate about building memorable digital experiences.",
+  description: "Product Designer based in Buenos Aires, working across education, fintech, and SaaS.",
   icons: {
     icon: "/favicon.png",
   },

@@ -62,7 +62,7 @@ export default function AboutSection() {
               color: "#E8E5E0",
             }}
           >
-            I design experiences that feel obvious — after someone else built the hard version.
+            I design experiences that feel obvious, after someone else built the hard version.
           </h2>
           <p
             style={{
@@ -73,7 +73,7 @@ export default function AboutSection() {
             }}
           >
             I&apos;m a Product Designer based in Buenos Aires. I&apos;ve worked across education,
-            fintech, and SaaS — always focused on the gap between what a product
+            fintech, and SaaS, always focused on the gap between what a product
             does and how people actually experience it.
           </p>
           <p

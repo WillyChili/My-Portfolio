@@ -48,14 +48,14 @@ export const projects: Project[] = [
     sections: [
       {
         type: "highlight",
-        quote: "What if your journal could talk back — in your own voice?",
+        quote: "What if your journal could talk back, in your own voice?",
       },
       {
         type: "text",
         chapter: "01",
         chapterLabel: "Context",
         title: "The spark",
-        body: "I journal almost every day. Voice notes on my phone, scribbles in Notion, half-finished thoughts in Apple Notes. All those words just sat there — never re-read, never resurfaced. I started wondering: what if my journal could actually reflect something back to me, in my own voice?",
+        body: "I journal almost every day. Voice notes on my phone, scribbles in Notion, half-finished thoughts in Apple Notes. All those words just sat there, never re-read, never resurfaced. I started wondering: what if my journal could actually reflect something back to me, in my own voice?",
         pullQuote: "The words were there. What was missing was the mirror.",
       },
       {
@@ -82,7 +82,7 @@ export const projects: Project[] = [
           {
             label: "04",
             title: "The direction",
-            body: "Echo shouldn't be another notes app fighting for space. It should be a mirror — something that makes writing feel worth it because the words come back.",
+            body: "Echo shouldn't be another notes app fighting for space. It should be a mirror: something that makes writing feel worth it because the words come back.",
           },
         ],
       },
@@ -91,7 +91,7 @@ export const projects: Project[] = [
         chapter: "03",
         chapterLabel: "Concept",
         title: "The concept",
-        body: "You write freely every day — text or voice. When you're ready, you open a conversation with Echo. It reads all your past entries and responds in your style: your sentence length, your tone, your recurring themes. The more you write, the more it sounds like you.",
+        body: "You write freely every day, in text or voice. When you're ready, you open a conversation with Echo. It reads all your past entries and responds in your style: your sentence length, your tone, your recurring themes. The more you write, the more it sounds like you.",
       },
       {
         type: "mockup-row",
@@ -106,11 +106,11 @@ export const projects: Project[] = [
         chapterLabel: "Craft",
         left: {
           title: "Design decisions",
-          body: "One textarea, not multiple fields. Dark mode only — journaling is personal, intimate. Squircle corners everywhere for warmth. Mint as the sole accent color: calming but alive. The UI stays out of the way so the words are the focus.",
+          body: "One textarea, not multiple fields. Dark mode only, because journaling is personal, intimate. Squircle corners everywhere for warmth. Mint as the sole accent color: calming but alive. The UI stays out of the way so the words are the focus.",
         },
         right: {
           title: "The prompt as design",
-          body: "The hardest interface wasn't visual — it was the system prompt. Getting Claude to genuinely mirror someone's voice instead of defaulting to its own required dozens of iterations. That prompt is where the product actually lives.",
+          body: "The hardest interface wasn't visual. It was the system prompt. Getting Claude to genuinely mirror someone's voice instead of defaulting to its own required dozens of iterations. That prompt is where the product actually lives.",
         },
       },
       {
@@ -118,7 +118,7 @@ export const projects: Project[] = [
         chapter: "06",
         chapterLabel: "Building",
         title: "From designer to builder",
-        body: "I've spent years designing products that other engineers build. With Echo I wanted to own the whole thing — figure out where the design idea breaks against real infrastructure, and where the code shapes the design back. I paired with Claude Code as a co-pilot, but every architectural decision, every API call, every deployment was mine to make. That changed how I designed. Loading times aren't abstract anymore. Rate limits stop being someone else's problem. The auth flow gets scoped down because I'm the one wiring it up.",
+        body: "I've spent years designing products that other engineers build. With Echo I wanted to own the whole thing: figure out where the design idea breaks against real infrastructure, and where the code shapes the design back. I paired with Claude Code as a co-pilot, but every architectural decision, every API call, every deployment was mine to make. That changed how I designed. Loading times aren't abstract anymore. Rate limits stop being someone else's problem. The auth flow gets scoped down because I'm the one wiring it up.",
         pullQuote: "The scope stayed small because I felt the cost of every decision.",
       },
       {
@@ -127,7 +127,7 @@ export const projects: Project[] = [
         chapterLabel: "Infrastructure",
         title: "The stack",
         stack: [
-          { name: "Claude API", role: "AI reflection engine — reads your notes, responds in your voice", category: "AI" },
+          { name: "Claude API", role: "AI reflection engine that reads your notes and responds in your voice", category: "AI" },
           { name: "Supabase", role: "Authentication and Postgres storage for every note", category: "Backend" },
           { name: "Railway", role: "Express server hosting for the API layer", category: "Infrastructure" },
           { name: "Vercel", role: "Landing page and marketing site delivery", category: "Infrastructure" },
@@ -140,7 +140,7 @@ export const projects: Project[] = [
         chapter: "08",
         chapterLabel: "Reflection",
         title: "What I learned",
-        body: "Owning both sides — design and engineering — changes what you ship. The scope stayed small because I felt the cost of every decision. The interactions stayed simple because I had to build them. The AI stayed honest because I could see when the prompt was doing too much work. Next time I design a product, I'll design it knowing what the wiring underneath actually costs.",
+        body: "Owning both sides, design and engineering, changes what you ship. The scope stayed small because I felt the cost of every decision. The interactions stayed simple because I had to build them. The AI stayed honest because I could see when the prompt was doing too much work. Next time I design a product, I'll design it knowing what the wiring underneath actually costs.",
       },
     ],
   },
@@ -163,12 +163,12 @@ export const projects: Project[] = [
       {
         type: "text",
         title: "The challenge",
-        body: "This one started as a self-directed design challenge, not a client brief: take a fictional luxury dermatology practice from a written brand brief to a fully designed, responsive, production-quality homepage — on my own, end to end. No client to ask, no existing brand to lean on. The constraint was the point: it forced real decisions about tone, hierarchy, and trust with nothing to fall back on.",
+        body: "This one started as a self-directed design challenge, not a client brief: take a fictional luxury dermatology practice from a written brand brief to a fully designed, responsive, production-quality homepage, on my own, end to end. No client to ask, no existing brand to lean on. The constraint was the point: it forced real decisions about tone, hierarchy, and trust with nothing to fall back on.",
       },
       {
         type: "text",
         title: "The brief",
-        body: "TINS DERM needed a site that could do two things at once: reassure patients weighing a medical decision, and sell the aesthetic outcomes of cosmetic treatments. Most dermatology sites lean too clinical or too glossy — I set out to design something that held both registers without feeling split in two, working from a strict brand brief: a navy-and-gold palette, an editorial serif paired with a clinical sans, and an explicit 'no generic SaaS gradients, no stock-photo placeholders' rule to keep the craft honest.",
+        body: "TINS DERM needed a site that could do two things at once: reassure patients weighing a medical decision, and sell the aesthetic outcomes of cosmetic treatments. Most dermatology sites lean too clinical or too glossy. I set out to design something that held both registers without feeling split in two, working from a strict brand brief: a navy-and-gold palette, an editorial serif paired with a clinical sans, and an explicit 'no generic SaaS gradients, no stock-photo placeholders' rule to keep the craft honest.",
       },
       {
         type: "mockup-row",
@@ -178,12 +178,12 @@ export const projects: Project[] = [
       {
         type: "timeline",
         title: "The 9 build phases",
-        body: "I structured the build as a sequence of phases, each one reviewed and refined before moving to the next — design system first, then layout by layout, ending with a full responsiveness and motion pass.",
+        body: "I structured the build as a sequence of phases, each one reviewed and refined before moving to the next: design system first, then layout by layout, ending with a full responsiveness and motion pass.",
         phases: [
           {
             number: "00",
             title: "Design system foundation",
-            body: "Color tokens, typography scale (Playfair Display + Inter), spacing system, and shadow levels — defined before a single screen was built.",
+            body: "Color tokens, typography scale (Playfair Display + Inter), spacing system, and shadow levels, all defined before a single screen was built.",
           },
           {
             number: "01",
@@ -203,7 +203,7 @@ export const projects: Project[] = [
           {
             number: "04",
             title: "Featured treatment",
-            body: "A full-bleed editorial break in the page rhythm — the one section designed to feel different from everything around it.",
+            body: "A full-bleed editorial break in the page rhythm: the one section designed to feel different from everything around it.",
           },
           {
             number: "05",
@@ -218,7 +218,7 @@ export const projects: Project[] = [
           {
             number: "07",
             title: "Footer",
-            body: "Full site map, contact details, and hours — the practical information patients look for last.",
+            body: "Full site map, contact details, and hours: the practical information patients look for last.",
           },
           {
             number: "08",
@@ -231,11 +231,11 @@ export const projects: Project[] = [
         type: "two-col",
         left: {
           title: "Research & discovery",
-          body: "I audited dermatology and medical-spa competitors, mapped the patient journey from first symptom search to booked consultation, and identified where trust breaks down — vague credentials, no visible before/afters, buried contact info.",
+          body: "I audited dermatology and medical-spa competitors, mapped the patient journey from first symptom search to booked consultation, and identified where trust breaks down: vague credentials, no visible before/afters, buried contact info.",
         },
         right: {
           title: "Design system first",
-          body: "Before any screen, I built the token set: a warm ink/gold palette, a serif for editorial trust paired with a clean sans for clinical clarity, and an 8px spacing scale — so every section stayed consistent as the page grew.",
+          body: "Before any screen, I built the token set: a warm ink/gold palette, a serif for editorial trust paired with a clean sans for clinical clarity, and an 8px spacing scale, so every section stayed consistent as the page grew.",
         },
       },
       {
@@ -251,7 +251,7 @@ export const projects: Project[] = [
         type: "two-col",
         left: {
           title: "Key decisions",
-          body: "Real before/after photography does the persuading, not copy — so the results section leads with proof. Navy and gold signal medical credibility without feeling cold. A single persistent 'Book a Consultation' CTA removes any ambiguity about the next step.",
+          body: "Real before/after photography does the persuading, not copy, so the results section leads with proof. Navy and gold signal medical credibility without feeling cold. A single persistent 'Book a Consultation' CTA removes any ambiguity about the next step.",
         },
         right: {
           title: "Responsive approach",
@@ -261,7 +261,7 @@ export const projects: Project[] = [
       {
         type: "text",
         title: "Result",
-        body: "The finished site balances clinical trust with cosmetic aspiration — patients can find credentials and treatment details fast, while the gallery and testimonials do the emotional work of showing what's possible. Built end-to-end as a single-file React prototype, then documented into a full case study on its own design process.",
+        body: "The finished site balances clinical trust with cosmetic aspiration: patients can find credentials and treatment details fast, while the gallery and testimonials show what's possible. Built end-to-end as a single-file React prototype, then documented into a full case study on its own design process.",
       },
       {
         type: "mockup-row",
@@ -303,7 +303,7 @@ export const projects: Project[] = [
         },
         right: {
           title: "Solution",
-          body: "Introduced a progressive disclosure pattern — surface the core feature immediately, collect data lazily as context becomes relevant. Added micro-copy that explains why each field is needed.",
+          body: "Introduced a progressive disclosure pattern: surface the core feature immediately, collect data lazily as context becomes relevant. Added micro-copy that explains why each field is needed.",
         },
       },
       {
