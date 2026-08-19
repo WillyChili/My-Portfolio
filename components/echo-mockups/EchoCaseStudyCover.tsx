@@ -34,57 +34,21 @@ export default function EchoCaseStudyCover() {
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
       />
 
-      {/* Phone mockup, same treatment as cover-thumbnail.webp / EchoCover */}
-      <div
+      {/* Phone mockup: real 3D render (login screen), shadow baked into the asset */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/echo/login-mockup-3d.webp"
+        alt="Echo, login screen, 3D phone mockup"
         style={{
           position: "absolute",
-          right: "6%",
+          right: "3%",
           top: "50%",
-          height: "92%",
-          aspectRatio: "9.35 / 20.24",
-          transform: "translateY(-50%) rotate(-4deg)",
-          filter:
-            "drop-shadow(0 40px 60px rgba(0,0,0,0.6)) drop-shadow(0 20px 30px rgba(0,0,0,0.4))",
+          height: "88%",
+          width: "auto",
+          transform: "translateY(-50%)",
+          objectFit: "contain",
         }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            borderRadius: "14%",
-            background: "linear-gradient(145deg, #2a2a2c 0%, #1a1a1c 40%, #0a0a0c 100%)",
-            padding: "3.5%",
-            boxSizing: "border-box",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              inset: "1.8%",
-              borderRadius: "12%",
-              background: "#000",
-              overflow: "hidden",
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/echo/home-notes.jpeg"
-              alt="Echo, daily notes screen"
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-            />
-            {/* Screen glare */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(115deg, rgba(255,255,255,0.06) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.03) 100%)",
-                pointerEvents: "none",
-              }}
-            />
-          </div>
-        </div>
-      </div>
+      />
 
       {/* Scrim so the title stays legible over the shader */}
       <div
