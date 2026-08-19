@@ -735,9 +735,7 @@ function Section({
             style={{
               marginTop: "clamp(1.5rem, 2.5vw, 2rem)",
               padding: "clamp(1.25rem, 2vw, 1.75rem) clamp(1.5rem, 2.5vw, 2rem)",
-              background: `linear-gradient(135deg, ${accentColor}0F 0%, transparent 100%)`,
-              borderLeft: `3px solid ${accentColor}`,
-              borderRadius: "0 12px 12px 0",
+              borderLeft: "3px solid rgba(232,229,224,0.18)",
             }}
           >
             <p
