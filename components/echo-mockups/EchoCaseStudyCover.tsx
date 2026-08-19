@@ -87,13 +87,13 @@ export default function EchoCaseStudyCover() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(ellipse at 6% 92%, rgba(0,0,0,0.6) 0%, transparent 55%)",
+          background: "radial-gradient(ellipse at 6% 8%, rgba(0,0,0,0.6) 0%, transparent 55%)",
           pointerEvents: "none",
         }}
       />
 
       {/* Title + subtitle, max 2 levels of text */}
-      <div style={{ position: "absolute", left: "6.5%", bottom: "8%" }}>
+      <div style={{ position: "absolute", left: "6.5%", top: "8%" }}>
         <div
           style={{
             fontFamily: "var(--font-sans), sans-serif",
