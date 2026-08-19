@@ -732,10 +732,10 @@ function Section({
         )}
         {section.pullQuote && (
           <div
+            className="border-l-[3px] border-white/[0.18] hover:border-white/40 hover:bg-white/[0.02] transition-colors duration-300"
             style={{
               marginTop: "clamp(1.5rem, 2.5vw, 2rem)",
               padding: "clamp(1.25rem, 2vw, 1.75rem) clamp(1.5rem, 2.5vw, 2rem)",
-              borderLeft: "3px solid rgba(232,229,224,0.18)",
             }}
           >
             <p
