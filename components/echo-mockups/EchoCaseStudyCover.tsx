@@ -41,7 +41,7 @@ export default function EchoCaseStudyCover() {
         alt="Echo, login screen, 3D phone mockup"
         style={{
           position: "absolute",
-          right: "-7%",
+          right: "2%",
           top: "50%",
           height: "88%",
           width: "auto",
