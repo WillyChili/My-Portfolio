@@ -20,7 +20,6 @@ const DUPLICATED = [...SCREENS, ...SCREENS];
 
 export default function ScreensCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const pausedRef = useRef(false);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -31,12 +30,10 @@ export default function ScreensCarousel() {
     const speed = 0.5;
 
     const step = () => {
-      if (!pausedRef.current) {
-        pos += speed;
-        const halfWidth = track.scrollWidth / 2;
-        if (pos >= halfWidth) pos = 0;
-        track.style.transform = `translateX(-${pos}px)`;
-      }
+      pos += speed;
+      const halfWidth = track.scrollWidth / 2;
+      if (pos >= halfWidth) pos = 0;
+      track.style.transform = `translateX(-${pos}px)`;
       animId = requestAnimationFrame(step);
     };
 
@@ -53,12 +50,6 @@ export default function ScreensCarousel() {
         width: "100vw",
         marginLeft: "calc(-50vw + 50%)",
         overflow: "hidden",
-      }}
-      onMouseEnter={() => {
-        pausedRef.current = true;
-      }}
-      onMouseLeave={() => {
-        pausedRef.current = false;
       }}
     >
       <div

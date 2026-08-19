@@ -1,5 +1,4 @@
 "use client";
-import Reveal from "@/components/Reveal";
 
 export default function AboutSection() {
   return (
@@ -11,7 +10,6 @@ export default function AboutSection() {
       }}
     >
       {/* Section header */}
-      <Reveal>
       <div
         style={{
           display: "flex",
@@ -33,10 +31,8 @@ export default function AboutSection() {
           About
         </span>
       </div>
-      </Reveal>
 
       {/* Content grid */}
-      <Reveal delay={0.1}>
       <div
         style={{
           display: "grid",
@@ -134,7 +130,6 @@ export default function AboutSection() {
           ))}
         </div>
       </div>
-      </Reveal>
     </section>
   );
 }
