@@ -171,7 +171,7 @@ export default async function CaseStudyPage({
                   fontFamily: "var(--font-pixel)",
                   fontSize: "12px",
                   letterSpacing: "0.08em",
-                  color: "#4A4845",
+                  color: "#6B6862",
                 }}
               >
                 {label}
@@ -309,7 +309,7 @@ export default async function CaseStudyPage({
             fontFamily: "var(--font-pixel)",
             fontSize: "13px",
             letterSpacing: "0.06em",
-            color: "#4A4845",
+            color: "#6B6862",
           }}
         >
           charly chaves
@@ -368,7 +368,7 @@ function ChapterEyebrow({
             fontFamily: "var(--font-pixel)",
             fontSize: "13px",
             letterSpacing: "0.1em",
-            color: "#4A4845",
+            color: "#6B6862",
             textTransform: "uppercase",
           }}
         >
@@ -527,7 +527,7 @@ function Section({
               fontFamily: "var(--font-pixel)",
               fontSize: "13px",
               letterSpacing: "0.08em",
-              color: "#4A4845",
+              color: "#6B6862",
               marginBottom: "1rem",
               textAlign: "center",
             }}
@@ -776,7 +776,7 @@ function Section({
                 fontFamily: "var(--font-pixel)",
                 fontSize: "12px",
                 letterSpacing: "0.08em",
-                color: "#4A4845",
+                color: "#6B6862",
               }}
             >
               {label}
@@ -846,7 +846,7 @@ function Section({
               fontFamily: "var(--font-pixel)",
               fontSize: "13px",
               letterSpacing: "0.08em",
-              color: "#4A4845",
+              color: "#6B6862",
               marginBottom: "1rem",
             }}
           >
@@ -930,7 +930,7 @@ function StackIcon({ name }: { name: string }) {
     default:
       return wrap(
         "rgba(232,229,224,0.06)",
-        <span style={{ color: "#4A4845", fontFamily: "var(--font-pixel)", fontSize: "13px" }}>
+        <span style={{ color: "#6B6862", fontFamily: "var(--font-pixel)", fontSize: "13px" }}>
           {name.charAt(0)}
         </span>
       );

@@ -107,7 +107,7 @@ export default function AboutSection() {
                   fontFamily: "var(--font-pixel)",
                   fontSize: "11px",
                   letterSpacing: "0.1em",
-                  color: "#4A4845",
+                  color: "#6B6862",
                 }}
               >
                 {label}

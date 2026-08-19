@@ -38,7 +38,7 @@ export default function ProjectsSection() {
             fontFamily: "var(--font-pixel)",
             fontSize: "13px",
             letterSpacing: "0.08em",
-            color: "#4A4845",
+            color: "#6B6862",
           }}
         >
           {projects.length} projects
@@ -95,7 +95,7 @@ function ProjectCard({
                 fontFamily: "var(--font-pixel)",
                 fontSize: "11px",
                 letterSpacing: "0.1em",
-                color: "#4A4845",
+                color: "#6B6862",
               }}
             >
               {String(index + 1).padStart(2, "0")}
