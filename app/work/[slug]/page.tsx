@@ -7,6 +7,7 @@ import EchoCover from "@/components/echo-mockups/EchoCover";
 import BrowserCarousel from "@/components/tinsderm-mockups/BrowserCarousel";
 import LiveSiteCTA from "@/components/tinsderm-mockups/LiveSiteCTA";
 import CaseStudyImage from "@/components/CaseStudyImage";
+import PullQuote from "@/components/PullQuote";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -730,28 +731,7 @@ function Section({
             {section.body}
           </p>
         )}
-        {section.pullQuote && (
-          <div
-            className="border-l-[3px] border-white/[0.18] hover:border-white/40 hover:bg-white/[0.02] transition-colors duration-300"
-            style={{
-              marginTop: "clamp(1.5rem, 2.5vw, 2rem)",
-              padding: "clamp(1.25rem, 2vw, 1.75rem) clamp(1.5rem, 2.5vw, 2rem)",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "var(--font-sans), sans-serif",
-                fontSize: "clamp(1.125rem, 1.75vw, 1.375rem)",
-                fontStyle: "italic",
-                lineHeight: 1.5,
-                letterSpacing: "-0.01em",
-                color: "#E8E5E0",
-              }}
-            >
-              {section.pullQuote}
-            </p>
-          </div>
-        )}
+        {section.pullQuote && <PullQuote quote={section.pullQuote} accentColor={accentColor} />}
       </div>
     );
   }
