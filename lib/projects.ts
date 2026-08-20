@@ -95,45 +95,30 @@ export const projects: Project[] = [
       {
         type: "process",
         subtitle: "What we decided to change",
-        body: "Eight decisions, not a full teardown. Some were structural, some were about how the product looked and felt, and both mattered.",
+        body: "Five decisions, not a full teardown. Some were structural, some were about how the product looked and felt, and both mattered.",
         steps: [
           {
             label: "01",
-            title: "Motivation worked for few",
-            body: "Top 10% ranking is zero-sum by design: 90% lose. Replaced it with a mastery threshold of about 80% of possible points.",
-          },
-          {
-            label: "02",
-            title: "Certificates contradicted progress",
-            body: "Progress showed 94% with the certificate already issued. Two signals saying different things about the same fact. Fixed: certification = 100%.",
-          },
-          {
-            label: "03",
             title: "Attendance over learning",
             body: "Attendance requirements punish async learners and reward leaving Zoom open. Removed attendance. You certify by content consumed + project approved.",
           },
           {
-            label: "04",
+            label: "02",
             title: "No one to ask when you got stuck",
             body: "Corrections read as a closed verdict, with nowhere to ask 'but why?' In a moment where AI could actually help with that, we introduced Ticher: an AI tutor that answers doubts as they come up, deep-linked from every correction.",
           },
           {
-            label: "05",
-            title: "Mid-course dropout",
-            body: "The jump from 'I started' to 'final project' was too large. No intermediate milestones. Introduced visible pre-submissions as checkpoints.",
-          },
-          {
-            label: "06",
+            label: "03",
             title: "Confusing navigation",
             body: "A hierarchy and typographic rhythm problem, not a content problem. Redesigned the syllabus and reading experience.",
           },
           {
-            label: "07",
+            label: "04",
             title: "Support tickets from friction",
             body: "No structured way to report, no separation between 'this is broken' and 'I don't like this'. Built a dual-stream feedback system.",
           },
           {
-            label: "08",
+            label: "05",
             title: "A dated, inconsistent look",
             body: "Every surface felt like a slightly different product, and the brand hadn't been refreshed in years. Paisanos led the brand refresh; I redesigned the interface on top of it, one visual language and one component system, applied consistently across the platform.",
           },
@@ -156,31 +141,7 @@ export const projects: Project[] = [
       {
         type: "text",
         subtitle: "The rule that ordered everything",
-        body: "AI sped up process and iteration. It never replaced the judgment. I decided not to design screens that depended on how good the model was: I designed surfaces of entry (where and when the student encounters the AI) and let the quality of the output be a variable that could improve without forcing me to redesign. That call came from years of design practice, the perception and intuition a model doesn't have, and every output was still measured against it and against direct human feedback.\n\nA concrete example: I didn't design the submission correction as 'a text the AI returns.' I designed it as three blocks with a fixed structure:",
-      },
-      {
-        type: "process",
-        steps: [
-          {
-            label: "01",
-            title: "What's correct",
-            body: "Goes first, and it's not decoration: it's what makes the student keep reading.",
-          },
-          {
-            label: "02",
-            title: "Required corrections",
-            body: "What needs fixing, separated from the recognition.",
-          },
-          {
-            label: "03",
-            title: "Suggestions",
-            body: "How to go beyond the minimum.",
-          },
-        ],
-      },
-      {
-        type: "text",
-        body: "That structure is a design decision, not a model capability. It works equally well with a mediocre model and an excellent one: it gives the student a map of what to look at first, separates recognition from criticism, and gives the team a stable format to evaluate whether quality improved or worsened between versions.",
+        body: "AI sped up process and iteration. It never replaced the judgment. I decided not to design screens that depended on how good the model was: I designed surfaces of entry (where and when the student encounters the AI) and let the quality of the output be a variable that could improve without forcing me to redesign. That call came from years of design practice, the perception and intuition a model doesn't have, and every output was still measured against it and against direct human feedback.",
       },
       {
         type: "process",
@@ -261,7 +222,7 @@ export const projects: Project[] = [
         chapterLabel: "Tools",
         title: "The stack",
         stack: [
-          { name: "Claude", role: "Specs, copy, pattern processing, documentation", category: "AI" },
+          { name: "Claude Code", role: "Prototyping in HTML, CSS, and JS to ship working designs straight to developers", category: "AI" },
           { name: "Figma + FigJam", role: "Design system, tokens, product surfaces, workshops", category: "Design" },
           { name: "Mobbin", role: "Pattern benchmarking across ed-tech and SaaS", category: "Design" },
           { name: "Shadcn/UI", role: "Component base the design system was built on, not from scratch", category: "Components" },
