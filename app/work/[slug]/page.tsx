@@ -9,6 +9,7 @@ import CaseStudyImage from "@/components/CaseStudyImage";
 import PullQuote from "@/components/PullQuote";
 import ClosingCTA from "@/components/ClosingCTA";
 import EchoCaseStudyCover from "@/components/echo-mockups/EchoCaseStudyCover";
+import RevealOnScroll from "@/components/RevealOnScroll";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -102,6 +103,7 @@ export default async function CaseStudyPage({
           margin: "0 auto",
         }}
       >
+        <RevealOnScroll>
         {/* Tags */}
         <div
           style={{
@@ -190,6 +192,7 @@ export default async function CaseStudyPage({
             </div>
           ))}
         </div>
+        </RevealOnScroll>
       </header>
 
       {/* Cover + highlight side by side */}
@@ -201,6 +204,7 @@ export default async function CaseStudyPage({
           marginBottom: "clamp(3rem, 5vw, 5rem)",
         }}
       >
+        <RevealOnScroll delay={150}>
         <div
           style={{
             display: "grid",
@@ -283,6 +287,7 @@ export default async function CaseStudyPage({
             </div>
           )}
         </div>
+        </RevealOnScroll>
       </div>
 
       {/* Content sections */}
@@ -300,15 +305,18 @@ export default async function CaseStudyPage({
         {project.sections
           .filter((section, i) => !(i === 0 && section.type === "highlight"))
           .map((section, i) => (
-          <Section
-            key={i}
-            section={section}
-            accentColor={project.accentColor}
-          />
+          <RevealOnScroll key={i}>
+            <Section
+              section={section}
+              accentColor={project.accentColor}
+            />
+          </RevealOnScroll>
         ))}
       </div>
 
-      <ClosingCTA accentColor={project.accentColor} />
+      <RevealOnScroll>
+        <ClosingCTA accentColor={project.accentColor} />
+      </RevealOnScroll>
 
       {/* Footer nav */}
       <div
