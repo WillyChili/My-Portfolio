@@ -147,7 +147,7 @@ export const projects: Project[] = [
   {
     slug: "tins-derm",
     title: "TINS DERM",
-    company: "Personal Project",
+    company: "UX UI Challenge",
     year: "2026",
     tags: ["UX Research", "UI Design", "Design System", "Prototyping"],
     summary: "A dermatology & skin wellness website redesign built to feel as precise and trustworthy as the care it represents.",
