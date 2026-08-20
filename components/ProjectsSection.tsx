@@ -73,10 +73,9 @@ function ProjectCard({
       <article
         className="project-card"
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          display: "flex",
+          flexDirection: "column",
           gap: "64px",
-          alignItems: "center",
           padding: "clamp(1.5rem, 3vw, 2.5rem) 0",
           borderBottom: "1px solid rgba(232,229,224,0.06)",
           cursor: "pointer",
