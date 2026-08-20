@@ -1,5 +1,16 @@
 "use client";
 
+import { Goal, Footprints, Clapperboard, Flag, Coffee, MountainSnow } from "lucide-react";
+
+const HOBBY_ICONS: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number; color?: string }>> = {
+  Football: Goal,
+  Hiking: Footprints,
+  Movies: Clapperboard,
+  Golf: Flag,
+  "Coffee shops": Coffee,
+  Snowboard: MountainSnow,
+};
+
 export default function AboutSection() {
   return (
     <section
@@ -104,19 +115,27 @@ export default function AboutSection() {
               >
                 {label}
               </span>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
-                {items.map((item) => (
-                  <span
-                    key={item}
-                    style={{
-                      fontFamily: "var(--font-sans), sans-serif",
-                      fontSize: "15px",
-                      color: "#B0ADA8",
-                    }}
-                  >
-                    {item}
-                  </span>
-                ))}
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                {items.map((item) => {
+                  const Icon = HOBBY_ICONS[item];
+                  return (
+                    <div
+                      key={item}
+                      style={{ display: "flex", alignItems: "center", gap: "0.65rem" }}
+                    >
+                      {Icon && <Icon size={16} strokeWidth={1.5} color="#7A7773" />}
+                      <span
+                        style={{
+                          fontFamily: "var(--font-sans), sans-serif",
+                          fontSize: "15px",
+                          color: "#B0ADA8",
+                        }}
+                      >
+                        {item}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}
