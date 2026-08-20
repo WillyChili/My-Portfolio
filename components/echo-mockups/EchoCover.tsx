@@ -42,8 +42,8 @@ export default function EchoCover() {
       <div
         style={{
           position: "relative",
-          height: "88%",
-          maxHeight: "560px",
+          height: "52.8%",
+          maxHeight: "336px",
           aspectRatio: "9.35 / 20.24",
           transform: "rotate(-2deg)",
           filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.6)) drop-shadow(0 20px 30px rgba(0,0,0,0.4))",
