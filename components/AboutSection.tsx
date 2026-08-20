@@ -2,6 +2,7 @@
 
 import { Footprints, Clapperboard, Coffee, MountainSnow } from "lucide-react";
 import { IconBallFootball, IconGolf } from "@tabler/icons-react";
+import { MobbinIcon, ClaudeIcon, FigmaIcon, CursorIcon } from "@/components/icons/BrandIcons";
 
 type IconProps = { size?: number; strokeWidth?: number; color?: string };
 
@@ -15,6 +16,16 @@ function fromTabler(
   };
 }
 
+// Wraps a brand icon (Mobbin/Claude/Figma/Cursor, which only take
+// { size, color }) so it accepts the same interface as the icons above.
+function fromBrand(
+  Icon: React.ComponentType<{ size?: number; color?: string }>
+): React.ComponentType<IconProps> {
+  return function BrandIconWrapped({ size, color }: IconProps) {
+    return <Icon size={size} color={color} />;
+  };
+}
+
 const HOBBY_ICONS: Record<string, React.ComponentType<IconProps>> = {
   Football: fromTabler(IconBallFootball),
   Hiking: Footprints,
@@ -22,6 +33,13 @@ const HOBBY_ICONS: Record<string, React.ComponentType<IconProps>> = {
   Golf: fromTabler(IconGolf),
   "Coffee shops": Coffee,
   Snowboard: MountainSnow,
+};
+
+const TOOLKIT_ICONS: Record<string, React.ComponentType<IconProps>> = {
+  Figma: fromBrand(FigmaIcon),
+  Cursor: fromBrand(CursorIcon),
+  Claude: fromBrand(ClaudeIcon),
+  Mobbin: fromBrand(MobbinIcon),
 };
 
 export default function AboutSection() {
@@ -67,6 +85,7 @@ export default function AboutSection() {
           gap: "clamp(3rem, 6vw, 6rem)",
           alignItems: "start",
           maxWidth: "1100px",
+          margin: "0 auto",
           position: "relative",
           zIndex: 1,
         }}
@@ -113,10 +132,16 @@ export default function AboutSection() {
         <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
           {[
             {
+              label: "Toolkit",
+              items: ["Figma", "Cursor", "Claude", "Mobbin"],
+              icons: TOOLKIT_ICONS,
+            },
+            {
               label: "Hobbies",
               items: ["Football", "Hiking", "Movies", "Golf", "Coffee shops", "Snowboard"],
+              icons: HOBBY_ICONS,
             },
-          ].map(({ label, items }) => (
+          ].map(({ label, items, icons }) => (
             <div key={label} style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               <span
                 style={{
@@ -130,7 +155,7 @@ export default function AboutSection() {
               </span>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                 {items.map((item) => {
-                  const Icon = HOBBY_ICONS[item];
+                  const Icon = icons[item];
                   return (
                     <div
                       key={item}
