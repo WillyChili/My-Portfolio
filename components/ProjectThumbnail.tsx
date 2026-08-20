@@ -36,7 +36,7 @@ export default function ProjectThumbnail({
           overflow: "hidden",
           aspectRatio: "16 / 9",
           background: "#0A0A0A",
-          transform: "scale(0.6)",
+          transform: "scale(0.8)",
         }}
       >
         <EchoCover />
@@ -52,7 +52,7 @@ export default function ProjectThumbnail({
         overflow: "hidden",
         aspectRatio: "16 / 9",
         background: "#17160F",
-        transform: "scale(0.6)",
+        transform: "scale(0.8)",
       }}
     >
       <GlowBackground accentColor={accentColor} />
