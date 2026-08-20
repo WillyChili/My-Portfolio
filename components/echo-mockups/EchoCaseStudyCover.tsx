@@ -32,6 +32,22 @@ export default function EchoCaseStudyCover() {
         style={{ position: "absolute", left: 0, right: 0, top: "20%", width: "100%", height: "100%" }}
       />
 
+      {/* Short catch line, top-left */}
+      <div
+        style={{
+          position: "absolute",
+          left: "6.5%",
+          top: "8%",
+          fontFamily: "var(--font-sans), sans-serif",
+          fontWeight: 700,
+          fontSize: "clamp(1.1rem, 2.4vw, 1.6rem)",
+          letterSpacing: "-0.01em",
+          color: "#FFFFFF",
+        }}
+      >
+        Speak your mind.
+      </div>
+
       {/* Phone mockup: real 3D render (login screen), shadow baked into the asset */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
