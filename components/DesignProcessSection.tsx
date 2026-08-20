@@ -101,9 +101,43 @@ const NODES = [
 ];
 
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
-const LINE_DURATION_MS = 2000;
 const DOTS_BG =
   "repeating-linear-gradient(to right, currentColor 0, currentColor 3px, transparent 3px, transparent 11px)";
+
+// Looping "lighting up" cycle: the line grows, holds fully lit, fades out,
+// then pauses before repeating — so a visitor who lingers on the section
+// gets to watch the sweep happen more than once.
+const TOTAL_CYCLE_MS = 6000;
+const GROWTH_PCT = 55;
+const HOLD_END_PCT = 72;
+const FADE_END_PCT = 84;
+
+const LINE_KEYFRAMES = `
+@keyframes dp-line {
+  0% { transform: translateY(-50%) scaleX(0); opacity: 1; animation-timing-function: ${EASE}; }
+  ${GROWTH_PCT}% { transform: translateY(-50%) scaleX(1); opacity: 1; animation-timing-function: linear; }
+  ${HOLD_END_PCT}% { transform: translateY(-50%) scaleX(1); opacity: 1; animation-timing-function: linear; }
+  ${FADE_END_PCT}% { transform: translateY(-50%) scaleX(1); opacity: 0; }
+  ${FADE_END_PCT + 0.1}% { transform: translateY(-50%) scaleX(0); opacity: 0; }
+  100% { transform: translateY(-50%) scaleX(0); opacity: 0; }
+}`;
+
+function nodeKeyframesCss() {
+  return NODES.map((_, i) => {
+    const center = (i / (NODES.length - 1)) * GROWTH_PCT;
+    const onStart = Math.max(0, center - 2.5);
+    const onEnd = Math.min(GROWTH_PCT, center + 2.5);
+    return `
+@keyframes dp-node-${i} {
+  0% { border-color: rgba(232,229,224,0.15); box-shadow: 0 0 16px -2px transparent; }
+  ${onStart}% { border-color: rgba(232,229,224,0.15); box-shadow: 0 0 16px -2px transparent; }
+  ${onEnd}% { border-color: var(--accent); box-shadow: 0 0 16px -2px var(--accent-glow); }
+  ${HOLD_END_PCT}% { border-color: var(--accent); box-shadow: 0 0 16px -2px var(--accent-glow); }
+  ${FADE_END_PCT}% { border-color: rgba(232,229,224,0.15); box-shadow: 0 0 16px -2px transparent; }
+  100% { border-color: rgba(232,229,224,0.15); box-shadow: 0 0 16px -2px transparent; }
+}`;
+  }).join("\n");
+}
 
 export default function DesignProcessSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -180,6 +214,8 @@ export default function DesignProcessSection() {
         Tools change fast. The process adapts faster.
       </h2>
 
+      {!reduced && <style>{LINE_KEYFRAMES + nodeKeyframesCss()}</style>}
+
       {/* Timeline */}
       <div
         ref={ref}
@@ -253,12 +289,23 @@ export default function DesignProcessSection() {
               right: "24px",
               top: "50%",
               height: "2px",
-              transform: `translateY(-50%) scaleX(${visible ? 1 : 0})`,
               transformOrigin: "left",
-              transition: reduced ? "opacity 0.6s ease" : `transform ${LINE_DURATION_MS}ms ${EASE}`,
-              opacity: reduced ? (visible ? 1 : 0) : 1,
               color: "#E8E5E0",
               backgroundImage: DOTS_BG,
+              ...(reduced
+                ? {
+                    transform: `translateY(-50%) scaleX(${visible ? 1 : 0})`,
+                    transition: "opacity 0.6s ease",
+                    opacity: visible ? 1 : 0,
+                  }
+                : {
+                    transform: "translateY(-50%) scaleX(0)",
+                    opacity: visible ? 1 : 0,
+                    animationName: visible ? "dp-line" : "none",
+                    animationDuration: `${TOTAL_CYCLE_MS}ms`,
+                    animationIterationCount: "infinite",
+                    animationTimingFunction: EASE,
+                  }),
             }}
           />
 
@@ -271,12 +318,6 @@ export default function DesignProcessSection() {
             }}
           >
             {NODES.map(({ id, label, accent, Icon }, i) => {
-              // Sync each node's light-up with the moment the animated
-              // line reaches its x-position, so the "lighting up" reads
-              // as passing through each step rather than a generic stagger.
-              const delayMs = reduced
-                ? 0
-                : Math.round((i / (NODES.length - 1)) * LINE_DURATION_MS);
               return (
                 <div
                   key={id}
@@ -294,15 +335,28 @@ export default function DesignProcessSection() {
                       height: "44px",
                       borderRadius: "50%",
                       background: "#1F1E1C",
-                      border: `1px solid ${visible ? accent : "rgba(232,229,224,0.15)"}`,
-                      boxShadow: visible ? `0 0 16px -2px ${accent}66` : "none",
+                      borderStyle: "solid",
+                      borderWidth: "1px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      transition: reduced
-                        ? `border-color 0.4s ease, box-shadow 0.4s ease`
-                        : `border-color 0.5s ${EASE} ${delayMs}ms, box-shadow 0.5s ${EASE} ${delayMs}ms`,
                       flexShrink: 0,
+                      ["--accent" as string]: accent,
+                      ["--accent-glow" as string]: `${accent}66`,
+                      ...(reduced
+                        ? {
+                            borderColor: visible ? accent : "rgba(232,229,224,0.15)",
+                            boxShadow: visible ? `0 0 16px -2px ${accent}66` : "none",
+                            transition: `border-color 0.4s ease, box-shadow 0.4s ease`,
+                          }
+                        : {
+                            borderColor: "rgba(232,229,224,0.15)",
+                            boxShadow: "0 0 16px -2px transparent",
+                            animationName: visible ? `dp-node-${i}` : "none",
+                            animationDuration: `${TOTAL_CYCLE_MS}ms`,
+                            animationIterationCount: "infinite",
+                            animationTimingFunction: EASE,
+                          }),
                     }}
                   >
                     <Icon size={19} color="#E8E5E0" />
