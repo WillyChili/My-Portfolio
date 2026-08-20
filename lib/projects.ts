@@ -349,8 +349,8 @@ export const projects: Project[] = [
       },
       {
         type: "process",
-        subtitle: "What was broken by design",
-        body: "Seven symptoms, seven diagnoses. Each one pointed at a structural problem, not a cosmetic one.",
+        subtitle: "What we decided to change",
+        body: "Eight decisions, not a full teardown. Some were structural, some were about how the product looked and felt, and both mattered.",
         steps: [
           {
             label: "01",
@@ -369,8 +369,8 @@ export const projects: Project[] = [
           },
           {
             label: "04",
-            title: "Feedback without learning",
-            body: "Corrections read as a closed verdict. The student couldn't ask 'but why?' Added deep-link from each correction to the AI tutor.",
+            title: "No one to ask when you got stuck",
+            body: "Corrections read as a closed verdict, with nowhere to ask 'but why?' In a moment where AI could actually help with that, we introduced Ticher: an AI tutor that answers doubts as they come up, deep-linked from every correction.",
           },
           {
             label: "05",
@@ -387,51 +387,23 @@ export const projects: Project[] = [
             title: "Support tickets from friction",
             body: "No structured way to report, no separation between 'this is broken' and 'I don't like this'. Built a dual-stream feedback system.",
           },
-        ],
-      },
-      {
-        type: "text",
-        chapter: "03",
-        chapterLabel: "Concept",
-        title: "Two modalities, one system",
-        body: "The product had to serve two very different ways of studying: Group Mode (cohort, live classes, tutors) and Solo Mode (asynchronous, self-paced, no classes). And later a third: an upskilling membership for professionals.\n\nThe design decision was not to build two products. Login, onboarding, profile, syllabus, progress, submissions, certificates, self-service, and the AI tutor are the same. What changes are the rules: Group Mode has live classes and 30 days for the final project; Solo Mode has no classes and gives 6 months with a suggested calendar.\n\nTwo products would have been faster for the first release and catastrophic afterward: two design systems diverging, two definitions of 'progress,' and a student who buys both modalities encountering two different platforms. Modeling the variation as rules over a shared system cost more upfront, and is what allowed the third modality to be added without redesigning the campus.",
-      },
-      {
-        type: "process",
-        subtitle: "Solo Mode risk matrix",
-        steps: [
           {
-            label: "01",
-            title: "Dropout from lack of support",
-            body: "Proactive AI tutor, reminders ('3 days since you last progressed'), 30-day challenge mode with calendar.",
-          },
-          {
-            label: "02",
-            title: "Questions that block progress",
-            body: "AI with course context, forums, peer resolution.",
-          },
-          {
-            label: "03",
-            title: "No real feedback",
-            body: "Automated correction, peer feedback, examples of excellent submissions, clear rubrics.",
-          },
-          {
-            label: "04",
-            title: "Lower perceived value without classes",
-            body: "Reposition value around practice, resources, and permanent access.",
+            label: "08",
+            title: "A dated, inconsistent look",
+            body: "Every surface felt like a slightly different product, and the brand hadn't been refreshed in years. Paisanos led the brand refresh; I redesigned the interface on top of it, one visual language and one component system, applied consistently across the platform.",
           },
         ],
       },
       {
         type: "mockup-row",
-        chapter: "04",
+        chapter: "03",
         chapterLabel: "Product",
         mockupId: "coderhouse-screens",
         title: "The platform",
       },
       {
         type: "text",
-        chapter: "05",
+        chapter: "04",
         chapterLabel: "Craft",
         title: "Designing AI on shifting ground",
         body: "This is the part of the project that taught me the most, and the hardest to have done well. I started designing AI in June 2025. What a model could reliably do in June 2025 wasn't what it could do in January 2026, or June 2026. I was designing on a material whose properties changed every three months.",
@@ -495,7 +467,7 @@ export const projects: Project[] = [
       },
       {
         type: "text",
-        chapter: "06",
+        chapter: "05",
         chapterLabel: "Decisions",
         title: "The feedback system",
         body: "The platform launched and migrated at the end of 2025. The same error I'd diagnosed in the old platform (no structured way to listen) I could repeat. So I designed the listening system.",
@@ -522,7 +494,7 @@ export const projects: Project[] = [
       },
       {
         type: "text",
-        chapter: "07",
+        chapter: "06",
         chapterLabel: "Reflection",
         title: "What I take with me",
         subtitle: "What I'd do the same",
@@ -546,7 +518,7 @@ export const projects: Project[] = [
       },
       {
         type: "tech-stack",
-        chapter: "08",
+        chapter: "07",
         chapterLabel: "Tools",
         title: "The stack",
         stack: [
