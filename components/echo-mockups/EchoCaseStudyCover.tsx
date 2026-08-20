@@ -5,8 +5,11 @@ import { Dithering } from "@paper-design/shaders-react";
  * Case-study hero cover for Echo: a live animated Dithering shader
  * (paper-design) background behind a real 3D phone mockup render.
  * No title/subtitle overlay, the page's own <h1> covers that.
+ *
+ * Also reused (with `caption={false}`) as the Echo thumbnail on the
+ * home page project list, so both places show the same shader + mockup.
  */
-export default function EchoCaseStudyCover() {
+export default function EchoCaseStudyCover({ caption = true }: { caption?: boolean }) {
   return (
     <div
       style={{
@@ -33,23 +36,25 @@ export default function EchoCaseStudyCover() {
       />
 
       {/* Short catch line, top-left, one word per line */}
-      <div
-        style={{
-          position: "absolute",
-          left: "6.5%",
-          top: "8%",
-          fontFamily: "var(--font-sans), sans-serif",
-          fontWeight: 700,
-          fontSize: "clamp(1.4rem, 3.2vw, 2.1rem)",
-          letterSpacing: "-0.01em",
-          lineHeight: 1.15,
-          color: "#FFFFFF",
-        }}
-      >
-        <div>Speak</div>
-        <div>your</div>
-        <div>mind.</div>
-      </div>
+      {caption && (
+        <div
+          style={{
+            position: "absolute",
+            left: "6.5%",
+            top: "8%",
+            fontFamily: "var(--font-sans), sans-serif",
+            fontWeight: 700,
+            fontSize: "clamp(1.4rem, 3.2vw, 2.1rem)",
+            letterSpacing: "-0.01em",
+            lineHeight: 1.15,
+            color: "#FFFFFF",
+          }}
+        >
+          <div>Speak</div>
+          <div>your</div>
+          <div>mind.</div>
+        </div>
+      )}
 
       {/* Phone mockup: real 3D render (login screen), shadow baked into the asset */}
       {/* eslint-disable-next-line @next/next/no-img-element */}

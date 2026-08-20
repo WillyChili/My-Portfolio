@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import EchoCover from "@/components/echo-mockups/EchoCover";
+import EchoCaseStudyCover from "@/components/echo-mockups/EchoCaseStudyCover";
 
 /**
  * Dribbble/Behance-style project thumbnail for the home page grid:
@@ -8,8 +8,11 @@ import EchoCover from "@/components/echo-mockups/EchoCover";
  * background, instead of a flat edge-to-edge screenshot or a bare
  * gradient + label placeholder.
  *
- * - "echo" reuses the existing phone mockup (EchoCover) built for its
- *   case-study hero, since it's already the ideal treatment.
+ * - "echo" reuses the same animated shader + 3D phone mockup
+ *   (EchoCaseStudyCover) built for its case-study hero, so the home
+ *   thumbnail and the drilldown cover match exactly. The caption
+ *   ("Speak your mind.") is hidden here since the card already shows
+ *   its own title next to the thumbnail.
  * - Projects with a real screenshot (tins-derm) show it inset in a
  *   mac-style browser frame.
  * - Projects without one yet fall back to a small abstract UI sketch
@@ -39,7 +42,7 @@ export default function ProjectThumbnail({
           transform: "scale(0.8)",
         }}
       >
-        <EchoCover />
+        <EchoCaseStudyCover caption={false} />
       </div>
     );
   }
