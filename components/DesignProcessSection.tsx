@@ -231,6 +231,7 @@ export default function DesignProcessSection() {
           gridTemplateRows: "auto auto auto auto",
           columnGap: "clamp(0.5rem, 2vw, 1.5rem)",
           maxWidth: "1200px",
+          margin: "0 auto",
           overflowX: "auto",
           position: "relative",
           zIndex: 1,
