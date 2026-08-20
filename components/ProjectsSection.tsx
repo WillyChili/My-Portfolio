@@ -74,7 +74,7 @@ function ProjectCard({
         className="project-card"
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "400px 1fr",
           gap: "64px",
           alignItems: "center",
           padding: "clamp(1.5rem, 3vw, 2.5rem) 0",
