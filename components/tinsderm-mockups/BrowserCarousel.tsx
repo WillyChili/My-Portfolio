@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 const SCREENS = [
   {
     src: "/mock/cover-tinsderm.png",
@@ -32,6 +34,8 @@ const SCREENS = [
     kind: "phone" as const,
   },
 ];
+
+const DUPLICATED = [...SCREENS, ...SCREENS];
 
 function BrowserChrome({ path }: { path: string }) {
   return (
@@ -80,6 +84,31 @@ function BrowserChrome({ path }: { path: string }) {
 }
 
 export default function BrowserCarousel() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let animId: number;
+    let pos = 0;
+    const speed = 0.5;
+
+    const step = () => {
+      pos += speed;
+      const halfWidth = track.scrollWidth / 2;
+      if (pos >= halfWidth) pos = 0;
+      track.style.transform = `translateX(-${pos}px)`;
+      animId = requestAnimationFrame(step);
+    };
+
+    animId = requestAnimationFrame(step);
+
+    return () => {
+      cancelAnimationFrame(animId);
+    };
+  }, []);
+
   return (
     <div
       style={{
@@ -89,24 +118,21 @@ export default function BrowserCarousel() {
       }}
     >
       <div
+        ref={trackRef}
         style={{
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: "center",
           gap: "clamp(1.25rem, 2.5vw, 2rem)",
-          overflowX: "auto",
-          scrollSnapType: "x mandatory",
-          WebkitOverflowScrolling: "touch",
-          padding: "clamp(2rem, 4vw, 3rem) clamp(2rem, 6vw, 5rem)",
-          scrollbarWidth: "none",
+          padding: "clamp(1rem, 2vw, 1.5rem) clamp(2rem, 6vw, 5rem)",
+          willChange: "transform",
         }}
       >
-        {SCREENS.map(({ src, alt, path, kind }) => (
+        {DUPLICATED.map(({ src, alt, path, kind }, i) => (
           <div
-            key={src}
+            key={`${src}-${i}`}
             style={{
               flexShrink: 0,
               width: kind === "phone" ? "220px" : "420px",
-              scrollSnapAlign: "center",
             }}
           >
             <div
