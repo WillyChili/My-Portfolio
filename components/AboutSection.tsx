@@ -69,20 +69,9 @@ export default function AboutSection() {
               color: "#7A7773",
             }}
           >
-            I&apos;m a Product Designer based in Buenos Aires. I&apos;ve worked across education,
-            fintech, and SaaS, always focused on the gap between what a product
-            does and how people actually experience it.
-          </p>
-          <p
-            style={{
-              fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "17px",
-              lineHeight: 1.75,
-              color: "#7A7773",
-            }}
-          >
-            I work best at the intersection of research and craft: understanding
-            the problem deeply, then making it look inevitable.
+            I&apos;m a Product Designer based in Buenos Aires, always focused on
+            the gap between what a product does and how people actually
+            experience it.
           </p>
         </div>
 
@@ -90,20 +79,8 @@ export default function AboutSection() {
         <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
           {[
             {
-              label: "Currently",
-              items: ["Product Designer @ Coderhouse", "Available for freelance"],
-            },
-            {
-              label: "Approach",
-              items: [
-                "Research before pixels",
-                "Systems thinking",
-                "Outcomes over outputs",
-              ],
-            },
-            {
-              label: "Tools",
-              items: ["Figma", "Notion", "Framer", "Protopie"],
+              label: "Hobbies",
+              items: ["Football", "Hiking", "Movies", "Golf", "Coffee shops", "Snowboard"],
             },
           ].map(({ label, items }) => (
             <div key={label} style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
