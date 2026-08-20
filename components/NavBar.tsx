@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Work", id: "work" },
@@ -59,18 +60,21 @@ export default function NavBar() {
           padding: 0,
           display: "flex",
           alignItems: "center",
+          justifySelf: "start",
         }}
       >
-        <span
+        <Image
+          src="/avatar.jpg"
+          alt="Charly Chaves"
+          width={30}
+          height={30}
           style={{
-            fontFamily: "var(--font-pixel)",
-            fontSize: "14px",
-            letterSpacing: "0.1em",
-            color: "#E8E5E0",
+            borderRadius: "50%",
+            objectFit: "cover",
+            display: "block",
           }}
-        >
-          cc
-        </span>
+          priority
+        />
       </button>
 
       {/* Links */}
