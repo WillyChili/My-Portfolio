@@ -36,6 +36,7 @@ export default function ProjectThumbnail({
           overflow: "hidden",
           aspectRatio: "16 / 9",
           background: "#0A0A0A",
+          transform: "scale(0.6)",
         }}
       >
         <EchoCover />
@@ -51,14 +52,11 @@ export default function ProjectThumbnail({
         overflow: "hidden",
         aspectRatio: "16 / 9",
         background: "#17160F",
+        transform: "scale(0.6)",
       }}
     >
-      {/* Glow + mockup scale together as one unit, so shrinking the
-          mockup also shrinks/re-centers the background around it. */}
-      <div style={{ position: "relative", width: "100%", height: "100%", transform: "scale(0.6)" }}>
-        <GlowBackground accentColor={accentColor} />
-        <BrowserMockup slug={slug} title={title} accentColor={accentColor} coverImage={coverImage} />
-      </div>
+      <GlowBackground accentColor={accentColor} />
+      <BrowserMockup slug={slug} title={title} accentColor={accentColor} coverImage={coverImage} />
     </div>
   );
 }
