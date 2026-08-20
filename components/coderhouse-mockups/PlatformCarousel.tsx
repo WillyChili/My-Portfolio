@@ -12,11 +12,6 @@ const SCREENS = [
     path: "campus / mis cursos",
   },
   {
-    src: "/coderhouse/syllabus.png",
-    alt: "Redesigned syllabus with module progress and improved reading experience",
-    path: "campus / temario",
-  },
-  {
     src: "/coderhouse/ticher-chat.png",
     alt: "Ticher, the AI tutor, answering a question inside the student campus",
     path: "campus / ticher",
@@ -25,11 +20,6 @@ const SCREENS = [
     src: "/coderhouse/catalog.png",
     alt: "Course catalog with live workshops and on-demand tracks",
     path: "campus / catálogo",
-  },
-  {
-    src: "/coderhouse/job-search.png",
-    alt: "Ticher-powered job search matching student profile to open roles",
-    path: "campus / bolsa laboral",
   },
   {
     src: "/coderhouse/community.png",
