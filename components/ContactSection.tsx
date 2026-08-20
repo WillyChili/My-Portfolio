@@ -11,10 +11,10 @@ export default function ContactSection() {
         position: "relative",
       }}
     >
-      {/* Capped at 1200px so content doesn't stretch edge-to-edge on very
-          wide viewports, matching the other sections below the Hero. Not
-          centered — stays flush with the section's left padding. */}
-      <div style={{ maxWidth: "1200px", position: "relative", zIndex: 1 }}>
+      {/* Capped at 1200px and centered so content doesn't stretch
+          edge-to-edge on very wide viewports, matching the other sections
+          below the Hero. */}
+      <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Section header */}
         <div
           style={{
