@@ -240,6 +240,10 @@ export const projects: Project[] = [
           { name: "PostHog", role: "Event instrumentation and analytics", category: "Analytics" },
         ],
       },
+      {
+        type: "mockup-row",
+        mockupId: "coderhouse-prototype",
+      },
     ],
   },
   {

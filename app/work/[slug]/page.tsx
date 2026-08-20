@@ -6,6 +6,7 @@ import ScreensCarousel from "@/components/echo-mockups/ScreensCarousel";
 import BrowserCarousel from "@/components/tinsderm-mockups/BrowserCarousel";
 import LiveSiteCTA from "@/components/tinsderm-mockups/LiveSiteCTA";
 import PlatformCarousel from "@/components/coderhouse-mockups/PlatformCarousel";
+import PrototypeCTA from "@/components/coderhouse-mockups/PrototypeCTA";
 import CaseStudyImage from "@/components/CaseStudyImage";
 import PullQuote from "@/components/PullQuote";
 import ClosingCTA from "@/components/ClosingCTA";
@@ -53,6 +54,18 @@ const MOCKUP_MAP: Record<string, React.ReactNode> = {
     </div>
   ),
   "coderhouse-screens": <PlatformCarousel />,
+  "coderhouse-prototype": (
+    <div style={{ maxWidth: CONTENT_MAX }}>
+      <PrototypeCTA
+        href="/coderhouse/prototype.html"
+        password="coder01"
+        screenshot="/coderhouse/catalog.png"
+        accentColor="#E8734A"
+        domain="coderhouse-prototype.local"
+        alt="Coderhouse prototype preview"
+      />
+    </div>
+  ),
 };
 
 export default async function CaseStudyPage({
