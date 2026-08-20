@@ -10,7 +10,7 @@ export default function ProjectsSection() {
       id="work"
       style={{
         background: "#171717",
-        padding: "clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 5rem)",
+        padding: "40px clamp(1.5rem, 6vw, 5rem)",
         position: "relative",
       }}
     >

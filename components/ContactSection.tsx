@@ -6,8 +6,8 @@ export default function ContactSection() {
       id="contact"
       style={{
         background: "#171717",
-        padding: "clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 5rem)",
-        paddingBottom: "calc(clamp(5rem, 10vw, 9rem) + 5rem)",
+        padding: "40px clamp(1.5rem, 6vw, 5rem)",
+        paddingBottom: "calc(40px + 5rem)",
         position: "relative",
       }}
     >
