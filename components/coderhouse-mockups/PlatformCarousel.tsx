@@ -26,6 +26,31 @@ const SCREENS = [
     alt: "Student forum with course discussions and community stats",
     path: "campus / foro",
   },
+  {
+    src: "/coderhouse/rutas-on-demand.png",
+    alt: "On-demand course tracks organized by topic, AI, product, design and tech",
+    path: "campus / on-demand",
+  },
+  {
+    src: "/coderhouse/playground.png",
+    alt: "Playground, an AI tool that builds a custom workshop from a prompt",
+    path: "campus / playground",
+  },
+  {
+    src: "/coderhouse/eventos.png",
+    alt: "In-person events calendar with meetups in local cafes and coworking spaces",
+    path: "campus / eventos",
+  },
+  {
+    src: "/coderhouse/entrevistas.png",
+    alt: "Interview practice exercises filterable by role, skill and company",
+    path: "campus / entrevistas",
+  },
+  {
+    src: "/coderhouse/webinars.png",
+    alt: "Live workshop schedule with upcoming and past sessions",
+    path: "campus / workshops",
+  },
 ];
 
 const DUPLICATED = [...SCREENS, ...SCREENS];
