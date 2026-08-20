@@ -1,12 +1,25 @@
 "use client";
 
-import { Goal, Footprints, Clapperboard, Flag, Coffee, MountainSnow } from "lucide-react";
+import { Footprints, Clapperboard, Coffee, MountainSnow } from "lucide-react";
+import { IconBallFootball, IconGolf } from "@tabler/icons-react";
 
-const HOBBY_ICONS: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number; color?: string }>> = {
-  Football: Goal,
+type IconProps = { size?: number; strokeWidth?: number; color?: string };
+
+// Wraps a Tabler icon (which uses a `stroke` prop) so it accepts the same
+// { size, strokeWidth, color } interface as the Lucide icons above.
+function fromTabler(
+  Icon: React.ComponentType<{ size?: number; stroke?: number; color?: string }>
+): React.ComponentType<IconProps> {
+  return function TablerIcon({ size, strokeWidth, color }: IconProps) {
+    return <Icon size={size} stroke={strokeWidth} color={color} />;
+  };
+}
+
+const HOBBY_ICONS: Record<string, React.ComponentType<IconProps>> = {
+  Football: fromTabler(IconBallFootball),
   Hiking: Footprints,
   Movies: Clapperboard,
-  Golf: Flag,
+  Golf: fromTabler(IconGolf),
   "Coffee shops": Coffee,
   Snowboard: MountainSnow,
 };
