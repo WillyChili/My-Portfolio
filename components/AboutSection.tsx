@@ -115,16 +115,6 @@ export default function AboutSection() {
           >
             The best interface is the one no one has to think about.
           </h2>
-          <span
-            style={{
-              fontFamily: "var(--font-sans), sans-serif",
-              fontSize: "15px",
-              lineHeight: 1.5,
-              color: "#7A7773",
-            }}
-          >
-            Buenos Aires, <span style={{ color: "#E8E5E0" }}>Argentina</span>
-          </span>
           <p
             style={{
               fontFamily: "var(--font-sans), sans-serif",
@@ -133,14 +123,15 @@ export default function AboutSection() {
               color: "#7A7773",
             }}
           >
-            I&apos;m a <span style={{ color: "#E8E5E0" }}>Product Designer</span> based in Buenos Aires, always focused on
+            I&apos;m a <span style={{ color: "#E8E5E0" }}>Product Designer</span> based in{" "}
+            <span style={{ color: "#E8E5E0" }}>Buenos Aires, Argentina</span>, always focused on
             the gap between what a product does and how people actually
             experience it.
           </p>
         </div>
 
         {/* Right: details */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+        <div style={{ display: "flex", flexDirection: "row", gap: "clamp(2rem, 4vw, 3.5rem)" }}>
           {[
             {
               label: "Toolkit",
