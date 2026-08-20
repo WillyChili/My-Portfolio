@@ -52,7 +52,12 @@ export default function ProjectsSection() {
       {/* Project list */}
       <div style={{ display: "flex", flexDirection: "column", gap: "2px", position: "relative", zIndex: 1 }}>
         {projects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i} />
+          <ProjectCard
+            key={project.slug}
+            project={project}
+            index={i}
+            isLast={i === projects.length - 1}
+          />
         ))}
       </div>
     </section>
@@ -62,9 +67,11 @@ export default function ProjectsSection() {
 function ProjectCard({
   project,
   index,
+  isLast,
 }: {
   project: (typeof projects)[number];
   index: number;
+  isLast: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
   const accent = project.accentColor;
@@ -85,7 +92,9 @@ function ProjectCard({
           padding: "clamp(1.5rem, 3vw, 2.5rem) 0",
           paddingLeft: "clamp(1.5rem, 3vw, 2.5rem)",
           marginLeft: "calc(-1 * clamp(1.5rem, 3vw, 2.5rem))",
-          borderBottom: `1px solid ${hovered ? `${accent}40` : "rgba(232,229,224,0.06)"}`,
+          borderBottom: isLast
+            ? "none"
+            : `1px solid ${hovered ? `${accent}40` : "rgba(232,229,224,0.06)"}`,
           cursor: "pointer",
           transition: "border-color 0.35s ease",
         }}
