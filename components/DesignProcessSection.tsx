@@ -177,8 +177,7 @@ export default function DesignProcessSection() {
           zIndex: 1,
         }}
       >
-        Research, thinking, and building move through the same handful of
-        tools, end to end.
+        Tools change fast. The process adapts faster.
       </h2>
 
       {/* Timeline */}
