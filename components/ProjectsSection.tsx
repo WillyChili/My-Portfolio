@@ -86,11 +86,8 @@ function ProjectCard({
           paddingLeft: "clamp(1.5rem, 3vw, 2.5rem)",
           marginLeft: "calc(-1 * clamp(1.5rem, 3vw, 2.5rem))",
           borderBottom: `1px solid ${hovered ? `${accent}40` : "rgba(232,229,224,0.06)"}`,
-          background: hovered
-            ? `radial-gradient(ellipse 60% 100% at 0% 50%, ${accent}1F 0%, transparent 70%)`
-            : "transparent",
           cursor: "pointer",
-          transition: "background 0.35s ease, border-color 0.35s ease",
+          transition: "border-color 0.35s ease",
         }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -191,20 +188,12 @@ function ProjectCard({
         </div>
 
         {/* Right: cover thumbnail */}
-        <div
-          style={{
-            transform: hovered ? "scale(1.03)" : "scale(1)",
-            filter: hovered ? `drop-shadow(0 12px 32px ${accent}33)` : "drop-shadow(0 0px 0px transparent)",
-            transition: "transform 0.4s cubic-bezier(0.23,1,0.32,1), filter 0.4s ease",
-          }}
-        >
-          <ProjectThumbnail
-            slug={project.slug}
-            title={project.title}
-            accentColor={project.accentColor}
-            coverImage={project.coverImage}
-          />
-        </div>
+        <ProjectThumbnail
+          slug={project.slug}
+          title={project.title}
+          accentColor={project.accentColor}
+          coverImage={project.coverImage}
+        />
       </article>
     </Link>
   );
