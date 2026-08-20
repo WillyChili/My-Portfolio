@@ -64,25 +64,32 @@ const NODES = [
     caption: "Then I think out loud with Claude, turning research into a point of view.",
   },
   {
+    id: "cursor-system",
+    label: "Cursor",
+    accent: "#B0ADA8",
+    Icon: CursorIcon,
+    caption: "From there, I build a design system in Cursor, the components everything else reuses.",
+  },
+  {
     id: "figma",
     label: "Figma",
     accent: "#F24E1E",
     Icon: FigmaIcon,
-    caption: "From there, ideas become screens: flows, states, the real interface.",
+    caption: "That system moves into Figma, documented so it's easy to design with.",
   },
   {
-    id: "cursor",
+    id: "cursor-product",
     label: "Cursor",
     accent: "#B0ADA8",
     Icon: CursorIcon,
-    caption: "Cursor is where the design starts behaving like a product.",
+    caption: "Back in Cursor, the design starts behaving like a real product.",
   },
   {
     id: "claude-code",
     label: "Claude Code",
     accent: "#D97757",
     Icon: ClaudeIcon,
-    caption: "Claude Code turns that into working code, fast enough to test as I go.",
+    caption: "Claude Code turns it into working HTML, CSS, and JS: fast, testable prototypes.",
   },
   {
     id: "docs",
@@ -94,6 +101,7 @@ const NODES = [
 ];
 
 const EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
+const LINE_DURATION_MS = 2000;
 const DOTS_BG =
   "repeating-linear-gradient(to right, currentColor 0, currentColor 3px, transparent 3px, transparent 11px)";
 
@@ -248,7 +256,7 @@ export default function DesignProcessSection() {
               height: "2px",
               transform: `translateY(-50%) scaleX(${visible ? 1 : 0})`,
               transformOrigin: "left",
-              transition: reduced ? "opacity 0.6s ease" : `transform 1.8s ${EASE}`,
+              transition: reduced ? "opacity 0.6s ease" : `transform ${LINE_DURATION_MS}ms ${EASE}`,
               opacity: reduced ? (visible ? 1 : 0) : 1,
               color: "#E8E5E0",
               backgroundImage: DOTS_BG,
@@ -264,7 +272,12 @@ export default function DesignProcessSection() {
             }}
           >
             {NODES.map(({ id, label, accent, Icon }, i) => {
-              const delayMs = reduced ? 0 : 120 + i * 220;
+              // Sync each node's light-up with the moment the animated
+              // line reaches its x-position, so the "lighting up" reads
+              // as passing through each step rather than a generic stagger.
+              const delayMs = reduced
+                ? 0
+                : Math.round((i / (NODES.length - 1)) * LINE_DURATION_MS);
               return (
                 <div
                   key={id}
