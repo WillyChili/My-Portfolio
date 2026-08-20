@@ -217,7 +217,7 @@ export default function DesignProcessSection() {
           zIndex: 1,
         }}
       >
-        Tools change fast. The process adapts faster.
+        Tools change fast.<br />The process adapts faster.
       </h2>
 
       {!reduced && <style>{LINE_KEYFRAMES + nodeKeyframesCss()}</style>}
