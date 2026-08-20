@@ -53,8 +53,12 @@ export default function ProjectThumbnail({
         background: "#17160F",
       }}
     >
-      <GlowBackground accentColor={accentColor} />
-      <BrowserMockup slug={slug} title={title} accentColor={accentColor} coverImage={coverImage} />
+      {/* Glow + mockup scale together as one unit, so shrinking the
+          mockup also shrinks/re-centers the background around it. */}
+      <div style={{ position: "relative", width: "100%", height: "100%", transform: "scale(0.6)" }}>
+        <GlowBackground accentColor={accentColor} />
+        <BrowserMockup slug={slug} title={title} accentColor={accentColor} coverImage={coverImage} />
+      </div>
     </div>
   );
 }
