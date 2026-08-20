@@ -96,7 +96,6 @@ export default function AboutSection() {
           gap: "clamp(3rem, 6vw, 6rem)",
           alignItems: "start",
           maxWidth: "1100px",
-          margin: "0 auto",
           position: "relative",
           zIndex: 1,
         }}
