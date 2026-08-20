@@ -8,51 +8,33 @@ const ACCENT = "#E8734A";
 const SCREENS = [
   {
     src: "/coderhouse/campus-home.png",
-    alt: "Student campus, home dashboard",
-    path: "campus / home",
-    kind: "browser" as const,
+    alt: "Student campus, home dashboard with active courses",
+    path: "campus / mis cursos",
   },
   {
     src: "/coderhouse/syllabus.png",
-    alt: "Redesigned syllabus with improved reading experience",
-    path: "campus / syllabus",
-    kind: "browser" as const,
+    alt: "Redesigned syllabus with module progress and improved reading experience",
+    path: "campus / temario",
   },
   {
-    src: "/coderhouse/correction-flow.png",
-    alt: "Three-block AI correction: correct, corrections, suggestions",
-    path: "campus / correction",
-    kind: "browser" as const,
-  },
-  {
-    src: "/coderhouse/ticher-deeplink.png",
-    alt: "Deep-link from correction bullet to AI tutor with pre-loaded context",
+    src: "/coderhouse/ticher-chat.png",
+    alt: "Ticher, the AI tutor, answering a question inside the student campus",
     path: "campus / ticher",
-    kind: "browser" as const,
   },
   {
-    src: "/coderhouse/rating-component.png",
-    alt: "Feedback rating with low-score category branch",
-    path: "campus / feedback",
-    kind: "browser" as const,
+    src: "/coderhouse/catalog.png",
+    alt: "Course catalog with live workshops and on-demand tracks",
+    path: "campus / catálogo",
   },
   {
-    src: "/coderhouse/staff-portal.png",
-    alt: "Staff portal dashboard",
-    path: "staff portal",
-    kind: "browser" as const,
+    src: "/coderhouse/job-search.png",
+    alt: "Ticher-powered job search matching student profile to open roles",
+    path: "campus / bolsa laboral",
   },
   {
-    src: "/coderhouse/design-system.png",
-    alt: "Design system tokens, typography, and components",
-    path: "design system",
-    kind: "browser" as const,
-  },
-  {
-    src: "/coderhouse/mobile.png",
-    alt: "Coderhouse mobile campus view",
-    path: "",
-    kind: "phone" as const,
+    src: "/coderhouse/community.png",
+    alt: "Student forum with course discussions and community stats",
+    path: "campus / foro",
   },
 ];
 
@@ -104,11 +86,9 @@ function BrowserChrome({ path }: { path: string }) {
   );
 }
 
-// The real Coderhouse screenshots haven't been captured yet — every `src`
-// above is a placeholder path that 404s today. Rather than showing a
-// broken-image icon inside the browser chrome, fall back to the same
-// gradient + label treatment CaseStudyImage uses elsewhere, so the
-// carousel still reads as a deliberate placeholder instead of a bug.
+// Screens are real product screenshots, but keep a graceful fallback: if an
+// asset is ever missing, fall back to the same gradient + label treatment
+// CaseStudyImage uses elsewhere instead of a broken-image icon.
 function ScreenImage({ src, alt }: { src: string; alt: string }) {
   const [errored, setErrored] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -219,24 +199,24 @@ export default function PlatformCarousel() {
           willChange: reduced ? undefined : "transform",
         }}
       >
-        {items.map(({ src, alt, path, kind }, i) => (
+        {items.map(({ src, alt, path }, i) => (
           <div
             key={`${src}-${i}`}
             style={{
               flexShrink: 0,
-              width: kind === "phone" ? "220px" : "420px",
+              width: "420px",
             }}
           >
             <div
               style={{
-                borderRadius: kind === "phone" ? "28px" : "10px",
+                borderRadius: "10px",
                 overflow: "hidden",
                 border: "1px solid rgba(255,255,255,0.06)",
                 boxShadow: "0 16px 48px rgba(0,0,0,0.4)",
                 background: "#1F1E1C",
               }}
             >
-              {kind === "browser" && <BrowserChrome path={path} />}
+              <BrowserChrome path={path} />
               <ScreenImage src={src} alt={alt} />
             </div>
           </div>
