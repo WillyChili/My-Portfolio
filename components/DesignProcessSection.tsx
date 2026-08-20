@@ -140,67 +140,63 @@ export default function DesignProcessSection() {
         position: "relative",
       }}
     >
-      {/* Section header */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "baseline",
-          justifyContent: "space-between",
-          marginBottom: "clamp(3rem, 6vw, 5rem)",
-          borderBottom: "1px solid rgba(232,229,224,0.08)",
-          paddingBottom: "1.25rem",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <span
+      {/* Capped at 1200px so content doesn't stretch edge-to-edge on very
+          wide viewports, matching the other sections below the Hero. Not
+          centered — stays flush with the section's left padding. */}
+      <div style={{ maxWidth: "1200px", position: "relative", zIndex: 1 }}>
+        {/* Section header */}
+        <div
           style={{
-            fontFamily: "var(--font-pixel)",
-            fontSize: "13px",
-            letterSpacing: "0.1em",
-            color: "#B0ADA8",
+            display: "flex",
+            alignItems: "baseline",
+            justifyContent: "space-between",
+            marginBottom: "clamp(3rem, 6vw, 5rem)",
+            borderBottom: "1px solid rgba(232,229,224,0.08)",
+            paddingBottom: "1.25rem",
           }}
         >
-          Design Process
-        </span>
-      </div>
+          <span
+            style={{
+              fontFamily: "var(--font-pixel)",
+              fontSize: "13px",
+              letterSpacing: "0.1em",
+              color: "#B0ADA8",
+            }}
+          >
+            Design Process
+          </span>
+        </div>
 
-      {/* Intro */}
-      <h2
-        style={{
-          fontFamily: "var(--font-sans), sans-serif",
-          fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-          fontWeight: 400,
-          lineHeight: 1.2,
-          letterSpacing: "-0.02em",
-          color: "#E8E5E0",
-          maxWidth: "720px",
-          marginBottom: "clamp(3.5rem, 6vw, 5.5rem)",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        Tools change fast.<br />The process adapts faster.
-      </h2>
+        {/* Intro */}
+        <h2
+          style={{
+            fontFamily: "var(--font-sans), sans-serif",
+            fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+            fontWeight: 400,
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
+            color: "#E8E5E0",
+            maxWidth: "720px",
+            marginBottom: "clamp(3.5rem, 6vw, 5.5rem)",
+          }}
+        >
+          Tools change fast.<br />The process adapts faster.
+        </h2>
 
-      {!reduced && <style>{LINE_KEYFRAMES + nodeKeyframesCss()}</style>}
+        {!reduced && <style>{LINE_KEYFRAMES + nodeKeyframesCss()}</style>}
 
-      {/* Timeline */}
-      <div
-        ref={ref}
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat(${NODES.length}, minmax(120px, 1fr))`,
-          gridTemplateRows: "auto auto auto auto",
-          columnGap: "clamp(0.5rem, 2vw, 1.5rem)",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          overflowX: "auto",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        {NODES.map(({ id, caption }, i) => (
+        {/* Timeline */}
+        <div
+          ref={ref}
+          style={{
+            display: "grid",
+            gridTemplateColumns: `repeat(${NODES.length}, minmax(120px, 1fr))`,
+            gridTemplateRows: "auto auto auto auto",
+            columnGap: "clamp(0.5rem, 2vw, 1.5rem)",
+            overflowX: "auto",
+          }}
+        >
+          {NODES.map(({ id, caption }, i) => (
           <div
             key={`top-${id}`}
             style={{
@@ -389,6 +385,7 @@ export default function DesignProcessSection() {
             )}
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

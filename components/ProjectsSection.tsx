@@ -14,51 +14,54 @@ export default function ProjectsSection() {
         position: "relative",
       }}
     >
-      {/* Section header */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "baseline",
-          justifyContent: "space-between",
-          marginBottom: "clamp(2.5rem, 5vw, 4rem)",
-          borderBottom: "1px solid rgba(232,229,224,0.08)",
-          paddingBottom: "1.25rem",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <span
+      {/* Capped at 1200px so content doesn't stretch edge-to-edge on very
+          wide viewports, matching the other sections below the Hero. Not
+          centered — stays flush with the section's left padding. */}
+      <div style={{ maxWidth: "1200px", position: "relative", zIndex: 1 }}>
+        {/* Section header */}
+        <div
           style={{
-            fontFamily: "var(--font-pixel)",
-            fontSize: "13px",
-            letterSpacing: "0.1em",
-            color: "#B0ADA8",
+            display: "flex",
+            alignItems: "baseline",
+            justifyContent: "space-between",
+            marginBottom: "clamp(2.5rem, 5vw, 4rem)",
+            borderBottom: "1px solid rgba(232,229,224,0.08)",
+            paddingBottom: "1.25rem",
           }}
         >
-          Selected Work
-        </span>
-        <span
-          style={{
-            fontFamily: "var(--font-pixel)",
-            fontSize: "13px",
-            letterSpacing: "0.08em",
-            color: "#6B6862",
-          }}
-        >
-          {projects.length} projects
-        </span>
-      </div>
+          <span
+            style={{
+              fontFamily: "var(--font-pixel)",
+              fontSize: "13px",
+              letterSpacing: "0.1em",
+              color: "#B0ADA8",
+            }}
+          >
+            Selected Work
+          </span>
+          <span
+            style={{
+              fontFamily: "var(--font-pixel)",
+              fontSize: "13px",
+              letterSpacing: "0.08em",
+              color: "#6B6862",
+            }}
+          >
+            {projects.length} projects
+          </span>
+        </div>
 
-      {/* Project list */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "2px", position: "relative", zIndex: 1 }}>
-        {projects.map((project, i) => (
-          <ProjectCard
-            key={project.slug}
-            project={project}
-            index={i}
-            isLast={i === projects.length - 1}
-          />
-        ))}
+        {/* Project list */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              index={i}
+              isLast={i === projects.length - 1}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

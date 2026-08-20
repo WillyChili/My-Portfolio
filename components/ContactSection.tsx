@@ -11,42 +11,42 @@ export default function ContactSection() {
         position: "relative",
       }}
     >
-      {/* Section header */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "baseline",
-          justifyContent: "space-between",
-          marginBottom: "clamp(3rem, 6vw, 5rem)",
-          borderBottom: "1px solid rgba(232,229,224,0.08)",
-          paddingBottom: "1.25rem",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <span
+      {/* Capped at 1200px so content doesn't stretch edge-to-edge on very
+          wide viewports, matching the other sections below the Hero. Not
+          centered — stays flush with the section's left padding. */}
+      <div style={{ maxWidth: "1200px", position: "relative", zIndex: 1 }}>
+        {/* Section header */}
+        <div
           style={{
-            fontFamily: "var(--font-pixel)",
-            fontSize: "13px",
-            letterSpacing: "0.1em",
-            color: "#B0ADA8",
+            display: "flex",
+            alignItems: "baseline",
+            justifyContent: "space-between",
+            marginBottom: "clamp(3rem, 6vw, 5rem)",
+            borderBottom: "1px solid rgba(232,229,224,0.08)",
+            paddingBottom: "1.25rem",
           }}
         >
-          Contact
-        </span>
-      </div>
+          <span
+            style={{
+              fontFamily: "var(--font-pixel)",
+              fontSize: "13px",
+              letterSpacing: "0.1em",
+              color: "#B0ADA8",
+            }}
+          >
+            Contact
+          </span>
+        </div>
 
-      {/* CTA */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "clamp(2rem, 4vw, 3rem)",
-          maxWidth: "640px",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
+        {/* CTA */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "clamp(2rem, 4vw, 3rem)",
+            maxWidth: "640px",
+          }}
+        >
         <h2
           style={{
             fontFamily: "var(--font-sans), sans-serif",
@@ -113,6 +113,7 @@ export default function ContactSection() {
             <path d="M7 17L17 7M17 7H7M17 7v10" />
           </svg>
         </a>
+        </div>
       </div>
     </section>
   );
