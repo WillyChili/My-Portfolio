@@ -32,7 +32,7 @@ export default function EchoCaseStudyCover() {
         style={{ position: "absolute", left: 0, right: 0, top: "20%", width: "100%", height: "100%" }}
       />
 
-      {/* Short catch line, top-left */}
+      {/* Short catch line, top-left, one word per line */}
       <div
         style={{
           position: "absolute",
@@ -42,10 +42,13 @@ export default function EchoCaseStudyCover() {
           fontWeight: 700,
           fontSize: "clamp(1.1rem, 2.4vw, 1.6rem)",
           letterSpacing: "-0.01em",
+          lineHeight: 1.15,
           color: "#FFFFFF",
         }}
       >
-        Speak your mind.
+        <div>Speak</div>
+        <div>your</div>
+        <div>mind.</div>
       </div>
 
       {/* Phone mockup: real 3D render (login screen), shadow baked into the asset */}
