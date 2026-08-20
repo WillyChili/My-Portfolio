@@ -2,7 +2,15 @@
 
 import { Footprints, Clapperboard, Coffee, MountainSnow } from "lucide-react";
 import { IconBallFootball, IconGolf } from "@tabler/icons-react";
-import { MobbinIcon, ClaudeIcon, FigmaIcon, CursorIcon } from "@/components/icons/BrandIcons";
+import {
+  MobbinIcon,
+  ClaudeIcon,
+  FigmaIcon,
+  CursorIcon,
+  FigJamIcon,
+  PaperIcon,
+  V0Icon,
+} from "@/components/icons/BrandIcons";
 
 type IconProps = { size?: number; strokeWidth?: number; color?: string };
 
@@ -37,9 +45,12 @@ const HOBBY_ICONS: Record<string, React.ComponentType<IconProps>> = {
 
 const TOOLKIT_ICONS: Record<string, React.ComponentType<IconProps>> = {
   Figma: fromBrand(FigmaIcon),
+  FigJam: fromBrand(FigJamIcon),
   Cursor: fromBrand(CursorIcon),
   Claude: fromBrand(ClaudeIcon),
   Mobbin: fromBrand(MobbinIcon),
+  Paper: fromBrand(PaperIcon),
+  v0: fromBrand(V0Icon),
 };
 
 export default function AboutSection() {
@@ -133,7 +144,7 @@ export default function AboutSection() {
           {[
             {
               label: "Toolkit",
-              items: ["Figma", "Cursor", "Claude", "Mobbin"],
+              items: ["Figma", "FigJam", "Cursor", "Claude", "Mobbin", "Paper", "v0"],
               icons: TOOLKIT_ICONS,
             },
             {

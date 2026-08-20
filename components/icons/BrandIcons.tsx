@@ -45,3 +45,39 @@ export function CursorIcon({ size = 20, color = "#E8E5E0" }: IconProps) {
     </svg>
   );
 }
+
+// FigJam's nav glyph, taken from figma.com's own site chrome: a page
+// with a folded corner. Rendered here without the light-purple badge
+// background so it drops into the same flat single-tone treatment as
+// the other vector icons above.
+export function FigJamIcon({ size = 20, color = "#E8E5E0" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.5 13.564a.75.75 0 0 1-.22.53l-5.185 5.186a.75.75 0 0 1-.53.22H5.25a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h13.5a.75.75 0 0 1 .75.75zM6 17.75c0 .138.112.25.25.25h6.156a.25.25 0 0 0 .25-.25v-4.844a.25.25 0 0 1 .25-.25h4.844a.25.25 0 0 0 .25-.25V6.25a.25.25 0 0 0-.25-.25H6.25a.25.25 0 0 0-.25.25zm8.156-.954c0 .111.135.167.214.088l2.514-2.514a.125.125 0 0 0-.088-.214H14.28a.125.125 0 0 0-.125.125z"
+      />
+    </svg>
+  );
+}
+
+// Paper (paper.design) ships its mark only as a colored app-icon PNG,
+// not a vector/npm package. This redraws its two-overlapping-sheets
+// motif as a flat single-path glyph (evenodd punches out the overlap)
+// so it matches the rest of this file's monochrome treatment.
+export function PaperIcon({ size = 20, color = "#E8E5E0" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M9 4h12v10H9V4ZM4 9h10v11H4V9Z" />
+    </svg>
+  );
+}
+
+export function V0Icon({ size = 20, color = "#E8E5E0" }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
+      <path d="M14.066 6.028v2.22h5.729q.075-.001.148.005l-5.853 5.752a2 2 0 0 1-.024-.309V8.247h-2.353v5.45c0 2.322 1.935 4.222 4.258 4.222h5.675v-2.22h-5.675q-.03 0-.059-.003l5.729-5.629q.006.082.006.166v5.465H24v-5.465a4.204 4.204 0 0 0-4.205-4.205zM0 8.245l8.28 9.266c.839.94 2.396.346 2.396-.914V8.245H8.19v5.44l-4.86-5.44Z" />
+    </svg>
+  );
+}
