@@ -36,6 +36,243 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "coderhouse",
+    title: "Coderhouse Redesign",
+    company: "Coderhouse",
+    year: "2025–2026",
+    tags: ["Product Design", "Design System", "AI Integration", "Ed-Tech"],
+    summary: "A full education platform redesign as the only designer: 2 core surfaces, 2 study modalities, AI integration, and a design system built on Shadcn/UI.",
+    coverImage: "/coderhouse/cover.png",
+    accentColor: "#E8734A",
+    role: "Product Designer · Sole Designer",
+    duration: "16+ months",
+    sections: [
+      {
+        type: "highlight",
+        quote: "The interesting work wasn't designing the new platform. It was understanding the old one.",
+      },
+      {
+        type: "text",
+        chapter: "01",
+        chapterLabel: "Context",
+        title: "The project",
+        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus and staff portal, two surfaces and two study modalities, on top of a design system built on Shadcn/UI rather than from zero.\n\nBut the interesting work wasn't designing the new platform. It was understanding the old one: separating what was actually working and worth protecting, from what was failing by design rather than by implementation. And then integrating AI into the core of the experience during a year and a half in which what AI could do shifted every three months.",
+      },
+      {
+        type: "text",
+        chapter: "02",
+        chapterLabel: "Discovery",
+        title: "Reading the old platform",
+        body: "I didn't start from a blank page. I started from a product with years of use, active cohorts, support tickets, student ratings, and NPS data. The first design work was diagnostic: distinguishing surface-level friction from structural problems.",
+      },
+      {
+        type: "process",
+        subtitle: "What we chose to keep",
+        body: "This is the part of a diagnosis that almost never gets told, and it's the one that matters most: in a full redesign, the temptation is to change everything. What you keep with intention is a design decision as much as what you change.",
+        steps: [
+          {
+            label: "01",
+            title: "A step-by-step syllabus",
+            body: "Content unlocks in a fixed order, one topic at a time. Removing that structure for the sake of flexibility would have removed the thing that told students what to do next.",
+          },
+          {
+            label: "02",
+            title: "A cohort chat between students and teacher",
+            body: "A single thread per cohort where students and the teacher talk directly, not just office hours. Questions get answered in public, and future students can find them.",
+          },
+          {
+            label: "03",
+            title: "Tutors as human support",
+            body: "When there's a person, there's someone to ask. That doesn't get replaced, it gets complemented.",
+          },
+          {
+            label: "04",
+            title: "The ranking as a status space",
+            body: "The need to showcase achievements is real. The problem wasn't the ranking itself: it was its rules.",
+          },
+        ],
+      },
+      {
+        type: "process",
+        subtitle: "What we decided to change",
+        body: "Eight decisions, not a full teardown. Some were structural, some were about how the product looked and felt, and both mattered.",
+        steps: [
+          {
+            label: "01",
+            title: "Motivation worked for few",
+            body: "Top 10% ranking is zero-sum by design: 90% lose. Replaced it with a mastery threshold of about 80% of possible points.",
+          },
+          {
+            label: "02",
+            title: "Certificates contradicted progress",
+            body: "Progress showed 94% with the certificate already issued. Two signals saying different things about the same fact. Fixed: certification = 100%.",
+          },
+          {
+            label: "03",
+            title: "Attendance over learning",
+            body: "Attendance requirements punish async learners and reward leaving Zoom open. Removed attendance. You certify by content consumed + project approved.",
+          },
+          {
+            label: "04",
+            title: "No one to ask when you got stuck",
+            body: "Corrections read as a closed verdict, with nowhere to ask 'but why?' In a moment where AI could actually help with that, we introduced Ticher: an AI tutor that answers doubts as they come up, deep-linked from every correction.",
+          },
+          {
+            label: "05",
+            title: "Mid-course dropout",
+            body: "The jump from 'I started' to 'final project' was too large. No intermediate milestones. Introduced visible pre-submissions as checkpoints.",
+          },
+          {
+            label: "06",
+            title: "Confusing navigation",
+            body: "A hierarchy and typographic rhythm problem, not a content problem. Redesigned the syllabus and reading experience.",
+          },
+          {
+            label: "07",
+            title: "Support tickets from friction",
+            body: "No structured way to report, no separation between 'this is broken' and 'I don't like this'. Built a dual-stream feedback system.",
+          },
+          {
+            label: "08",
+            title: "A dated, inconsistent look",
+            body: "Every surface felt like a slightly different product, and the brand hadn't been refreshed in years. Paisanos led the brand refresh; I redesigned the interface on top of it, one visual language and one component system, applied consistently across the platform.",
+          },
+        ],
+      },
+      {
+        type: "mockup-row",
+        chapter: "03",
+        chapterLabel: "Product",
+        mockupId: "coderhouse-screens",
+        title: "The platform",
+      },
+      {
+        type: "text",
+        chapter: "04",
+        chapterLabel: "Craft",
+        title: "Designing AI on shifting ground",
+        body: "This is the part of the project that taught me the most, and the hardest to have done well. I started designing AI in June 2025. What a model could reliably do in June 2025 wasn't what it could do in January 2026, or June 2026. I was designing on a material whose properties changed every three months.",
+      },
+      {
+        type: "text",
+        subtitle: "The rule that ordered everything",
+        body: "AI sped up process and iteration. It never replaced the judgment. I decided not to design screens that depended on how good the model was: I designed surfaces of entry (where and when the student encounters the AI) and let the quality of the output be a variable that could improve without forcing me to redesign. That call came from years of design practice, the perception and intuition a model doesn't have, and every output was still measured against it and against direct human feedback.\n\nA concrete example: I didn't design the submission correction as 'a text the AI returns.' I designed it as three blocks with a fixed structure:",
+      },
+      {
+        type: "process",
+        steps: [
+          {
+            label: "01",
+            title: "What's correct",
+            body: "Goes first, and it's not decoration: it's what makes the student keep reading.",
+          },
+          {
+            label: "02",
+            title: "Required corrections",
+            body: "What needs fixing, separated from the recognition.",
+          },
+          {
+            label: "03",
+            title: "Suggestions",
+            body: "How to go beyond the minimum.",
+          },
+        ],
+      },
+      {
+        type: "text",
+        body: "That structure is a design decision, not a model capability. It works equally well with a mediocre model and an excellent one: it gives the student a map of what to look at first, separates recognition from criticism, and gives the team a stable format to evaluate whether quality improved or worsened between versions.",
+      },
+      {
+        type: "process",
+        subtitle: "How AI decisions actually got made",
+        body: "Using AI to generate a first draft didn't mean shipping the first draft. Every AI touchpoint in the product went through the same three checks before it reached a student.",
+        steps: [
+          {
+            label: "01",
+            title: "AI proposed, the team argued",
+            body: "Course programs, correction structures, and copy started as AI output, but nothing shipped without the team pulling it apart first. Disagreement was normal, not a sign the process had failed.",
+          },
+          {
+            label: "02",
+            title: "Human feedback, every time",
+            body: "Every generated draft went through a person before publishing: an admin reviewing a course program, a reviewer checking a correction structure, a lead reading the copy. AI proposed, people decided.",
+          },
+          {
+            label: "03",
+            title: "Anchored to industry standards",
+            body: "When the team disagreed on a call, the tie-breaker wasn't personal taste, it was how established ed-tech and SaaS products handled the same problem. Mobbin benchmarking and existing UX conventions set the bar AI output had to clear.",
+          },
+        ],
+      },
+      {
+        type: "text",
+        chapter: "05",
+        chapterLabel: "Decisions",
+        title: "The feedback system",
+        body: "The platform launched and migrated at the end of 2025. I designed a listening system built on NPS surveys, direct in-app feedback, and Intercom, with every signal routed through PostHog and organized by category. That let the team spot a recurring issue fast and turn it into a fix, every week.",
+      },
+      {
+        type: "process",
+        steps: [
+          {
+            label: "01",
+            title: "Two streams, not a catch-all",
+            body: "The feedback sidebar splits into 'report a bug' (comment only) and 'rate the platform' (1-5 stars + comment). Bugs and experience complaints are different things: they go to different teams, and mixed together, neither can be analyzed.",
+          },
+          {
+            label: "02",
+            title: "Low ratings that produce backlog",
+            body: "If the student rates ≤3 stars, actionable improvement categories appear. A 2-star rating without a category is noise. With a category, it's a task.",
+          },
+          {
+            label: "03",
+            title: "Respect for user attention",
+            body: "Three entry points (sidebar, proactive pop-up, end-of-course survey) share one state: rating or skipping in any one resets the counter for all. The pop-up appears every 30 days or every 10 logins, whichever comes first, and is skippable.",
+          },
+          {
+            label: "04",
+            title: "One system, all signals",
+            body: "NPS scores, in-app ratings, and direct conversations through Intercom all feed into PostHog, tagged and organized by category. That's what made recurring issues visible fast, and turned the platform into something that shipped improvements weekly instead of quarterly.",
+          },
+        ],
+      },
+      {
+        type: "text",
+        chapter: "06",
+        chapterLabel: "Reflection",
+        title: "What I take with me",
+        subtitle: "What I'd do the same",
+        body: "Start with a pre-built design system instead of from zero, then iterate it until it matched the company's branding. That gave the project a running start and a shared language with development from day one. Document every step along the way, and keep a living roadmap of ideas to build and improve, so nothing gets lost between iterations.",
+      },
+      {
+        type: "text",
+        subtitle: "What I'd do differently",
+        body: "Prototype in code first. Build the flows in HTML with Claude Code before touching Figma, then bring the validated version into Figma to document the design system changes. Working in HTML makes iteration much faster and hands off something already prototyped, instead of a static mock that still has to prove it works.",
+      },
+      {
+        type: "text",
+        subtitle: "What I learned about designing with AI",
+        body: "AI is excellent for rapid iteration: testing several versions of a flow in the time it used to take to test one, and optimizing the time between an idea and a working prototype. But it doesn't replace the human side of the job: reading a user's frustration in an interview, sensing when a flow feels cold even if it tests fine, building empathy with the people who use what you design. That part stays with the designer.",
+        pullQuote: "AI can generate screens. It can't replace the empathy a Product Designer brings to the people who use them.",
+      },
+      {
+        type: "tech-stack",
+        chapter: "07",
+        chapterLabel: "Tools",
+        title: "The stack",
+        stack: [
+          { name: "Claude", role: "Specs, copy, pattern processing, documentation", category: "AI" },
+          { name: "Figma + FigJam", role: "Design system, tokens, product surfaces, workshops", category: "Design" },
+          { name: "Mobbin", role: "Pattern benchmarking across ed-tech and SaaS", category: "Design" },
+          { name: "Shadcn/UI", role: "Component base the design system was built on, not from scratch", category: "Components" },
+          { name: "Notion", role: "Specs, decisions, and living documentation", category: "Documentation" },
+          { name: "Linear", role: "Task tracking and sprint management", category: "Project" },
+          { name: "PostHog", role: "Event instrumentation and analytics", category: "Analytics" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "echo",
     title: "Echo",
     company: "Personal Project",
@@ -287,248 +524,6 @@ export const projects: Project[] = [
       {
         type: "mockup-row",
         mockupId: "tinsderm-live",
-      },
-    ],
-  },
-  {
-    slug: "coderhouse",
-    title: "Coderhouse 4.0",
-    company: "Coderhouse",
-    year: "2025–2026",
-    tags: ["Product Design", "Design System", "AI Integration", "Ed-Tech"],
-    summary: "A full education platform redesign as the only designer: 2 core surfaces, 2 study modalities, AI integration, and a design system built on Shadcn/UI.",
-    coverImage: "/coderhouse/cover.png",
-    accentColor: "#E8734A",
-    role: "Product Designer · Único diseñador",
-    duration: "16+ months",
-    sections: [
-      {
-        type: "highlight",
-        quote: "The interesting work wasn't designing the new platform. It was understanding the old one.",
-      },
-      {
-        type: "text",
-        chapter: "01",
-        chapterLabel: "Context",
-        title: "The project",
-        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus and staff portal, two surfaces and two study modalities, on top of a design system built on Shadcn/UI rather than from zero.\n\nBut the interesting work wasn't designing the new platform. It was understanding the old one: separating what was actually working and worth protecting, from what was failing by design rather than by implementation. And then integrating AI into the core of the experience during a year and a half in which what AI could do shifted every three months.",
-      },
-      {
-        type: "text",
-        chapter: "02",
-        chapterLabel: "Discovery",
-        title: "Reading the old platform",
-        body: "I didn't start from a blank page. I started from a product with years of use, active cohorts, support tickets, student ratings, and NPS data. The first design work was diagnostic: distinguishing surface-level friction from structural problems.",
-      },
-      {
-        type: "process",
-        subtitle: "What we chose to keep",
-        body: "This is the part of a diagnosis that almost never gets told, and it's the one that matters most: in a full redesign, the temptation is to change everything. What you keep with intention is a design decision as much as what you change.",
-        steps: [
-          {
-            label: "01",
-            title: "A step-by-step syllabus",
-            body: "Content unlocks in a fixed order, one topic at a time. Removing that structure for the sake of flexibility would have removed the thing that told students what to do next.",
-          },
-          {
-            label: "02",
-            title: "A cohort chat between students and teacher",
-            body: "A single thread per cohort where students and the teacher talk directly, not just office hours. Questions get answered in public, and future students can find them.",
-          },
-          {
-            label: "03",
-            title: "Tutors as human support",
-            body: "When there's a person, there's someone to ask. That doesn't get replaced, it gets complemented.",
-          },
-          {
-            label: "04",
-            title: "The ranking as a status space",
-            body: "The need to showcase achievements is real. The problem wasn't the ranking itself: it was its rules.",
-          },
-        ],
-      },
-      {
-        type: "process",
-        subtitle: "What we decided to change",
-        body: "Eight decisions, not a full teardown. Some were structural, some were about how the product looked and felt, and both mattered.",
-        steps: [
-          {
-            label: "01",
-            title: "Motivation worked for few",
-            body: "Top 10% ranking is zero-sum by design: 90% lose. Replaced it with a mastery threshold of about 80% of possible points.",
-          },
-          {
-            label: "02",
-            title: "Certificates contradicted progress",
-            body: "Progress showed 94% with the certificate already issued. Two signals saying different things about the same fact. Fixed: certification = 100%.",
-          },
-          {
-            label: "03",
-            title: "Attendance over learning",
-            body: "Attendance requirements punish async learners and reward leaving Zoom open. Removed attendance. You certify by content consumed + project approved.",
-          },
-          {
-            label: "04",
-            title: "No one to ask when you got stuck",
-            body: "Corrections read as a closed verdict, with nowhere to ask 'but why?' In a moment where AI could actually help with that, we introduced Ticher: an AI tutor that answers doubts as they come up, deep-linked from every correction.",
-          },
-          {
-            label: "05",
-            title: "Mid-course dropout",
-            body: "The jump from 'I started' to 'final project' was too large. No intermediate milestones. Introduced visible pre-submissions as checkpoints.",
-          },
-          {
-            label: "06",
-            title: "Confusing navigation",
-            body: "A hierarchy and typographic rhythm problem, not a content problem. Redesigned the syllabus and reading experience.",
-          },
-          {
-            label: "07",
-            title: "Support tickets from friction",
-            body: "No structured way to report, no separation between 'this is broken' and 'I don't like this'. Built a dual-stream feedback system.",
-          },
-          {
-            label: "08",
-            title: "A dated, inconsistent look",
-            body: "Every surface felt like a slightly different product, and the brand hadn't been refreshed in years. Paisanos led the brand refresh; I redesigned the interface on top of it, one visual language and one component system, applied consistently across the platform.",
-          },
-        ],
-      },
-      {
-        type: "mockup-row",
-        chapter: "03",
-        chapterLabel: "Product",
-        mockupId: "coderhouse-screens",
-        title: "The platform",
-      },
-      {
-        type: "text",
-        chapter: "04",
-        chapterLabel: "Craft",
-        title: "Designing AI on shifting ground",
-        body: "This is the part of the project that taught me the most, and the hardest to have done well. I started designing AI in June 2025. What a model could reliably do in June 2025 wasn't what it could do in January 2026, or June 2026. I was designing on a material whose properties changed every three months.",
-      },
-      {
-        type: "text",
-        subtitle: "The rule that ordered everything",
-        body: "AI sped up process and iteration. It never replaced the judgment. I decided not to design screens that depended on how good the model was: I designed surfaces of entry (where and when the student encounters the AI) and let the quality of the output be a variable that could improve without forcing me to redesign. That call came from years of design practice, the perception and intuition a model doesn't have, and every output was still measured against it and against direct human feedback.\n\nA concrete example: I didn't design the submission correction as 'a text the AI returns.' I designed it as three blocks with a fixed structure:",
-      },
-      {
-        type: "process",
-        steps: [
-          {
-            label: "01",
-            title: "What's correct",
-            body: "Goes first, and it's not decoration: it's what makes the student keep reading.",
-          },
-          {
-            label: "02",
-            title: "Required corrections",
-            body: "What needs fixing, separated from the recognition.",
-          },
-          {
-            label: "03",
-            title: "Suggestions",
-            body: "How to go beyond the minimum.",
-          },
-        ],
-      },
-      {
-        type: "text",
-        body: "That structure is a design decision, not a model capability. It works equally well with a mediocre model and an excellent one: it gives the student a map of what to look at first, separates recognition from criticism, and gives the team a stable format to evaluate whether quality improved or worsened between versions.",
-      },
-      {
-        type: "process",
-        subtitle: "How AI decisions actually got made",
-        body: "Using AI to generate a first draft didn't mean shipping the first draft. Every AI touchpoint in the product went through the same three checks before it reached a student.",
-        steps: [
-          {
-            label: "01",
-            title: "AI proposed, the team argued",
-            body: "Course programs, correction structures, and copy started as AI output, but nothing shipped without the team pulling it apart first. Disagreement was normal, not a sign the process had failed.",
-          },
-          {
-            label: "02",
-            title: "Human feedback, every time",
-            body: "Every generated draft went through a person before publishing: an admin reviewing a course program, a reviewer checking a correction structure, a lead reading the copy. AI proposed, people decided.",
-          },
-          {
-            label: "03",
-            title: "Anchored to industry standards",
-            body: "When the team disagreed on a call, the tie-breaker wasn't personal taste, it was how established ed-tech and SaaS products handled the same problem. Mobbin benchmarking and existing UX conventions set the bar AI output had to clear.",
-          },
-        ],
-      },
-      {
-        type: "text",
-        chapter: "05",
-        chapterLabel: "Decisions",
-        title: "The feedback system",
-        body: "The platform launched and migrated at the end of 2025. I designed a listening system built on NPS surveys, direct in-app feedback, and Intercom, with every signal routed through PostHog and organized by category. That let the team spot a recurring issue fast and turn it into a fix, every week.",
-      },
-      {
-        type: "process",
-        steps: [
-          {
-            label: "01",
-            title: "Two streams, not a catch-all",
-            body: "The feedback sidebar splits into 'report a bug' (comment only) and 'rate the platform' (1-5 stars + comment). Bugs and experience complaints are different things: they go to different teams, and mixed together, neither can be analyzed.",
-          },
-          {
-            label: "02",
-            title: "Low ratings that produce backlog",
-            body: "If the student rates ≤3 stars, actionable improvement categories appear. A 2-star rating without a category is noise. With a category, it's a task.",
-          },
-          {
-            label: "03",
-            title: "Respect for user attention",
-            body: "Three entry points (sidebar, proactive pop-up, end-of-course survey) share one state: rating or skipping in any one resets the counter for all. The pop-up appears every 30 days or every 10 logins, whichever comes first, and is skippable.",
-          },
-          {
-            label: "04",
-            title: "One system, all signals",
-            body: "NPS scores, in-app ratings, and direct conversations through Intercom all feed into PostHog, tagged and organized by category. That's what made recurring issues visible fast, and turned the platform into something that shipped improvements weekly instead of quarterly.",
-          },
-        ],
-      },
-      {
-        type: "text",
-        chapter: "06",
-        chapterLabel: "Reflection",
-        title: "What I take with me",
-        subtitle: "What I'd do the same",
-        body: "Start with the design system and align it with the production component library before designing a screen. I lost expressive freedom; I gained that almost nothing came back from development for not being buildable. With a single designer, that cycle is what sinks you.\n\nDesign by complete flows, not by screens. The risk with a single designer isn't that one screen looks bad: it's that two screens designed weeks apart contradict each other and nobody notices until production.",
-      },
-      {
-        type: "text",
-        subtitle: "What I'd do differently",
-        body: "I documented the research poorly. I did the interviews, they fed decisions, and I didn't leave a synthesis. Six months later it's hard to justify why something was decided that way, and the knowledge stayed in my head on a project where I was the single point of truth for design. One synthesis page per interview batch costs two hours and is what turns research into an asset.",
-      },
-      {
-        type: "text",
-        subtitle: "What I learned about gamification",
-        body: "The points system launched before the community layer that gave it meaning: forums, submission feed, peer feedback. The student accumulates points in a space where nobody else is. A social motivation mechanic launched without its social layer isn't a reduced version of itself: it's a different thing, and it works worse.",
-      },
-      {
-        type: "text",
-        subtitle: "What I learned about designing with AI",
-        body: "Design the surface, not the capability. Everything you specify assuming a fixed quality level of the model will be wrong in two releases, in either direction. What holds up are the structures: where it appears, with what context, what format the response takes, who reviews it.",
-        pullQuote: "A designer who outsources judgment to a model produces plausible output and bad decisions.",
-      },
-      {
-        type: "tech-stack",
-        chapter: "07",
-        chapterLabel: "Tools",
-        title: "The stack",
-        stack: [
-          { name: "Figma + FigJam", role: "Design system, tokens, product surfaces, workshops", category: "Design" },
-          { name: "Mobbin", role: "Pattern benchmarking across ed-tech and SaaS", category: "Design" },
-          { name: "Shadcn/UI", role: "Component base the design system was built on, not from scratch", category: "Components" },
-          { name: "Notion", role: "Specs, decisions, and living documentation", category: "Documentation" },
-          { name: "Linear", role: "Task tracking and sprint management", category: "Project" },
-          { name: "PostHog", role: "Event instrumentation and analytics", category: "Analytics" },
-          { name: "Claude", role: "Specs, copy, pattern processing, documentation", category: "AI" },
-        ],
       },
     ],
   },

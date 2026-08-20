@@ -11,7 +11,7 @@ import PullQuote from "@/components/PullQuote";
 import ClosingCTA from "@/components/ClosingCTA";
 import EchoCaseStudyCover from "@/components/echo-mockups/EchoCaseStudyCover";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import { FigmaIcon, MobbinIcon } from "@/components/icons/BrandIcons";
+import { FigmaIcon, MobbinIcon, ShadcnIcon, NotionIcon, LinearIcon, PostHogIcon } from "@/components/icons/BrandIcons";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -1032,6 +1032,14 @@ function StackIcon({ name }: { name: string }) {
       return wrap("rgba(242,78,30,0.12)", <FigmaIcon size={ICON_SIZE} color="#F24E1E" />);
     case "Mobbin":
       return wrap("rgba(143,166,232,0.14)", <MobbinIcon size={ICON_SIZE} color="#8FA6E8" />);
+    case "Shadcn/UI":
+      return wrap("rgba(232,229,224,0.08)", <ShadcnIcon size={ICON_SIZE} color="#E8E5E0" />);
+    case "Notion":
+      return wrap("rgba(232,229,224,0.08)", <NotionIcon size={ICON_SIZE} color="#E8E5E0" />);
+    case "Linear":
+      return wrap("rgba(94,106,210,0.14)", <LinearIcon size={ICON_SIZE} color="#5E6AD2" />);
+    case "PostHog":
+      return wrap("rgba(245,78,0,0.12)", <PostHogIcon size={ICON_SIZE} color="#F54E00" />);
     default:
       return wrap(
         "rgba(232,229,224,0.06)",
