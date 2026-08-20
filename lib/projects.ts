@@ -322,18 +322,18 @@ export const projects: Project[] = [
       },
       {
         type: "process",
-        subtitle: "What I chose to keep",
+        subtitle: "What we chose to keep",
         body: "This is the part of a diagnosis that almost never gets told, and it's the one that matters most: in a full redesign, the temptation is to change everything. What you keep with intention is a design decision as much as what you change.",
         steps: [
           {
             label: "01",
-            title: "Live cohorts with scheduled classes",
-            body: "This is what generates real commitment. A shared date and people waiting for you is the strongest scaffolding online education has.",
+            title: "A step-by-step syllabus",
+            body: "Content unlocks in a fixed order, one topic at a time. Removing that structure for the sake of flexibility would have removed the thing that told students what to do next.",
           },
           {
             label: "02",
-            title: "The final project as evidence",
-            body: "It's the only thing that proves you learned something. Quizzes measure retention; a deliverable project is your portfolio.",
+            title: "A cohort chat between students and teacher",
+            body: "A single thread per cohort where students and the teacher talk directly, not just office hours. Questions get answered in public, and future students can find them.",
           },
           {
             label: "03",
