@@ -1,10 +1,28 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FileText, Compass } from "lucide-react";
+import { FileText } from "lucide-react";
 import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
 
 type IconProps = { size?: number; color?: string };
+
+// Mobbin's real logomark: a transparent-background raster (their brand
+// assets aren't distributed as an npm/vector package), inverted from
+// black to the site's off-white so it reads consistently with the
+// vector brand icons below instead of clashing as a stray black glyph
+// on the dark badge.
+function MobbinIcon({ size = 20 }: IconProps) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/mobbin.png"
+      alt=""
+      width={size}
+      height={size}
+      style={{ filter: "invert(1)", display: "block" }}
+    />
+  );
+}
 
 function ClaudeIcon({ size = 20, color = "#E8E5E0" }: IconProps) {
   return (
@@ -35,7 +53,7 @@ const NODES = [
     id: "mobbin",
     label: "Mobbin",
     accent: "#8FA6E8",
-    Icon: (p: IconProps) => <Compass size={p.size} color={p.color} strokeWidth={1.75} />,
+    Icon: MobbinIcon,
     caption: "I start in Mobbin, studying how the best products solve the same problem.",
   },
   {
@@ -161,9 +179,8 @@ export default function DesignProcessSection() {
         style={{
           display: "grid",
           gridTemplateColumns: `repeat(${NODES.length}, minmax(120px, 1fr))`,
-          gridTemplateRows: "auto auto auto",
+          gridTemplateRows: "auto auto auto auto",
           columnGap: "clamp(0.5rem, 2vw, 1.5rem)",
-          rowGap: "1.25rem",
           maxWidth: "1200px",
           overflowX: "auto",
           position: "relative",
@@ -196,15 +213,16 @@ export default function DesignProcessSection() {
           </div>
         ))}
 
-        {/* Dot track row: base (dim) + animated bright overlay + nodes */}
+        {/* Dot track row: base (dim, always on) + animated bright overlay,
+            centered exactly on the icon row's own height so the line meets
+            the nodes at their vertical middle, independent of the label
+            row below. */}
         <div
           style={{
             gridColumn: `1 / -1`,
             gridRow: 2,
             position: "relative",
-            height: "48px",
-            display: "flex",
-            alignItems: "center",
+            height: "44px",
           }}
         >
           <div
@@ -242,7 +260,7 @@ export default function DesignProcessSection() {
               position: "relative",
               display: "grid",
               gridTemplateColumns: `repeat(${NODES.length}, minmax(120px, 1fr))`,
-              width: "100%",
+              height: "100%",
             }}
           >
             {NODES.map(({ id, label, accent, Icon }, i) => {
@@ -252,9 +270,9 @@ export default function DesignProcessSection() {
                   key={id}
                   style={{
                     display: "flex",
-                    flexDirection: "column",
                     alignItems: "center",
-                    gap: "0.6rem",
+                    justifyContent: "center",
+                    height: "100%",
                   }}
                 >
                   <div
@@ -277,21 +295,37 @@ export default function DesignProcessSection() {
                   >
                     <Icon size={19} color="#E8E5E0" />
                   </div>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-pixel)",
-                      fontSize: "10px",
-                      letterSpacing: "0.06em",
-                      color: "#6B6862",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {label}
-                  </span>
                 </div>
               );
             })}
           </div>
+        </div>
+
+        {/* Label row, directly under the icons */}
+        <div
+          style={{
+            gridColumn: `1 / -1`,
+            gridRow: 3,
+            display: "grid",
+            gridTemplateColumns: `repeat(${NODES.length}, minmax(120px, 1fr))`,
+            marginTop: "0.6rem",
+          }}
+        >
+          {NODES.map(({ id, label }) => (
+            <div key={id} style={{ display: "flex", justifyContent: "center" }}>
+              <span
+                style={{
+                  fontFamily: "var(--font-pixel)",
+                  fontSize: "10px",
+                  letterSpacing: "0.06em",
+                  color: "#6B6862",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {label}
+              </span>
+            </div>
+          ))}
         </div>
 
         {NODES.map(({ id, caption }, i) => (
@@ -299,7 +333,7 @@ export default function DesignProcessSection() {
             key={`bottom-${id}`}
             style={{
               gridColumn: i + 1,
-              gridRow: 3,
+              gridRow: 4,
               display: "flex",
               alignItems: "flex-start",
             }}
@@ -311,7 +345,7 @@ export default function DesignProcessSection() {
                   fontSize: "13.5px",
                   lineHeight: 1.5,
                   color: "#7A7773",
-                  paddingTop: "0.75rem",
+                  paddingTop: "1.1rem",
                 }}
               >
                 {caption}
