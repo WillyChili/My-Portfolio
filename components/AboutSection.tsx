@@ -59,7 +59,7 @@ export default function AboutSection() {
               color: "#E8E5E0",
             }}
           >
-            I design experiences that feel obvious, after someone else built the hard version.
+            The best interface is the one no one has to think about.
           </h2>
           <p
             style={{
