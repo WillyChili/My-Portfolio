@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import BuenosAiresClock from "@/components/BuenosAiresClock";
 
 export default function Hero() {
   const brightGridRef = useRef<HTMLDivElement>(null);
@@ -236,9 +237,13 @@ export default function Hero() {
           Product Designer
         </span>
 
-        <span style={{ fontFamily: "var(--font-pixel)", fontSize: "13px", letterSpacing: "0.08em", color: "#B0ADA8" }}>
-          Buenos Aires, AR
-        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <span style={{ fontFamily: "var(--font-pixel)", fontSize: "13px", letterSpacing: "0.08em", color: "#B0ADA8" }}>
+            Buenos Aires, AR
+          </span>
+          <span style={{ width: "1px", height: "11px", background: "rgba(176, 173, 168, 0.25)" }} />
+          <BuenosAiresClock />
+        </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           {(
