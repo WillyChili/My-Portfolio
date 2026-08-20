@@ -37,12 +37,6 @@ const SCREENS = [
     kind: "browser" as const,
   },
   {
-    src: "/coderhouse/course-creator.png",
-    alt: "Course creator tool for content generation",
-    path: "backoffice / creator",
-    kind: "browser" as const,
-  },
-  {
     src: "/coderhouse/staff-portal.png",
     alt: "Staff portal dashboard",
     path: "staff portal",

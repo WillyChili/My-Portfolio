@@ -296,7 +296,7 @@ export const projects: Project[] = [
     company: "Coderhouse",
     year: "2025–2026",
     tags: ["Product Design", "Design System", "AI Integration", "Ed-Tech"],
-    summary: "A full education platform redesign as the only designer — 4 surfaces, 2 modalities, AI integration, and a design system from scratch.",
+    summary: "A full education platform redesign as the only designer: 2 core surfaces, 2 study modalities, AI integration, and a design system built on Shadcn/UI.",
     coverImage: "/coderhouse/cover.png",
     accentColor: "#E8734A",
     role: "Product Designer · Único diseñador",
@@ -304,14 +304,14 @@ export const projects: Project[] = [
     sections: [
       {
         type: "highlight",
-        quote: "El trabajo interesante no fue dibujar la plataforma nueva. Fue leer la vieja.",
+        quote: "The interesting work wasn't drawing the new platform. It was reading the old one.",
       },
       {
         type: "text",
         chapter: "01",
         chapterLabel: "Context",
         title: "The project",
-        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus, staff portal, backoffice, and course creator — four surfaces, two study modalities, on a design system I built from token zero.\n\nBut the interesting work wasn't drawing the new platform. It was reading the old one: separating what was actually working and worth protecting, from what was failing by design rather than by implementation. And then integrating AI into the core of the experience during a year and a half in which what AI could do shifted every three months.",
+        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus and staff portal, two surfaces and two study modalities, on top of a design system built on Shadcn/UI rather than from zero.\n\nBut the interesting work wasn't drawing the new platform. It was reading the old one: separating what was actually working and worth protecting, from what was failing by design rather than by implementation. And then integrating AI into the core of the experience during a year and a half in which what AI could do shifted every three months.",
       },
       {
         type: "text",
@@ -355,7 +355,7 @@ export const projects: Project[] = [
           {
             label: "01",
             title: "Motivation worked for few",
-            body: "Top 10% ranking is zero-sum by design: 90% lose. Replaced with a mastery threshold — ~80% of possible points.",
+            body: "Top 10% ranking is zero-sum by design: 90% lose. Replaced it with a mastery threshold of about 80% of possible points.",
           },
           {
             label: "02",
@@ -388,11 +388,6 @@ export const projects: Project[] = [
             body: "No structured way to report, no separation between 'this is broken' and 'I don't like this'. Built a dual-stream feedback system.",
           },
         ],
-      },
-      {
-        type: "text",
-        subtitle: "The ranking decision, in detail",
-        body: "A Top 10% ranking has two properties that make it a bad pedagogical instrument. The first is obvious: by construction, the majority loses. The second is worse: it breaks the expectation of efficacy — the belief that my effort produces my result. If I do everything right and finish eleventh, it wasn't because of me.\n\nA student who perceives that their result doesn't depend on them stops playing. And in a months-long course, stopping playing means dropping out.\n\nA mastery threshold inverts both properties: it's achievable by everyone simultaneously, and it's predictable — I know exactly what I'm missing. The goal shifts from 'beat my classmates' to 'meet the program standard.' From scarcity to achievement.",
       },
       {
         type: "text",
@@ -439,12 +434,12 @@ export const projects: Project[] = [
         chapter: "05",
         chapterLabel: "Craft",
         title: "Designing AI on shifting ground",
-        body: "This is the part of the project that taught me the most, and the hardest to have done well. I started designing AI in April 2025. What a model could reliably do in April 2025 wasn't what it could do in January 2026, or April 2026. I was designing on a material whose properties changed every three months.",
+        body: "This is the part of the project that taught me the most, and the hardest to have done well. I started designing AI in June 2025. What a model could reliably do in June 2025 wasn't what it could do in January 2026, or June 2026. I was designing on a material whose properties changed every three months.",
       },
       {
         type: "text",
         subtitle: "The rule that ordered everything",
-        body: "I decided not to design screens that depended on how good the model was. I designed surfaces of entry — where and when the student encounters the AI — and let the quality of the output be a variable that could improve without forcing me to redesign.\n\nA concrete example: I didn't design the submission correction as 'a text the AI returns.' I designed it as three blocks with a fixed structure:",
+        body: "I decided not to design screens that depended on how good the model was. I designed surfaces of entry (where and when the student encounters the AI) and let the quality of the output be a variable that could improve without forcing me to redesign.\n\nA concrete example: I didn't design the submission correction as 'a text the AI returns.' I designed it as three blocks with a fixed structure:",
       },
       {
         type: "process",
@@ -473,37 +468,29 @@ export const projects: Project[] = [
       {
         type: "text",
         subtitle: "From chatbot to AI in the flow",
-        body: "In 2025, Ticher — the AI tutor — was essentially a good chat: the student opened a window and asked. It worked, and it was used less than it should have been. The diagnosis: the cost of asking was too high. Not the time cost — the cognitive cost. Opening an empty chat forces you to formulate the question from scratch and explain the context to someone who doesn't have it.\n\nSo in the 2026 redesign I moved AI from 'a place you go to' to 'something that's where you already are': each bullet in the corrections and suggestions has a deep-link to Ticher. Hover over the bullet → 'Ask Ticher' → the chat opens with that exact point already loaded as context.",
+        body: "In 2025, Ticher (the AI tutor) was essentially a good chat: the student opened a window and asked. It worked, and it was used less than it should have been. The diagnosis: the cost of asking was too high, and not in time. In cognitive cost. Opening an empty chat forces you to formulate the question from scratch and explain the context to someone who doesn't have it.\n\nSo in the 2026 redesign I moved AI from 'a place you go to' to 'something that's where you already are': each bullet in the corrections and suggestions has a deep-link to Ticher. Hover over the bullet, tap 'Ask Ticher,' and the chat opens with that exact point already loaded as context.",
         pullQuote: "A correction is information. A conversation is learning. The deep-link turns each line of feedback into an open door.",
       },
       {
         type: "process",
-        subtitle: "Three rules for AI in product",
+        subtitle: "How AI decisions actually got made",
+        body: "Using AI to generate a first draft didn't mean shipping the first draft. Every AI touchpoint in the product went through the same three checks before it reached a student.",
         steps: [
           {
             label: "01",
-            title: "Human review before publishing, always",
-            body: "Course programs are generated with AI from specifications, but an admin reviews and edits before publishing, and the program is versioned. When material changes every three months, the review step isn't bureaucracy: it's what lets you raise the model's ambition without betting the product's quality.",
+            title: "AI proposed, the team argued",
+            body: "Course programs, correction structures, and copy started as AI output, but nothing shipped without the team pulling it apart first. Disagreement was normal, not a sign the process had failed.",
           },
           {
             label: "02",
-            title: "Generated content looks identical to curated",
-            body: "Same typography, same cards, same navigation. If generated content looks different, the student reads it as second-class, and that contaminates the perception of the entire catalog.",
+            title: "Human feedback, every time",
+            body: "Every generated draft went through a person before publishing: an admin reviewing a course program, a reviewer checking a correction structure, a lead reading the copy. AI proposed, people decided.",
           },
           {
             label: "03",
-            title: "AI replaces work, not the relationship",
-            body: "The AI tutor corrects, explains, and accompanies. It doesn't pretend to be the professor. In Group Mode, staff is still there and AI takes volume work off their plate — corrections, first-level questions — so they use their time on what only a person can do.",
+            title: "Anchored to industry standards",
+            body: "When the team disagreed on a call, the tie-breaker wasn't personal taste, it was how established ed-tech and SaaS products handled the same problem. Mobbin benchmarking and existing UX conventions set the bar AI output had to clear.",
           },
-        ],
-      },
-      {
-        type: "metrics",
-        metrics: [
-          { value: "4", label: "Surfaces designed" },
-          { value: "2", label: "Study modalities" },
-          { value: "1", label: "Designer" },
-          { value: "16+", label: "Months" },
         ],
       },
       {
@@ -511,7 +498,7 @@ export const projects: Project[] = [
         chapter: "06",
         chapterLabel: "Decisions",
         title: "The feedback system",
-        body: "The platform launched and migrated at the end of 2025. The same error I'd diagnosed in the old platform — no structured way to listen — I could repeat. So I designed the listening system.",
+        body: "The platform launched and migrated at the end of 2025. The same error I'd diagnosed in the old platform (no structured way to listen) I could repeat. So I designed the listening system.",
       },
       {
         type: "process",
@@ -549,13 +536,13 @@ export const projects: Project[] = [
       {
         type: "text",
         subtitle: "What I learned about gamification",
-        body: "The points system launched before the community layer that gave it meaning — forums, submission feed, peer feedback. The student accumulates points in a space where nobody else is. A social motivation mechanic launched without its social layer isn't a reduced version of itself: it's a different thing, and it works worse.",
+        body: "The points system launched before the community layer that gave it meaning: forums, submission feed, peer feedback. The student accumulates points in a space where nobody else is. A social motivation mechanic launched without its social layer isn't a reduced version of itself: it's a different thing, and it works worse.",
       },
       {
         type: "text",
         subtitle: "What I learned about designing with AI",
         body: "Design the surface, not the capability. Everything you specify assuming a fixed quality level of the model will be wrong in two releases, in either direction. What holds up are the structures: where it appears, with what context, what format the response takes, who reviews it.",
-        pullQuote: "Un diseñador que delega criterio a un modelo produce output plausible y decisiones malas.",
+        pullQuote: "A designer who outsources judgment to a model produces plausible output and bad decisions.",
       },
       {
         type: "tech-stack",
@@ -563,9 +550,9 @@ export const projects: Project[] = [
         chapterLabel: "Tools",
         title: "The stack",
         stack: [
-          { name: "Figma + FigJam", role: "Design system, tokens, 4 surfaces, workshops", category: "Design" },
+          { name: "Figma + FigJam", role: "Design system, tokens, product surfaces, workshops", category: "Design" },
           { name: "Mobbin", role: "Pattern benchmarking across ed-tech and SaaS", category: "Design" },
-          { name: "Shadcn/UI", role: "Reference library, aligned from day 1", category: "Components" },
+          { name: "Shadcn/UI", role: "Component base the design system was built on, not from scratch", category: "Components" },
           { name: "Notion", role: "Specs, decisions, and living documentation", category: "Documentation" },
           { name: "Linear", role: "Task tracking and sprint management", category: "Project" },
           { name: "PostHog", role: "Event instrumentation and analytics", category: "Analytics" },
