@@ -112,14 +112,20 @@ const GROWTH_PCT = 55;
 const HOLD_END_PCT = 72;
 const FADE_END_PCT = 84;
 
+// The dotted line reveals via clip-path rather than a scaleX transform.
+// scaleX stretches the element's own background pattern as it grows,
+// which visibly distorts the dot spacing (a "rubber band" artifact).
+// clip-path keeps the dot pattern's real pixel positions fixed and just
+// uncovers more of it left-to-right, so each dot appears in place — the
+// line looks like it's lighting up dot by dot, not being stretched.
 const LINE_KEYFRAMES = `
 @keyframes dp-line {
-  0% { transform: translateY(-50%) scaleX(0); opacity: 1; animation-timing-function: ${EASE}; }
-  ${GROWTH_PCT}% { transform: translateY(-50%) scaleX(1); opacity: 1; animation-timing-function: linear; }
-  ${HOLD_END_PCT}% { transform: translateY(-50%) scaleX(1); opacity: 1; animation-timing-function: linear; }
-  ${FADE_END_PCT}% { transform: translateY(-50%) scaleX(1); opacity: 0; }
-  ${FADE_END_PCT + 0.1}% { transform: translateY(-50%) scaleX(0); opacity: 0; }
-  100% { transform: translateY(-50%) scaleX(0); opacity: 0; }
+  0% { clip-path: inset(0 100% 0 0); opacity: 1; animation-timing-function: linear; }
+  ${GROWTH_PCT}% { clip-path: inset(0 0% 0 0); opacity: 1; animation-timing-function: linear; }
+  ${HOLD_END_PCT}% { clip-path: inset(0 0% 0 0); opacity: 1; animation-timing-function: linear; }
+  ${FADE_END_PCT}% { clip-path: inset(0 0% 0 0); opacity: 0; }
+  ${FADE_END_PCT + 0.1}% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  100% { clip-path: inset(0 100% 0 0); opacity: 0; }
 }`;
 
 function nodeKeyframesCss() {
@@ -289,17 +295,17 @@ export default function DesignProcessSection() {
               right: "24px",
               top: "50%",
               height: "2px",
-              transformOrigin: "left",
+              transform: "translateY(-50%)",
               color: "#E8E5E0",
               backgroundImage: DOTS_BG,
               ...(reduced
                 ? {
-                    transform: `translateY(-50%) scaleX(${visible ? 1 : 0})`,
-                    transition: "opacity 0.6s ease",
+                    clipPath: visible ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
+                    transition: "opacity 0.6s ease, clip-path 0.6s ease",
                     opacity: visible ? 1 : 0,
                   }
                 : {
-                    transform: "translateY(-50%) scaleX(0)",
+                    clipPath: "inset(0 100% 0 0)",
                     opacity: visible ? 1 : 0,
                     animationName: visible ? "dp-line" : "none",
                     animationDuration: `${TOTAL_CYCLE_MS}ms`,
