@@ -1,5 +1,4 @@
 "use client";
-import AmbientGrid from "@/components/AmbientGrid";
 
 export default function ContactSection() {
   return (
@@ -12,8 +11,6 @@ export default function ContactSection() {
         position: "relative",
       }}
     >
-      <AmbientGrid />
-
       {/* Section header */}
       <div
         style={{

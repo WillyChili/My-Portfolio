@@ -1,5 +1,4 @@
 "use client";
-import AmbientGrid from "@/components/AmbientGrid";
 
 export default function AboutSection() {
   return (
@@ -11,8 +10,6 @@ export default function AboutSection() {
         position: "relative",
       }}
     >
-      <AmbientGrid />
-
       {/* Section header */}
       <div
         style={{

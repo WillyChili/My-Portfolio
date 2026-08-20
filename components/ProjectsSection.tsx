@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import ProjectThumbnail from "@/components/ProjectThumbnail";
-import AmbientGrid from "@/components/AmbientGrid";
 
 export default function ProjectsSection() {
   return (
@@ -14,8 +13,6 @@ export default function ProjectsSection() {
         position: "relative",
       }}
     >
-      <AmbientGrid />
-
       {/* Section header */}
       <div
         style={{
@@ -78,7 +75,7 @@ function ProjectCard({
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(1.5rem, 4vw, 4rem)",
+          gap: "clamp(1rem, 2.2vw, 2.25rem)",
           alignItems: "center",
           padding: "clamp(1.5rem, 3vw, 2.5rem) 0",
           borderBottom: "1px solid rgba(232,229,224,0.06)",
@@ -139,7 +136,7 @@ function ProjectCard({
               fontFamily: "var(--font-sans), sans-serif",
               fontSize: "15px",
               lineHeight: 1.65,
-              color: "#7A7773",
+              color: "#B0ADA8",
               maxWidth: "38ch",
             }}
           >
