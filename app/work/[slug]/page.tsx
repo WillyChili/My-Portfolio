@@ -5,11 +5,13 @@ import type { ProjectSection } from "@/lib/projects";
 import ScreensCarousel from "@/components/echo-mockups/ScreensCarousel";
 import BrowserCarousel from "@/components/tinsderm-mockups/BrowserCarousel";
 import LiveSiteCTA from "@/components/tinsderm-mockups/LiveSiteCTA";
+import PlatformCarousel from "@/components/coderhouse-mockups/PlatformCarousel";
 import CaseStudyImage from "@/components/CaseStudyImage";
 import PullQuote from "@/components/PullQuote";
 import ClosingCTA from "@/components/ClosingCTA";
 import EchoCaseStudyCover from "@/components/echo-mockups/EchoCaseStudyCover";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import { FigmaIcon, MobbinIcon } from "@/components/icons/BrandIcons";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -49,6 +51,7 @@ const MOCKUP_MAP: Record<string, React.ReactNode> = {
       />
     </div>
   ),
+  "coderhouse-screens": <PlatformCarousel />,
 };
 
 export default async function CaseStudyPage({
@@ -604,11 +607,39 @@ function Section({
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#E8E5E0",
-              marginBottom: "2rem",
+              marginBottom: section.subtitle || section.body ? "0.75rem" : "2rem",
             }}
           >
             {section.title}
           </h2>
+        )}
+        {section.subtitle && (
+          <h3
+            style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)",
+              fontWeight: 500,
+              color: "#E8E5E0",
+              letterSpacing: "-0.01em",
+              marginBottom: section.body ? "0.75rem" : "2rem",
+            }}
+          >
+            {section.subtitle}
+          </h3>
+        )}
+        {section.body && (
+          <p
+            style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontSize: "clamp(1rem, 1.25vw, 1.125rem)",
+              lineHeight: 1.8,
+              color: "#9A9691",
+              marginBottom: "clamp(2rem, 3vw, 2.5rem)",
+              maxWidth: "65ch",
+            }}
+          >
+            {section.body}
+          </p>
         )}
         <div
           style={{
@@ -754,6 +785,7 @@ function Section({
   }
 
   if (section.type === "text") {
+    const paragraphs = section.body?.split("\n\n") ?? [];
     return (
       <div style={{ maxWidth: CONTENT_MAX }}>
         <ChapterEyebrow chapter={section.chapter} label={section.chapterLabel} accentColor={accentColor} />
@@ -765,24 +797,40 @@ function Section({
               fontWeight: 400,
               letterSpacing: "-0.02em",
               color: "#E8E5E0",
-              marginBottom: "1rem",
+              marginBottom: section.subtitle ? "0.75rem" : "1rem",
             }}
           >
             {section.title}
           </h2>
         )}
-        {section.body && (
+        {section.subtitle && (
+          <h3
+            style={{
+              fontFamily: "var(--font-sans), sans-serif",
+              fontSize: "clamp(1.125rem, 1.5vw, 1.25rem)",
+              fontWeight: 500,
+              color: "#E8E5E0",
+              letterSpacing: "-0.01em",
+              marginBottom: "1rem",
+            }}
+          >
+            {section.subtitle}
+          </h3>
+        )}
+        {paragraphs.map((paragraph, i) => (
           <p
+            key={i}
             style={{
               fontFamily: "var(--font-sans), sans-serif",
               fontSize: "clamp(1rem, 1.25vw, 1.125rem)",
               lineHeight: 1.8,
               color: "#9A9691",
+              marginBottom: i < paragraphs.length - 1 ? "1.25rem" : 0,
             }}
           >
-            {section.body}
+            {paragraph}
           </p>
-        )}
+        ))}
         {section.pullQuote && <PullQuote quote={section.pullQuote} accentColor={accentColor} />}
       </div>
     );
@@ -945,6 +993,7 @@ function StackIcon({ name }: { name: string }) {
   switch (name) {
     case "Claude API":
     case "Claude Code":
+    case "Claude":
       return wrap(
         "rgba(217,119,87,0.12)",
         <svg width={ICON_SIZE} height={ICON_SIZE} viewBox="0 0 24 24" fill="#D97757" aria-hidden="true">
@@ -979,6 +1028,10 @@ function StackIcon({ name }: { name: string }) {
           <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
         </svg>
       );
+    case "Figma + FigJam":
+      return wrap("rgba(242,78,30,0.12)", <FigmaIcon size={ICON_SIZE} color="#F24E1E" />);
+    case "Mobbin":
+      return wrap("rgba(143,166,232,0.14)", <MobbinIcon size={ICON_SIZE} color="#8FA6E8" />);
     default:
       return wrap(
         "rgba(232,229,224,0.06)",

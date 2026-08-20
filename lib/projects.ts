@@ -1,8 +1,9 @@
-export type ProjectTag = "UX Research" | "UI Design" | "Product Strategy" | "Design System" | "Prototyping" | "Usability Testing" | "AI / ML" | "Full-Stack" | "Mobile";
+export type ProjectTag = "UX Research" | "UI Design" | "Product Strategy" | "Design System" | "Prototyping" | "Usability Testing" | "AI / ML" | "Full-Stack" | "Mobile" | "Product Design" | "AI Integration" | "Ed-Tech";
 
 export interface ProjectSection {
   type: "text" | "image" | "two-col" | "metrics" | "highlight" | "mockup-row" | "timeline" | "process" | "tech-stack";
   title?: string;
+  subtitle?: string;
   body?: string;
   image?: string;
   imageAlt?: string;
@@ -286,6 +287,290 @@ export const projects: Project[] = [
       {
         type: "mockup-row",
         mockupId: "tinsderm-live",
+      },
+    ],
+  },
+  {
+    slug: "coderhouse",
+    title: "Coderhouse 4.0",
+    company: "Coderhouse",
+    year: "2025–2026",
+    tags: ["Product Design", "Design System", "AI Integration", "Ed-Tech"],
+    summary: "A full education platform redesign as the only designer — 4 surfaces, 2 modalities, AI integration, and a design system from scratch.",
+    coverImage: "/coderhouse/cover.png",
+    accentColor: "#E8734A",
+    role: "Product Designer · Único diseñador",
+    duration: "16+ months",
+    sections: [
+      {
+        type: "highlight",
+        quote: "El trabajo interesante no fue dibujar la plataforma nueva. Fue leer la vieja.",
+      },
+      {
+        type: "text",
+        chapter: "01",
+        chapterLabel: "Context",
+        title: "The project",
+        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus, staff portal, backoffice, and course creator — four surfaces, two study modalities, on a design system I built from token zero.\n\nBut the interesting work wasn't drawing the new platform. It was reading the old one: separating what was actually working and worth protecting, from what was failing by design rather than by implementation. And then integrating AI into the core of the experience during a year and a half in which what AI could do shifted every three months.",
+      },
+      {
+        type: "text",
+        chapter: "02",
+        chapterLabel: "Discovery",
+        title: "Reading the old platform",
+        body: "I didn't start from a blank page. I started from a product with years of use, active cohorts, support tickets, student ratings, and NPS data. The first design work was diagnostic: distinguishing surface-level friction from structural problems.",
+      },
+      {
+        type: "process",
+        subtitle: "What I chose to keep",
+        body: "This is the part of a diagnosis that almost never gets told, and it's the one that matters most: in a full redesign, the temptation is to change everything. What you keep with intention is a design decision as much as what you change.",
+        steps: [
+          {
+            label: "01",
+            title: "Live cohorts with scheduled classes",
+            body: "This is what generates real commitment. A shared date and people waiting for you is the strongest scaffolding online education has.",
+          },
+          {
+            label: "02",
+            title: "The final project as evidence",
+            body: "It's the only thing that proves you learned something. Quizzes measure retention; a deliverable project is your portfolio.",
+          },
+          {
+            label: "03",
+            title: "Tutors as human support",
+            body: "When there's a person, there's someone to ask. That doesn't get replaced, it gets complemented.",
+          },
+          {
+            label: "04",
+            title: "The ranking as a status space",
+            body: "The need to showcase achievements is real. The problem wasn't the ranking itself: it was its rules.",
+          },
+        ],
+      },
+      {
+        type: "process",
+        subtitle: "What was broken by design",
+        body: "Seven symptoms, seven diagnoses. Each one pointed at a structural problem, not a cosmetic one.",
+        steps: [
+          {
+            label: "01",
+            title: "Motivation worked for few",
+            body: "Top 10% ranking is zero-sum by design: 90% lose. Replaced with a mastery threshold — ~80% of possible points.",
+          },
+          {
+            label: "02",
+            title: "Certificates contradicted progress",
+            body: "Progress showed 94% with the certificate already issued. Two signals saying different things about the same fact. Fixed: certification = 100%.",
+          },
+          {
+            label: "03",
+            title: "Attendance over learning",
+            body: "Attendance requirements punish async learners and reward leaving Zoom open. Removed attendance. You certify by content consumed + project approved.",
+          },
+          {
+            label: "04",
+            title: "Feedback without learning",
+            body: "Corrections read as a closed verdict. The student couldn't ask 'but why?' Added deep-link from each correction to the AI tutor.",
+          },
+          {
+            label: "05",
+            title: "Mid-course dropout",
+            body: "The jump from 'I started' to 'final project' was too large. No intermediate milestones. Introduced visible pre-submissions as checkpoints.",
+          },
+          {
+            label: "06",
+            title: "Confusing navigation",
+            body: "A hierarchy and typographic rhythm problem, not a content problem. Redesigned the syllabus and reading experience.",
+          },
+          {
+            label: "07",
+            title: "Support tickets from friction",
+            body: "No structured way to report, no separation between 'this is broken' and 'I don't like this'. Built a dual-stream feedback system.",
+          },
+        ],
+      },
+      {
+        type: "text",
+        subtitle: "The ranking decision, in detail",
+        body: "A Top 10% ranking has two properties that make it a bad pedagogical instrument. The first is obvious: by construction, the majority loses. The second is worse: it breaks the expectation of efficacy — the belief that my effort produces my result. If I do everything right and finish eleventh, it wasn't because of me.\n\nA student who perceives that their result doesn't depend on them stops playing. And in a months-long course, stopping playing means dropping out.\n\nA mastery threshold inverts both properties: it's achievable by everyone simultaneously, and it's predictable — I know exactly what I'm missing. The goal shifts from 'beat my classmates' to 'meet the program standard.' From scarcity to achievement.",
+      },
+      {
+        type: "text",
+        chapter: "03",
+        chapterLabel: "Concept",
+        title: "Two modalities, one system",
+        body: "The product had to serve two very different ways of studying: Group Mode (cohort, live classes, tutors) and Solo Mode (asynchronous, self-paced, no classes). And later a third: an upskilling membership for professionals.\n\nThe design decision was not to build two products. Login, onboarding, profile, syllabus, progress, submissions, certificates, self-service, and the AI tutor are the same. What changes are the rules: Group Mode has live classes and 30 days for the final project; Solo Mode has no classes and gives 6 months with a suggested calendar.\n\nTwo products would have been faster for the first release and catastrophic afterward: two design systems diverging, two definitions of 'progress,' and a student who buys both modalities encountering two different platforms. Modeling the variation as rules over a shared system cost more upfront, and is what allowed the third modality to be added without redesigning the campus.",
+      },
+      {
+        type: "process",
+        subtitle: "Solo Mode risk matrix",
+        steps: [
+          {
+            label: "01",
+            title: "Dropout from lack of support",
+            body: "Proactive AI tutor, reminders ('3 days since you last progressed'), 30-day challenge mode with calendar.",
+          },
+          {
+            label: "02",
+            title: "Questions that block progress",
+            body: "AI with course context, forums, peer resolution.",
+          },
+          {
+            label: "03",
+            title: "No real feedback",
+            body: "Automated correction, peer feedback, examples of excellent submissions, clear rubrics.",
+          },
+          {
+            label: "04",
+            title: "Lower perceived value without classes",
+            body: "Reposition value around practice, resources, and permanent access.",
+          },
+        ],
+      },
+      {
+        type: "mockup-row",
+        chapter: "04",
+        chapterLabel: "Product",
+        mockupId: "coderhouse-screens",
+        title: "The platform",
+      },
+      {
+        type: "text",
+        chapter: "05",
+        chapterLabel: "Craft",
+        title: "Designing AI on shifting ground",
+        body: "This is the part of the project that taught me the most, and the hardest to have done well. I started designing AI in April 2025. What a model could reliably do in April 2025 wasn't what it could do in January 2026, or April 2026. I was designing on a material whose properties changed every three months.",
+      },
+      {
+        type: "text",
+        subtitle: "The rule that ordered everything",
+        body: "I decided not to design screens that depended on how good the model was. I designed surfaces of entry — where and when the student encounters the AI — and let the quality of the output be a variable that could improve without forcing me to redesign.\n\nA concrete example: I didn't design the submission correction as 'a text the AI returns.' I designed it as three blocks with a fixed structure:",
+      },
+      {
+        type: "process",
+        steps: [
+          {
+            label: "01",
+            title: "What's correct",
+            body: "Goes first, and it's not decoration: it's what makes the student keep reading.",
+          },
+          {
+            label: "02",
+            title: "Required corrections",
+            body: "What needs fixing, separated from the recognition.",
+          },
+          {
+            label: "03",
+            title: "Suggestions",
+            body: "How to go beyond the minimum.",
+          },
+        ],
+      },
+      {
+        type: "text",
+        body: "That structure is a design decision, not a model capability. It works equally well with a mediocre model and an excellent one: it gives the student a map of what to look at first, separates recognition from criticism, and gives the team a stable format to evaluate whether quality improved or worsened between versions.",
+      },
+      {
+        type: "text",
+        subtitle: "From chatbot to AI in the flow",
+        body: "In 2025, Ticher — the AI tutor — was essentially a good chat: the student opened a window and asked. It worked, and it was used less than it should have been. The diagnosis: the cost of asking was too high. Not the time cost — the cognitive cost. Opening an empty chat forces you to formulate the question from scratch and explain the context to someone who doesn't have it.\n\nSo in the 2026 redesign I moved AI from 'a place you go to' to 'something that's where you already are': each bullet in the corrections and suggestions has a deep-link to Ticher. Hover over the bullet → 'Ask Ticher' → the chat opens with that exact point already loaded as context.",
+        pullQuote: "A correction is information. A conversation is learning. The deep-link turns each line of feedback into an open door.",
+      },
+      {
+        type: "process",
+        subtitle: "Three rules for AI in product",
+        steps: [
+          {
+            label: "01",
+            title: "Human review before publishing, always",
+            body: "Course programs are generated with AI from specifications, but an admin reviews and edits before publishing, and the program is versioned. When material changes every three months, the review step isn't bureaucracy: it's what lets you raise the model's ambition without betting the product's quality.",
+          },
+          {
+            label: "02",
+            title: "Generated content looks identical to curated",
+            body: "Same typography, same cards, same navigation. If generated content looks different, the student reads it as second-class, and that contaminates the perception of the entire catalog.",
+          },
+          {
+            label: "03",
+            title: "AI replaces work, not the relationship",
+            body: "The AI tutor corrects, explains, and accompanies. It doesn't pretend to be the professor. In Group Mode, staff is still there and AI takes volume work off their plate — corrections, first-level questions — so they use their time on what only a person can do.",
+          },
+        ],
+      },
+      {
+        type: "metrics",
+        metrics: [
+          { value: "4", label: "Surfaces designed" },
+          { value: "2", label: "Study modalities" },
+          { value: "1", label: "Designer" },
+          { value: "16+", label: "Months" },
+        ],
+      },
+      {
+        type: "text",
+        chapter: "06",
+        chapterLabel: "Decisions",
+        title: "The feedback system",
+        body: "The platform launched and migrated at the end of 2025. The same error I'd diagnosed in the old platform — no structured way to listen — I could repeat. So I designed the listening system.",
+      },
+      {
+        type: "process",
+        steps: [
+          {
+            label: "01",
+            title: "Two streams, not a catch-all",
+            body: "The feedback sidebar splits into 'report a bug' (comment only) and 'rate the platform' (1-5 stars + comment). Mixing them was the old version's error: a bug and an experience complaint are different things, go to different teams, and mixed together neither can be analyzed.",
+          },
+          {
+            label: "02",
+            title: "Low ratings that produce backlog",
+            body: "If the student rates ≤3 stars, actionable improvement categories appear. A 2-star rating without a category is noise. With a category, it's a task.",
+          },
+          {
+            label: "03",
+            title: "Respect for user attention",
+            body: "Three entry points (sidebar, proactive pop-up, end-of-course survey) share one state: rating or skipping in any one resets the counter for all. The pop-up appears every 30 days or every 10 logins, whichever comes first, and is skippable.",
+          },
+        ],
+      },
+      {
+        type: "text",
+        chapter: "07",
+        chapterLabel: "Reflection",
+        title: "What I take with me",
+        subtitle: "What I'd do the same",
+        body: "Start with the design system and align it with the production component library before designing a screen. I lost expressive freedom; I gained that almost nothing came back from development for not being buildable. With a single designer, that cycle is what sinks you.\n\nDesign by complete flows, not by screens. The risk with a single designer isn't that one screen looks bad: it's that two screens designed weeks apart contradict each other and nobody notices until production.",
+      },
+      {
+        type: "text",
+        subtitle: "What I'd do differently",
+        body: "I documented the research poorly. I did the interviews, they fed decisions, and I didn't leave a synthesis. Six months later it's hard to justify why something was decided that way, and the knowledge stayed in my head on a project where I was the single point of truth for design. One synthesis page per interview batch costs two hours and is what turns research into an asset.",
+      },
+      {
+        type: "text",
+        subtitle: "What I learned about gamification",
+        body: "The points system launched before the community layer that gave it meaning — forums, submission feed, peer feedback. The student accumulates points in a space where nobody else is. A social motivation mechanic launched without its social layer isn't a reduced version of itself: it's a different thing, and it works worse.",
+      },
+      {
+        type: "text",
+        subtitle: "What I learned about designing with AI",
+        body: "Design the surface, not the capability. Everything you specify assuming a fixed quality level of the model will be wrong in two releases, in either direction. What holds up are the structures: where it appears, with what context, what format the response takes, who reviews it.",
+        pullQuote: "Un diseñador que delega criterio a un modelo produce output plausible y decisiones malas.",
+      },
+      {
+        type: "tech-stack",
+        chapter: "08",
+        chapterLabel: "Tools",
+        title: "The stack",
+        stack: [
+          { name: "Figma + FigJam", role: "Design system, tokens, 4 surfaces, workshops", category: "Design" },
+          { name: "Mobbin", role: "Pattern benchmarking across ed-tech and SaaS", category: "Design" },
+          { name: "Shadcn/UI", role: "Reference library, aligned from day 1", category: "Components" },
+          { name: "Notion", role: "Specs, decisions, and living documentation", category: "Documentation" },
+          { name: "Linear", role: "Task tracking and sprint management", category: "Project" },
+          { name: "PostHog", role: "Event instrumentation and analytics", category: "Analytics" },
+          { name: "Claude", role: "Specs, copy, pattern processing, documentation", category: "AI" },
+        ],
       },
     ],
   },

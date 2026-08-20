@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Renders a real image when `src` is provided and loads successfully.
@@ -26,7 +26,20 @@ export default function CaseStudyImage({
   labelOpacity?: number;
 }) {
   const [errored, setErrored] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
   const showImage = Boolean(src) && !errored;
+
+  useEffect(() => {
+    // The <img> is server-rendered with its final `src`, so a 404 can fire
+    // its native `error` event before React hydrates and attaches
+    // `onError` below — that early error is lost and the broken-image
+    // icon sticks around forever. Catching it here on mount (via
+    // `complete && naturalWidth === 0`, the standard signal for "this
+    // image failed to load") closes that gap for placeholder paths.
+    if (imgRef.current?.complete && imgRef.current.naturalWidth === 0) {
+      setErrored(true);
+    }
+  }, [src]);
 
   return (
     <div
@@ -41,6 +54,7 @@ export default function CaseStudyImage({
       {showImage ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
+          ref={imgRef}
           src={src}
           alt={alt}
           onError={() => setErrored(true)}
