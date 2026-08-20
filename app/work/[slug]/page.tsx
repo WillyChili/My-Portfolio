@@ -11,6 +11,7 @@ import PullQuote from "@/components/PullQuote";
 import ClosingCTA from "@/components/ClosingCTA";
 import EchoCaseStudyCover from "@/components/echo-mockups/EchoCaseStudyCover";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import CaseStudyToc from "@/components/CaseStudyToc";
 import { FigmaIcon, MobbinIcon, ShadcnIcon, NotionIcon, LinearIcon, PostHogIcon } from "@/components/icons/BrandIcons";
 
 export function generateStaticParams() {
@@ -62,6 +63,14 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
+
+  const tocEntries = project.sections
+    .filter((section) => section.chapter)
+    .map((section) => ({
+      id: `chapter-${section.chapter}`,
+      number: section.chapter as string,
+      label: section.title || section.chapterLabel || "",
+    }));
 
   return (
     <main style={{ background: "#171717", minHeight: "100dvh" }}
@@ -306,28 +315,46 @@ export default async function CaseStudyPage({
         </RevealOnScroll>
       </div>
 
-      {/* Content sections */}
+      {/* Content sections, with a sticky chapter glossary to the left on
+          wide viewports. The grid only activates at xl (1280px) so it never
+          competes for space on laptop screens; below that, sections render
+          as a single centered column same as before. */}
       <div
+        className="xl:grid xl:grid-cols-[190px_1fr] xl:gap-x-12"
         style={{
-          padding:
-            "clamp(2rem, 4vw, 3rem) clamp(1.5rem, 6vw, 5rem) clamp(6rem, 10vw, 10rem)",
-          maxWidth: "1000px",
+          padding: "0 clamp(1.5rem, 6vw, 5rem)",
+          maxWidth: "1240px",
           margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          gap: "clamp(3.5rem, 6vw, 5.5rem)",
         }}
       >
-        {project.sections
-          .filter((section, i) => !(i === 0 && section.type === "highlight"))
-          .map((section, i) => (
-          <RevealOnScroll key={i}>
-            <Section
-              section={section}
-              accentColor={project.accentColor}
-            />
-          </RevealOnScroll>
-        ))}
+        <div className="hidden xl:block">
+          <CaseStudyToc entries={tocEntries} accentColor={project.accentColor} />
+        </div>
+
+        <div
+          style={{
+            padding: "clamp(2rem, 4vw, 3rem) 0 clamp(6rem, 10vw, 10rem)",
+            maxWidth: "1000px",
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "clamp(3.5rem, 6vw, 5.5rem)",
+          }}
+        >
+          {project.sections
+            .filter((section, i) => !(i === 0 && section.type === "highlight"))
+            .map((section, i) => (
+            <RevealOnScroll
+              key={i}
+              id={section.chapter ? `chapter-${section.chapter}` : undefined}
+            >
+              <Section
+                section={section}
+                accentColor={project.accentColor}
+              />
+            </RevealOnScroll>
+          ))}
+        </div>
       </div>
 
       <RevealOnScroll>
@@ -661,18 +688,41 @@ function Section({
                 borderBottom: i < (section.steps?.length ?? 0) - 1 ? "1px solid rgba(232,229,224,0.06)" : "none",
               }}
             >
-              <span
-                style={{
-                  fontFamily: "var(--font-pixel)",
-                  fontSize: "18px",
-                  letterSpacing: "0.08em",
-                  color: "#E8E5E0",
-                  paddingTop: "2px",
-                  minWidth: "40px",
-                }}
-              >
-                {step.label}
-              </span>
+              {step.label ? (
+                <span
+                  style={{
+                    fontFamily: "var(--font-pixel)",
+                    fontSize: "18px",
+                    letterSpacing: "0.08em",
+                    color: "#E8E5E0",
+                    paddingTop: "2px",
+                    minWidth: "40px",
+                  }}
+                >
+                  {step.label}
+                </span>
+              ) : (
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minWidth: "40px",
+                    paddingTop: "10px",
+                  }}
+                >
+                  <span
+                    style={{
+                      width: "6px",
+                      height: "6px",
+                      borderRadius: "50%",
+                      background: accentColor,
+                      opacity: 0.7,
+                      display: "block",
+                    }}
+                  />
+                </span>
+              )}
               <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                 <h3
                   style={{

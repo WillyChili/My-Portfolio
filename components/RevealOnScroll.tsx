@@ -16,9 +16,11 @@ import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
 export default function RevealOnScroll({
   children,
   delay = 0,
+  id,
 }: {
   children: React.ReactNode;
   delay?: number;
+  id?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -45,6 +47,7 @@ export default function RevealOnScroll({
   return (
     <div
       ref={ref}
+      id={id}
       style={{
         opacity: visible ? 1 : 0,
         transform: reduced ? "none" : visible ? "translateY(0)" : "translateY(22px)",
@@ -52,6 +55,7 @@ export default function RevealOnScroll({
           ? "opacity 0.5s ease"
           : `opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms`,
         willChange: reduced ? undefined : "opacity, transform",
+        scrollMarginTop: id ? "84px" : undefined,
       }}
     >
       {children}

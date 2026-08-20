@@ -56,14 +56,14 @@ export const projects: Project[] = [
         chapter: "01",
         chapterLabel: "Context",
         title: "The project",
-        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus and staff portal, two surfaces and two study modalities, on top of a design system built on Shadcn/UI rather than from zero.\n\nBut the interesting work wasn't designing the new platform. It was understanding the old one: separating what was actually working and worth protecting, from what was failing by design rather than by implementation. And then integrating AI into the core of the experience during a year and a half in which what AI could do shifted every three months.",
+        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus and staff portal, two surfaces and two study modalities, on top of a design system built on Shadcn/UI rather than from zero.\n\nThe work split into two threads that ran in parallel for 16 months: separating what was actually working in the old platform from what was failing by design, and integrating AI into the core of the experience while what it could do kept shifting every three months.",
       },
       {
         type: "text",
         chapter: "02",
         chapterLabel: "Discovery",
         title: "Reading the old platform",
-        body: "I didn't start from a blank page. I started from a product with years of use, active cohorts, support tickets, student ratings, and NPS data. The first design work was diagnostic: distinguishing surface-level friction from structural problems.",
+        body: "Years of use, active cohorts, support tickets, ratings, NPS data: not a blank page. The diagnosis split cleanly into what to protect and what to fix.",
       },
       {
         type: "process",
@@ -71,22 +71,22 @@ export const projects: Project[] = [
         body: "This is the part of a diagnosis that almost never gets told, and it's the one that matters most: in a full redesign, the temptation is to change everything. What you keep with intention is a design decision as much as what you change.",
         steps: [
           {
-            label: "01",
+            label: "",
             title: "A step-by-step syllabus",
             body: "Content unlocks in a fixed order, one topic at a time. Removing that structure for the sake of flexibility would have removed the thing that told students what to do next.",
           },
           {
-            label: "02",
+            label: "",
             title: "A cohort chat between students and teacher",
             body: "A single thread per cohort where students and the teacher talk directly, not just office hours. Questions get answered in public, and future students can find them.",
           },
           {
-            label: "03",
+            label: "",
             title: "Tutors as human support",
             body: "When there's a person, there's someone to ask. That doesn't get replaced, it gets complemented.",
           },
           {
-            label: "04",
+            label: "",
             title: "The ranking as a status space",
             body: "The need to showcase achievements is real. The problem wasn't the ranking itself: it was its rules.",
           },
@@ -98,27 +98,27 @@ export const projects: Project[] = [
         body: "Five decisions, not a full teardown. Some were structural, some were about how the product looked and felt, and both mattered.",
         steps: [
           {
-            label: "01",
+            label: "",
             title: "Attendance over learning",
             body: "Attendance requirements punish async learners and reward leaving Zoom open. Removed attendance. You certify by content consumed + project approved.",
           },
           {
-            label: "02",
+            label: "",
             title: "No one to ask when you got stuck",
             body: "Corrections read as a closed verdict, with nowhere to ask 'but why?' In a moment where AI could actually help with that, we introduced Ticher: an AI tutor that answers doubts as they come up, deep-linked from every correction.",
           },
           {
-            label: "03",
+            label: "",
             title: "Confusing navigation",
             body: "A hierarchy and typographic rhythm problem, not a content problem. Redesigned the syllabus and reading experience.",
           },
           {
-            label: "04",
+            label: "",
             title: "Support tickets from friction",
             body: "No structured way to report, no separation between 'this is broken' and 'I don't like this'. Built a dual-stream feedback system.",
           },
           {
-            label: "05",
+            label: "",
             title: "A dated, inconsistent look",
             body: "Every surface felt like a slightly different product, and the brand hadn't been refreshed in years. Paisanos led the brand refresh; I redesigned the interface on top of it, one visual language and one component system, applied consistently across the platform.",
           },
@@ -130,6 +130,15 @@ export const projects: Project[] = [
         chapterLabel: "Product",
         mockupId: "coderhouse-screens",
         title: "The platform",
+      },
+      {
+        type: "metrics",
+        metrics: [
+          { value: "16+", label: "Months as sole designer" },
+          { value: "2", label: "Core surfaces redesigned" },
+          { value: "3", label: "Feedback entry points, one shared state" },
+          { value: "Weekly", label: "Ship cadence, up from quarterly" },
+        ],
       },
       {
         type: "text",
@@ -151,12 +160,12 @@ export const projects: Project[] = [
           {
             label: "01",
             title: "AI proposed, the team argued",
-            body: "Course programs, correction structures, and copy started as AI output, but nothing shipped without the team pulling it apart first. Disagreement was normal, not a sign the process had failed.",
+            body: "Course programs, correction structures, and copy started as AI output. Nothing shipped without the team pulling it apart first.",
           },
           {
             label: "02",
             title: "Human feedback, every time",
-            body: "Every generated draft went through a person before publishing: an admin reviewing a course program, a reviewer checking a correction structure, a lead reading the copy. AI proposed, people decided.",
+            body: "Every generated draft went through a person before publishing: an admin reviewing a course program, a reviewer checking a correction structure, a lead reading the copy.",
           },
           {
             label: "03",
@@ -176,39 +185,39 @@ export const projects: Project[] = [
         type: "process",
         steps: [
           {
-            label: "01",
+            label: "",
             title: "Two streams, not a catch-all",
             body: "The feedback sidebar splits into 'report a bug' (comment only) and 'rate the platform' (1-5 stars + comment). Bugs and experience complaints are different things: they go to different teams, and mixed together, neither can be analyzed.",
           },
           {
-            label: "02",
+            label: "",
             title: "Low ratings that produce backlog",
             body: "If the student rates ≤3 stars, actionable improvement categories appear. A 2-star rating without a category is noise. With a category, it's a task.",
           },
           {
-            label: "03",
+            label: "",
             title: "Respect for user attention",
             body: "Three entry points (sidebar, proactive pop-up, end-of-course survey) share one state: rating or skipping in any one resets the counter for all. The pop-up appears every 30 days or every 10 logins, whichever comes first, and is skippable.",
           },
           {
-            label: "04",
+            label: "",
             title: "One system, all signals",
             body: "NPS scores, in-app ratings, and direct conversations through Intercom all feed into PostHog, tagged and organized by category. That's what made recurring issues visible fast, and turned the platform into something that shipped improvements weekly instead of quarterly.",
           },
         ],
       },
       {
-        type: "text",
+        type: "two-col",
         chapter: "06",
         chapterLabel: "Reflection",
-        title: "What I take with me",
-        subtitle: "What I'd do the same",
-        body: "Start with a pre-built design system instead of from zero, then iterate it until it matched the company's branding. That gave the project a running start and a shared language with development from day one. Document every step along the way, and keep a living roadmap of ideas to build and improve, so nothing gets lost between iterations.",
-      },
-      {
-        type: "text",
-        subtitle: "What I'd do differently",
-        body: "Prototype in code first. Build the flows in HTML with Claude Code before touching Figma, then bring the validated version into Figma to document the design system changes. Working in HTML makes iteration much faster and hands off something already prototyped, instead of a static mock that still has to prove it works.",
+        left: {
+          title: "What I'd do the same",
+          body: "Start with a pre-built design system instead of from zero, then iterate it until it matched the company's branding. That gave the project a running start and a shared language with development from day one. Document every step along the way, and keep a living roadmap of ideas to build and improve.",
+        },
+        right: {
+          title: "What I'd do differently",
+          body: "Prototype in code first. Build the flows in HTML with Claude Code before touching Figma, then bring the validated version in to document the design system changes. It makes iteration faster and hands off something already proven, not a static mock.",
+        },
       },
       {
         type: "text",
