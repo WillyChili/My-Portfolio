@@ -115,7 +115,7 @@ export default function Hero() {
             flexDirection: "column",
             alignItems: "center",
             gap: "1.5rem",
-            animation: "fadeIn 1.2s ease both",
+            animation: "fadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) both",
           }}
         >
           <span
@@ -169,7 +169,7 @@ export default function Hero() {
             justifyContent: "center",
             flexWrap: "wrap",
             gap: "clamp(1rem, 2.5vw, 2rem)",
-            animation: "fadeIn 1.2s ease 0.6s both",
+            animation: "fadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.6s both",
           }}
         >
           {[
@@ -222,7 +222,7 @@ export default function Hero() {
           justifyContent: "space-between",
           alignItems: "center",
           gap: "1rem",
-          animation: "fadeIn 1.2s ease 0.4s both",
+          animation: "fadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both",
           padding: "1rem clamp(1.5rem, 4vw, 3rem)",
           background: "#111111",
           position: "fixed",

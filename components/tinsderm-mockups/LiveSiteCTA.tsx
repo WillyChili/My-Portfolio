@@ -22,6 +22,7 @@ export default function LiveSiteCTA({
         border: `1px solid ${accentColor}33`,
         background: "#1F1E1C",
         position: "relative",
+        transition: "border-color 200ms ease",
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLElement).style.borderColor = `${accentColor}88`;

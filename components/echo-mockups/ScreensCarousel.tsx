@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
 
 const SCREENS = [
   { src: "/echo/login.jpeg", alt: "Login, echo, tu reflexión personal con IA" },
@@ -20,8 +21,14 @@ const DUPLICATED = [...SCREENS, ...SCREENS];
 
 export default function ScreensCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
+    // Continuous auto-scroll is purely decorative — for
+    // prefers-reduced-motion, skip it entirely rather than slow it down,
+    // and let people browse the (non-duplicated) strip manually instead.
+    if (reduced) return;
+
     const track = trackRef.current;
     if (!track) return;
 
@@ -42,14 +49,17 @@ export default function ScreensCarousel() {
     return () => {
       cancelAnimationFrame(animId);
     };
-  }, []);
+  }, [reduced]);
+
+  const items = reduced ? SCREENS : DUPLICATED;
 
   return (
     <div
       style={{
         width: "100vw",
         marginLeft: "calc(-50vw + 50%)",
-        overflow: "hidden",
+        overflow: reduced ? "auto" : "hidden",
+        WebkitOverflowScrolling: reduced ? "touch" : undefined,
       }}
     >
       <div
@@ -57,11 +67,13 @@ export default function ScreensCarousel() {
         style={{
           display: "flex",
           gap: "clamp(1rem, 2vw, 1.5rem)",
-          padding: "clamp(2rem, 4vw, 3rem) 0",
-          willChange: "transform",
+          padding: reduced
+            ? "clamp(2rem, 4vw, 3rem) clamp(1.5rem, 6vw, 5rem)"
+            : "clamp(2rem, 4vw, 3rem) 0",
+          willChange: reduced ? undefined : "transform",
         }}
       >
-        {DUPLICATED.map(({ src, alt }, i) => (
+        {items.map(({ src, alt }, i) => (
           <div
             key={`${src}-${i}`}
             style={{

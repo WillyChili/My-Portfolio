@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
 
 const SCREENS = [
   {
@@ -85,8 +86,14 @@ function BrowserChrome({ path }: { path: string }) {
 
 export default function BrowserCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
+    // Continuous auto-scroll is purely decorative — for
+    // prefers-reduced-motion, skip it entirely rather than slow it down,
+    // and let people browse the (non-duplicated) strip manually instead.
+    if (reduced) return;
+
     const track = trackRef.current;
     if (!track) return;
 
@@ -107,14 +114,17 @@ export default function BrowserCarousel() {
     return () => {
       cancelAnimationFrame(animId);
     };
-  }, []);
+  }, [reduced]);
+
+  const items = reduced ? SCREENS : DUPLICATED;
 
   return (
     <div
       style={{
         width: "100vw",
         marginLeft: "calc(-50vw + 50%)",
-        overflow: "hidden",
+        overflow: reduced ? "auto" : "hidden",
+        WebkitOverflowScrolling: reduced ? "touch" : undefined,
       }}
     >
       <div
@@ -124,10 +134,10 @@ export default function BrowserCarousel() {
           alignItems: "center",
           gap: "clamp(1.25rem, 2.5vw, 2rem)",
           padding: "clamp(1rem, 2vw, 1.5rem) clamp(2rem, 6vw, 5rem)",
-          willChange: "transform",
+          willChange: reduced ? undefined : "transform",
         }}
       >
-        {DUPLICATED.map(({ src, alt, path, kind }, i) => (
+        {items.map(({ src, alt, path, kind }, i) => (
           <div
             key={`${src}-${i}`}
             style={{
