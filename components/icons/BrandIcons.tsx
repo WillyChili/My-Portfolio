@@ -5,19 +5,30 @@
 export type IconProps = { size?: number; color?: string };
 
 // Mobbin's real logomark: a transparent-background raster (their brand
-// assets aren't distributed as an npm/vector package), inverted from
-// black to the site's off-white so it reads consistently with the
-// vector brand icons below instead of clashing as a stray black glyph
-// on the dark badge.
-export function MobbinIcon({ size = 20 }: IconProps) {
+// assets aren't distributed as an npm/vector package). A plain
+// `filter: invert(1)` only ever turns the black glyph white, ignoring
+// whatever `color` the caller asked for — so it drifted from the muted
+// gray the rest of the Toolkit list uses. Using the PNG as a CSS mask
+// instead lets it be tinted with `color` like the vector icons below,
+// painting a solid box of `color` wherever the source image is opaque.
+export function MobbinIcon({ size = 20, color = "#E8E5E0" }: IconProps) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/mobbin.png"
-      alt=""
-      width={size}
-      height={size}
-      style={{ filter: "invert(1)", display: "block" }}
+    <span
+      aria-hidden
+      style={{
+        display: "block",
+        width: size,
+        height: size,
+        backgroundColor: color,
+        WebkitMaskImage: "url(/mobbin.png)",
+        maskImage: "url(/mobbin.png)",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+      }}
     />
   );
 }
