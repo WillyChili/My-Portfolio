@@ -411,7 +411,7 @@ export const projects: Project[] = [
       {
         type: "text",
         subtitle: "The rule that ordered everything",
-        body: "I decided not to design screens that depended on how good the model was. I designed surfaces of entry (where and when the student encounters the AI) and let the quality of the output be a variable that could improve without forcing me to redesign.\n\nA concrete example: I didn't design the submission correction as 'a text the AI returns.' I designed it as three blocks with a fixed structure:",
+        body: "AI sped up process and iteration. It never replaced the judgment. I decided not to design screens that depended on how good the model was: I designed surfaces of entry (where and when the student encounters the AI) and let the quality of the output be a variable that could improve without forcing me to redesign. That call came from years of design practice, the perception and intuition a model doesn't have, and every output was still measured against it and against direct human feedback.\n\nA concrete example: I didn't design the submission correction as 'a text the AI returns.' I designed it as three blocks with a fixed structure:",
       },
       {
         type: "process",
@@ -436,12 +436,6 @@ export const projects: Project[] = [
       {
         type: "text",
         body: "That structure is a design decision, not a model capability. It works equally well with a mediocre model and an excellent one: it gives the student a map of what to look at first, separates recognition from criticism, and gives the team a stable format to evaluate whether quality improved or worsened between versions.",
-      },
-      {
-        type: "text",
-        subtitle: "From chatbot to AI in the flow",
-        body: "In 2025, Ticher (the AI tutor) was essentially a good chat: the student opened a window and asked. It worked, and it was used less than it should have been. The diagnosis: the cost of asking was too high, and not in time. In cognitive cost. Opening an empty chat forces you to formulate the question from scratch and explain the context to someone who doesn't have it.\n\nSo in the 2026 redesign I moved AI from 'a place you go to' to 'something that's where you already are': each bullet in the corrections and suggestions has a deep-link to Ticher. Hover over the bullet, tap 'Ask Ticher,' and the chat opens with that exact point already loaded as context.",
-        pullQuote: "A correction is information. A conversation is learning. The deep-link turns each line of feedback into an open door.",
       },
       {
         type: "process",
@@ -470,7 +464,7 @@ export const projects: Project[] = [
         chapter: "05",
         chapterLabel: "Decisions",
         title: "The feedback system",
-        body: "The platform launched and migrated at the end of 2025. The same error I'd diagnosed in the old platform (no structured way to listen) I could repeat. So I designed the listening system.",
+        body: "The platform launched and migrated at the end of 2025. I designed a listening system built on NPS surveys, direct in-app feedback, and Intercom, with every signal routed through PostHog and organized by category. That let the team spot a recurring issue fast and turn it into a fix, every week.",
       },
       {
         type: "process",
@@ -478,7 +472,7 @@ export const projects: Project[] = [
           {
             label: "01",
             title: "Two streams, not a catch-all",
-            body: "The feedback sidebar splits into 'report a bug' (comment only) and 'rate the platform' (1-5 stars + comment). Mixing them was the old version's error: a bug and an experience complaint are different things, go to different teams, and mixed together neither can be analyzed.",
+            body: "The feedback sidebar splits into 'report a bug' (comment only) and 'rate the platform' (1-5 stars + comment). Bugs and experience complaints are different things: they go to different teams, and mixed together, neither can be analyzed.",
           },
           {
             label: "02",
@@ -489,6 +483,11 @@ export const projects: Project[] = [
             label: "03",
             title: "Respect for user attention",
             body: "Three entry points (sidebar, proactive pop-up, end-of-course survey) share one state: rating or skipping in any one resets the counter for all. The pop-up appears every 30 days or every 10 logins, whichever comes first, and is skippable.",
+          },
+          {
+            label: "04",
+            title: "One system, all signals",
+            body: "NPS scores, in-app ratings, and direct conversations through Intercom all feed into PostHog, tagged and organized by category. That's what made recurring issues visible fast, and turned the platform into something that shipped improvements weekly instead of quarterly.",
           },
         ],
       },
