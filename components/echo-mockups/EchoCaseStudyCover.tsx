@@ -40,7 +40,7 @@ export default function EchoCaseStudyCover() {
           top: "8%",
           fontFamily: "var(--font-sans), sans-serif",
           fontWeight: 700,
-          fontSize: "clamp(1.1rem, 2.4vw, 1.6rem)",
+          fontSize: "clamp(1.4rem, 3.2vw, 2.1rem)",
           letterSpacing: "-0.01em",
           lineHeight: 1.15,
           color: "#FFFFFF",
