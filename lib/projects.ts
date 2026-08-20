@@ -304,14 +304,14 @@ export const projects: Project[] = [
     sections: [
       {
         type: "highlight",
-        quote: "The interesting work wasn't drawing the new platform. It was reading the old one.",
+        quote: "The interesting work wasn't designing the new platform. It was understanding the old one.",
       },
       {
         type: "text",
         chapter: "01",
         chapterLabel: "Context",
         title: "The project",
-        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus and staff portal, two surfaces and two study modalities, on top of a design system built on Shadcn/UI rather than from zero.\n\nBut the interesting work wasn't drawing the new platform. It was reading the old one: separating what was actually working and worth protecting, from what was failing by design rather than by implementation. And then integrating AI into the core of the experience during a year and a half in which what AI could do shifted every three months.",
+        body: "Coderhouse rebuilt its education platform from scratch. I was the only designer on the project: student campus and staff portal, two surfaces and two study modalities, on top of a design system built on Shadcn/UI rather than from zero.\n\nBut the interesting work wasn't designing the new platform. It was understanding the old one: separating what was actually working and worth protecting, from what was failing by design rather than by implementation. And then integrating AI into the core of the experience during a year and a half in which what AI could do shifted every three months.",
       },
       {
         type: "text",
