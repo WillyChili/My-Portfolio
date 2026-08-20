@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 import ProjectThumbnail from "@/components/ProjectThumbnail";
@@ -65,6 +66,9 @@ function ProjectCard({
   project: (typeof projects)[number];
   index: number;
 }) {
+  const [hovered, setHovered] = useState(false);
+  const accent = project.accentColor;
+
   return (
     <Link
       href={`/work/${project.slug}`}
@@ -73,22 +77,40 @@ function ProjectCard({
       <article
         className="project-card"
         style={{
+          position: "relative",
           display: "grid",
           gridTemplateColumns: "400px 1fr",
           gap: "64px",
           alignItems: "center",
           padding: "clamp(1.5rem, 3vw, 2.5rem) 0",
-          borderBottom: "1px solid rgba(232,229,224,0.06)",
+          paddingLeft: "clamp(1.5rem, 3vw, 2.5rem)",
+          marginLeft: "calc(-1 * clamp(1.5rem, 3vw, 2.5rem))",
+          borderBottom: `1px solid ${hovered ? `${accent}40` : "rgba(232,229,224,0.06)"}`,
+          background: hovered
+            ? `radial-gradient(ellipse 60% 100% at 0% 50%, ${accent}1F 0%, transparent 70%)`
+            : "transparent",
           cursor: "pointer",
-          transition: "opacity 0.25s ease",
+          transition: "background 0.35s ease, border-color 0.35s ease",
         }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.opacity = "0.7";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.opacity = "1";
-        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
+        {/* Accent bar, signals "this is the one you're about to open" */}
+        <span
+          style={{
+            position: "absolute",
+            left: 0,
+            top: "12%",
+            bottom: "12%",
+            width: "2px",
+            background: accent,
+            opacity: hovered ? 1 : 0,
+            transform: hovered ? "scaleY(1)" : "scaleY(0.4)",
+            transformOrigin: "center",
+            transition: "opacity 0.3s ease, transform 0.35s cubic-bezier(0.23,1,0.32,1)",
+          }}
+        />
+
         {/* Left: text */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
           {/* Number + company */}
@@ -98,7 +120,8 @@ function ProjectCard({
                 fontFamily: "var(--font-pixel)",
                 fontSize: "11px",
                 letterSpacing: "0.1em",
-                color: "#6B6862",
+                color: hovered ? accent : "#6B6862",
+                transition: "color 0.3s ease",
               }}
             >
               {String(index + 1).padStart(2, "0")}
@@ -108,8 +131,9 @@ function ProjectCard({
                 fontFamily: "var(--font-pixel)",
                 fontSize: "11px",
                 letterSpacing: "0.1em",
-                color: project.accentColor,
-                opacity: 0.85,
+                color: accent,
+                opacity: hovered ? 1 : 0.85,
+                transition: "opacity 0.3s ease",
               }}
             >
               {project.company} · {project.year}
@@ -123,8 +147,9 @@ function ProjectCard({
               fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
               fontWeight: 400,
               letterSpacing: "-0.02em",
-              color: "#E8E5E0",
+              color: hovered ? "#FFFFFF" : "#E8E5E0",
               lineHeight: 1.2,
+              transition: "color 0.3s ease",
             }}
           >
             {project.title}
@@ -152,10 +177,11 @@ function ProjectCard({
                   fontFamily: "var(--font-pixel)",
                   fontSize: "10px",
                   letterSpacing: "0.08em",
-                  color: "#7A7773",
-                  border: "1px solid rgba(122,119,115,0.3)",
+                  color: hovered ? "#B0ADA8" : "#7A7773",
+                  border: `1px solid ${hovered ? `${accent}55` : "rgba(122,119,115,0.3)"}`,
                   borderRadius: "4px",
                   padding: "3px 8px",
+                  transition: "color 0.3s ease, border-color 0.3s ease",
                 }}
               >
                 {tag}
@@ -165,12 +191,20 @@ function ProjectCard({
         </div>
 
         {/* Right: cover thumbnail */}
-        <ProjectThumbnail
-          slug={project.slug}
-          title={project.title}
-          accentColor={project.accentColor}
-          coverImage={project.coverImage}
-        />
+        <div
+          style={{
+            transform: hovered ? "scale(1.03)" : "scale(1)",
+            filter: hovered ? `drop-shadow(0 12px 32px ${accent}33)` : "drop-shadow(0 0px 0px transparent)",
+            transition: "transform 0.4s cubic-bezier(0.23,1,0.32,1), filter 0.4s ease",
+          }}
+        >
+          <ProjectThumbnail
+            slug={project.slug}
+            title={project.title}
+            accentColor={project.accentColor}
+            coverImage={project.coverImage}
+          />
+        </div>
       </article>
     </Link>
   );
