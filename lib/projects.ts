@@ -142,6 +142,10 @@ export const projects: Project[] = [
         title: "What I learned",
         body: "Owning both sides, design and engineering, changes what you ship. The scope stayed small because I felt the cost of every decision. The interactions stayed simple because I had to build them. The AI stayed honest because I could see when the prompt was doing too much work. Next time I design a product, I'll design it knowing what the wiring underneath actually costs.",
       },
+      {
+        type: "mockup-row",
+        mockupId: "echo-live",
+      },
     ],
   },
   {
@@ -154,7 +158,7 @@ export const projects: Project[] = [
     coverImage: "/mock/cover-tinsderm.png",
     accentColor: "#B8965A",
     role: "UX/UI Designer",
-    duration: "3 weeks",
+    duration: "2 days",
     sections: [
       {
         type: "highlight",

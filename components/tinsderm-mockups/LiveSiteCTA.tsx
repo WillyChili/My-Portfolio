@@ -4,10 +4,14 @@ export default function LiveSiteCTA({
   href,
   screenshot,
   accentColor,
+  domain,
+  alt,
 }: {
   href: string;
   screenshot: string;
   accentColor: string;
+  domain: string;
+  alt: string;
 }) {
   return (
     <a
@@ -67,7 +71,7 @@ export default function LiveSiteCTA({
             padding: "3px 10px",
           }}
         >
-          willychili.github.io/Tins-Derm
+          {domain}
         </span>
       </div>
 
@@ -76,7 +80,7 @@ export default function LiveSiteCTA({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={screenshot}
-          alt="TINS DERM live site preview"
+          alt={alt}
           style={{ width: "100%", display: "block", opacity: 0.9 }}
         />
         <div

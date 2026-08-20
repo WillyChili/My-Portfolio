@@ -33,6 +33,19 @@ const MOCKUP_MAP: Record<string, React.ReactNode> = {
         href="https://willychili.github.io/Tins-Derm/"
         screenshot="/mock/cover-tinsderm.png"
         accentColor="#B8965A"
+        domain="willychili.github.io/Tins-Derm"
+        alt="TINS DERM live site preview"
+      />
+    </div>
+  ),
+  "echo-live": (
+    <div style={{ maxWidth: CONTENT_MAX }}>
+      <LiveSiteCTA
+        href="https://justecho.app/"
+        screenshot="/mock/cover-echo-live.png"
+        accentColor="#2CD59C"
+        domain="justecho.app"
+        alt="Echo live site preview"
       />
     </div>
   ),
