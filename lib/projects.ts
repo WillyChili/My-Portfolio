@@ -162,21 +162,30 @@ export const projects: Project[] = [
       },
       {
         type: "text",
+        chapter: "01",
+        chapterLabel: "Context",
         title: "The challenge",
         body: "This one started as a self-directed design challenge, not a client brief: take a fictional luxury dermatology practice from a written brand brief to a fully designed, responsive, production-quality homepage, on my own, end to end. No client to ask, no existing brand to lean on. The constraint was the point: it forced real decisions about tone, hierarchy, and trust with nothing to fall back on.",
       },
       {
         type: "text",
+        chapter: "02",
+        chapterLabel: "Brief",
         title: "The brief",
         body: "TINS DERM needed a site that could do two things at once: reassure patients weighing a medical decision, and sell the aesthetic outcomes of cosmetic treatments. Most dermatology sites lean too clinical or too glossy. I set out to design something that held both registers without feeling split in two, working from a strict brand brief: a navy-and-gold palette, an editorial serif paired with a clinical sans, and an explicit 'no generic SaaS gradients, no stock-photo placeholders' rule to keep the craft honest.",
+        pullQuote: "Reassure the patient, sell the outcome, never let it feel split in two.",
       },
       {
         type: "mockup-row",
+        chapter: "03",
+        chapterLabel: "Product",
         mockupId: "tinsderm-screens",
         title: "The homepage, section by section",
       },
       {
         type: "timeline",
+        chapter: "04",
+        chapterLabel: "Process",
         title: "The 9 build phases",
         body: "I structured the build as a sequence of phases, each one reviewed and refined before moving to the next: design system first, then layout by layout, ending with a full responsiveness and motion pass.",
         phases: [
@@ -229,6 +238,8 @@ export const projects: Project[] = [
       },
       {
         type: "two-col",
+        chapter: "05",
+        chapterLabel: "Craft",
         left: {
           title: "Research & discovery",
           body: "I audited dermatology and medical-spa competitors, mapped the patient journey from first symptom search to booked consultation, and identified where trust breaks down: vague credentials, no visible before/afters, buried contact info.",
@@ -249,6 +260,8 @@ export const projects: Project[] = [
       },
       {
         type: "two-col",
+        chapter: "06",
+        chapterLabel: "Decisions",
         left: {
           title: "Key decisions",
           body: "Real before/after photography does the persuading, not copy, so the results section leads with proof. Navy and gold signal medical credibility without feeling cold. A single persistent 'Book a Consultation' CTA removes any ambiguity about the next step.",
@@ -260,8 +273,11 @@ export const projects: Project[] = [
       },
       {
         type: "text",
+        chapter: "07",
+        chapterLabel: "Reflection",
         title: "Result",
         body: "The finished site balances clinical trust with cosmetic aspiration: patients can find credentials and treatment details fast, while the gallery and testimonials show what's possible. Built end-to-end as a single-file React prototype, then documented into a full case study on its own design process.",
+        pullQuote: "Patients find the credentials fast. The gallery does the rest of the convincing.",
       },
       {
         type: "mockup-row",

@@ -221,6 +221,32 @@ export default async function CaseStudyPage({
             >
               <EchoCaseStudyCover />
             </div>
+          ) : project.slug === "tins-derm" ? (
+            <div style={{ position: "relative" }}>
+              {/* Soft accent glow behind the cover, same idea as Echo's
+                  colored cover treatment, kept subtle for a static image. */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: "-8%",
+                  background: `radial-gradient(ellipse 60% 55% at 25% 20%, ${project.accentColor}26 0%, transparent 70%)`,
+                  filter: "blur(28px)",
+                  zIndex: 0,
+                }}
+              />
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <CaseStudyImage
+                  src={project.coverImage}
+                  alt={`${project.title} cover`}
+                  label="Cover image"
+                  accentColor={project.accentColor}
+                  borderRadius="16px"
+                  aspectRatio="16 / 10"
+                  gradientOpacity="18"
+                  labelOpacity={0.12}
+                />
+              </div>
+            </div>
           ) : (
             <CaseStudyImage
               src={project.coverImage}
@@ -420,6 +446,7 @@ function Section({
   if (section.type === "timeline") {
     return (
       <div style={{ maxWidth: CONTENT_MAX }}>
+        <ChapterEyebrow chapter={section.chapter} label={section.chapterLabel} accentColor={accentColor} />
         {section.title && (
           <h2
             style={{
